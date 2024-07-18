@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mavenbird
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mavenbird.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.Mavenbird.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mavenbird
+ * @package     Mavenbird_Shopbybrand
+ * @copyright   Copyright (c) Mavenbird (https://www.Mavenbird.com/)
+ * @license     https://www.Mavenbird.com/LICENSE.txt
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Mavenbird_Shopbybrand::css/style.css"/>
+        <css src="Mavenbird_Shopbybrand::css/grid-mavenbird.css"/>
+    </head>
+    <body>
+        <referenceBlock name="top.links">
+            <block class="Mavenbird\Shopbybrand\Block\Link\Top" name="brand-list-link" before="authorization-link"/>
+        </referenceBlock>
+        <referenceBlock name="footer_links">
+            <block class="Mavenbird\Shopbybrand\Block\Link\Footer" name="brand-footer-link"/>
+        </referenceBlock>
+        <referenceContainer name="sidebar.main">
+            <block class="Magento\Framework\View\Element\Template" name="sidebar.container" template="Mavenbird_Shopbybrand::sidebar.phtml" ifconfig="shopbybrand/general/enabled">
+                <block class="Mavenbird\Shopbybrand\Block\Sidebar\Featured" name="sidebar.featured.brand" ifconfig="shopbybrand/sidebar/feature/enable"/>
+                <block class="Mavenbird\Shopbybrand\Block\Sidebar\BrandCategory" name="sidebar.category.brand" ifconfig="shopbybrand/sidebar/category_brand/enable"/>
+                <block class="Mavenbird\Shopbybrand\Block\Sidebar\BrandList" name="sidebar.brand" ifconfig="shopbybrand/sidebar/brand_thumbnail/enable"/>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

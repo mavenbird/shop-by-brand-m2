@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mavenbird
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mavenbird.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.Mavenbird.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mavenbird
+ * @package     Mavenbird_Shopbybrand
+ * @copyright   Copyright (c) Mavenbird (https://www.Mavenbird.com/)
+ * @license     https://www.Mavenbird.com/LICENSE.txt
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="seo_friendly_url_get_rewrite_path">
+        <observer name="set_rewrite_path" instance="Mavenbird\Shopbybrand\Observer\CheckRewritePath"/>
+    </event>
+    <event name="layout_generate_blocks_after">
+        <observer name="set_noindex_pagination" instance="Mavenbird\Shopbybrand\Observer\NoindexPagination"/>
+    </event>
+    <event name="mm_seo_product_structured_data">
+        <observer name="seo_structured_data" instance="Mavenbird\Shopbybrand\Observer\AddBrandProductStructuredData"/>
+    </event>
+</config>

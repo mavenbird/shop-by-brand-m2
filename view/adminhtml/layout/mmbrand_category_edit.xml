@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Mavenbird
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mavenbird.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.Mavenbird.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mavenbird
+ * @package     Mavenbird_Shopbybrand
+ * @copyright   Copyright (c) Mavenbird (https://www.Mavenbird.com/)
+ * @license     https://www.Mavenbird.com/LICENSE.txt
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="editor"/>
+    <body>
+        <referenceContainer name="content">
+            <block class="Mavenbird\Shopbybrand\Block\Adminhtml\Category\Edit" name="mmbrand_category_edit"/>
+        </referenceContainer>
+        <referenceContainer name="left">
+            <block class="Mavenbird\Shopbybrand\Block\Adminhtml\Category\Edit\Tabs" name="mmbrand_category_edit_tabs">
+                <block class="Mavenbird\Shopbybrand\Block\Adminhtml\Category\Edit\Tab\Category" name="mmbrand_category_edit_tab_category"/>
+                <block class="Mavenbird\Shopbybrand\Block\Adminhtml\Category\Edit\Tab\Brand" name="mmbrand_category_edit_tab_brand"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">category_section</argument>
+                    <argument name="block" xsi:type="string">mmbrand_category_edit_tab_category</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">brand_section</argument>
+                    <argument name="block" xsi:type="string">mmbrand_category_edit_tab_brand</argument>
+                </action>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

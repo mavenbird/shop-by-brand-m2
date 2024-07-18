@@ -1,0 +1,99 @@
+<?php
+/**
+ * Mavenbird
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mavenbird.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.Mavenbird.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mavenbird
+ * @package     Mavenbird_Shopbybrand
+ * @copyright   Copyright (c) Mavenbird (https://www.Mavenbird.com/)
+ * @license     https://www.Mavenbird.com/LICENSE.txt
+ */
+?>
+
+<div class="block block-brand-search">
+    <div class="block-title">
+        <strong><?= /** @noEscape */ $block->getPageTitle() ?></strong>
+    </div>
+    <div class="block-content">
+        <div class="mm-searchbox">
+            <input id="mm-search" type="text" class="mm-search form-control input-query ui-autocomplete-input" name="q"
+                   placeholder="<?= /** @noEscape */ __('Search a brand name') ?>">
+            <button type="submit" id="mm-brand-search-button" class="btn btn-primary btn-lg search-btn fa fa-search">
+                <span><?= /** @noEscape */ __('Search') ?></span>
+            </button>
+        </div>
+    </div>
+</div>
+<script id="mmbrand-autocomplete-suggest" type="text/x-magento-template">
+    <a class="shopbybrand-suggestion" href="<%- data.brandUrl %>">
+        <?php if ($block->isVisibleImage()) : ?>
+        <div class="shopbybrand-suggestion-left">
+            <img class="shopbybrand-img-responsive" src="<%- data.image %>" alt="" width="70" />
+        </div>
+        <?php endif; ?>
+        <div class="shopbybrand-suggestion-right">
+            <div class="shopbybrand-product-line shopbybrand-product-name">
+                <%- data.value %>
+            </div>
+            <div class='shopbybrand-product-des'>
+                <p class='shopbybrand-short-des'>
+                    <%= data.desc %>
+                </p>
+            </div>
+        </div>
+    </a>
+</script>
+<script>
+    require([
+        'jquery',
+        'mage/template',
+        'mpDevbridgeAutocomplete'
+    ], function ($, mageTemplate) {
+        $(document).ready(function () {
+            var mmSearch     = $('#mm-search');
+
+            mmSearch.devbridgeAutocomplete({
+                lookup: <?= /** @noEscape */ $block->getSearchData()?>,
+                lookupLimit: <?= /** @noEscape */ $block->getMaxQueryResult() ?>,
+                maxHeight: 2000,
+                minChars: <?= /** @noEscape */ $block->getMinSearchChar() ?>,
+                onSelect: function (suggestion) {
+                    window.location.href = suggestion.brandUrl;
+                },
+                formatResult: function (suggestion, currentValue) {
+                    var template;
+
+                    template = mageTemplate(
+                        '#mmbrand-autocomplete-suggest',
+                        {
+                            data: {
+                                brandUrl: suggestion.brandUrl,
+                                image: suggestion.image,
+                                value: suggestion.value,
+                                desc: suggestion.desc
+                            }
+                        }
+                    );
+
+                    return template;
+                }
+            });
+
+            $('#mm-brand-search-button').click(function () {
+                if (!$('.autocomplete-suggestions').is(':visible')) {
+                    mmSearch.focus();
+                }
+            });
+        });
+    });
+</script>
