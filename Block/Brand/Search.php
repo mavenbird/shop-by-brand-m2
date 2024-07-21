@@ -25,15 +25,12 @@ use Magento\Framework\Exception\NoSuchEntityException;
 use Mavenbird\Shopbybrand\Block\Brand;
 use Mavenbird\Shopbybrand\Helper\Data;
 
-/**
- * Class Search
- * @package Mavenbird\Shopbybrand\Block\Brand
- */
 class Search extends Brand
 {
     /**
-     * @return false|string
-     * @throws NoSuchEntityException
+     * Search Data
+     *
+     * @return void
      */
     public function getSearchData()
     {
@@ -53,7 +50,9 @@ class Search extends Brand
     }
 
     /**
-     * @return mixed
+     * Max Query Result
+     *
+     * @return void
      */
     public function getMaxQueryResult()
     {
@@ -61,7 +60,9 @@ class Search extends Brand
     }
 
     /**
-     * @return mixed
+     * Min Search Char
+     *
+     * @return void
      */
     public function getMinSearchChar()
     {
@@ -69,7 +70,9 @@ class Search extends Brand
     }
 
     /**
-     * @return mixed
+     * Visible Image
+     *
+     * @return boolean
      */
     public function isVisibleImage()
     {

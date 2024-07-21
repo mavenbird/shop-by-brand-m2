@@ -1,22 +1,21 @@
 <?php
 /**
- * Mavenbird
+ * Mavenbird Technologies Private Limited
  *
  * NOTICE OF LICENSE
  *
- * This source file is subject to the Mavenbird.com license that is
- * available through the world-wide-web at this URL:
- * https://www.Mavenbird.com/LICENSE.txt
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://mavenbird.com/Mavenbird-Module-License.txt
  *
- * DISCLAIMER
+ * =================================================================
  *
- * Do not edit or add to this file if you wish to upgrade this extension to newer
- * version in the future.
- *
- * @category    Mavenbird
- * @package     Mavenbird_Shopbybrand
- * @copyright   Copyright (c) Mavenbird (https://www.Mavenbird.com/)
- * @license     https://www.Mavenbird.com/LICENSE.txt
+ * @category   Mavenbird
+ * @package    Mavenbird_Shopbybrand
+ * @author     Mavenbird Team
+ * @copyright  Copyright (c) 2018-2024 Mavenbird Technologies Private Limited ( http://mavenbird.com )
+ * @license    http://mavenbird.com/Mavenbird-Module-License.txt
  */
 
 namespace Mavenbird\Shopbybrand\Block\Adminhtml\Form\Renderer;
@@ -30,42 +29,52 @@ use Mavenbird\Shopbybrand\Helper\Data as BrandHelper;
 use Mavenbird\Shopbybrand\Model\BrandFactory;
 use Mavenbird\Shopbybrand\Model\CategoryFactory;
 
-/**
- * Class RenderDefaultAttributes
- * @package Mavenbird\LayeredNavigationUltimate\Block\Adminhtml\Form\Renderer
- */
 class BrandCategory extends Element
 {
-    /** @var string Template */
+    /**
+     * Templates
+     *
+     * @var string
+     */
     protected $_template = 'Mavenbird_Shopbybrand::category/brands.phtml';
 
     /**
-     * @var BrandHelper
+     * Data
+     *
+     * @var [type]
      */
     protected $helperData;
 
     /**
-     * @var BrandFactory
+     * Factory for Brand
+     *
+     * @var [type]
      */
     protected $brandFactory;
 
     /**
-     * @var CategoryFactory
+     * Factory for Category Brand
+     *
+     * @var [type]
      */
     protected $brandCategoryFactory;
 
     /**
-     * @var Store
+     * Store
+     *
+     * @var [type]
      */
     protected $systemStore;
 
     /**
-     * @var Registry
+     * Registry
+     *
+     * @var [type]
      */
     protected $coreRegistry;
 
     /**
-     * BrandCategory constructor.
+     * Constructor
      *
      * @param BrandHelper $helperData
      * @param BrandFactory $brandFactory
@@ -94,7 +103,9 @@ class BrandCategory extends Element
     }
 
     /**
-     * @return Collection
+     * Brands
+     *
+     * @return void
      */
     public function getBrands()
     {
@@ -102,8 +113,9 @@ class BrandCategory extends Element
     }
 
     /**
-     * get all store as array
-     * @return array
+     * Store Views
+     *
+     * @return void
      */
     public function getStoreViews()
     {
@@ -111,8 +123,9 @@ class BrandCategory extends Element
     }
 
     /**
-     * check is single store
-     * @return bool
+     * Single Store Mode
+     *
+     * @return boolean
      */
     public function isSingleStoreMode()
     {
@@ -120,7 +133,9 @@ class BrandCategory extends Element
     }
 
     /**
-     * @return array
+     * Selected Brands
+     *
+     * @return void
      */
     public function getSelectedBrands()
     {

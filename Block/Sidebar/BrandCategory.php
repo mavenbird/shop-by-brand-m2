@@ -25,34 +25,23 @@ use Magento\Framework\Exception\NoSuchEntityException;
 use Mavenbird\Shopbybrand\Block\Brand;
 use Mavenbird\Shopbybrand\Model\ResourceModel\Category\Collection;
 
-/**
- * Class BrandCategory
- *
- * @package Mavenbird\Shopbybrand\Block\Sidebar
- */
 class BrandCategory extends Brand
 {
     /**
-     * Default category template
+     * Templates
      *
-     * @type string
+     * @var string
      */
     protected $_template = 'Mavenbird_Shopbybrand::sidebar/category.phtml';
 
-    /**
-     * Default title sidebar category brand
-     */
-    const TITLE = 'Brand Category';
-    /**
-     * Default title sidebar category brand
-     */
-    const LIMIT = '7';
+    public const TITLE = 'Brand Category';
+    public const LIMIT = '7';
 
     /**
-     * @param $cat
+     * Cat Url
      *
-     * @return string
-     * @throws NoSuchEntityException
+     * @param [type] $cat
+     * @return void
      */
     public function getCatUrl($cat)
     {
@@ -60,7 +49,9 @@ class BrandCategory extends Brand
     }
 
     /**
-     * @return mixed|string
+     * Title
+     *
+     * @return void
      */
     public function getTitle()
     {
@@ -68,7 +59,9 @@ class BrandCategory extends Brand
     }
 
     /**
-     * @return Collection
+     * Categories
+     *
+     * @return void
      */
     public function getCategories()
     {
@@ -83,7 +76,9 @@ class BrandCategory extends Brand
     }
 
     /**
-     * @return mixed
+     * Show Brand Qty
+     *
+     * @return void
      */
     public function showBrandQty()
     {

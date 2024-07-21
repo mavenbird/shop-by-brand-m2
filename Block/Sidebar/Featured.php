@@ -24,27 +24,21 @@ namespace Mavenbird\Shopbybrand\Block\Sidebar;
 use Magento\Eav\Model\ResourceModel\Entity\Attribute\Option\Collection;
 use Mavenbird\Shopbybrand\Block\Brand;
 
-/**
- * Class Featured
- *
- * @package Mavenbird\Shopbybrand\Block\Sidebar
- */
 class Featured extends Brand
 {
     /**
-     * Default feature template
+     * Templates
      *
-     * @type string
+     * @var string
      */
     protected $_template = 'Mavenbird_Shopbybrand::sidebar/featured.phtml';
 
-    /**
-     * Default title sidebar featured brand
-     */
-    const TITLE = 'Featured Brand';
+    public const TITLE = 'Featured Brand';
 
     /**
-     * @return string
+     * Include Css Lib
+     *
+     * @return void
      */
     public function includeCssLib()
     {
@@ -60,7 +54,9 @@ class Featured extends Brand
     }
 
     /**
-     * @return mixed|string
+     * Feature Title
+     *
+     * @return void
      */
     public function getFeatureTitle()
     {
@@ -68,7 +64,9 @@ class Featured extends Brand
     }
 
     /**
-     * @return mixed
+     * Show Title
+     *
+     * @return void
      */
     public function showTitle()
     {
@@ -76,7 +74,9 @@ class Featured extends Brand
     }
 
     /**
-     * @return Collection|mixed
+     * Featured Brand
+     *
+     * @return void
      */
     public function getFeaturedBrand()
     {

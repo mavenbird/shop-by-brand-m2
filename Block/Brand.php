@@ -42,65 +42,80 @@ use Mavenbird\Shopbybrand\Model\Category;
 use Mavenbird\Shopbybrand\Model\CategoryFactory;
 use Mavenbird\Shopbybrand\Model\Config\Source\MetaRobots;
 
-/**
- * Class Brand
- *
- * @package Mavenbird\Shopbybrand\Block
- */
 class Brand extends Template
 {
     /**
-     * @var MetaRobots
+     * Robots
+     *
+     * @var [type]
      */
     protected $mmRobots;
 
     /**
-     * @type BrandHelper
+     * Data
+     *
+     * @var [type]
      */
     protected $helper;
 
     /**
-     * @var CollectionFactory
+     * Factory for Product Collection
+     *
+     * @var [type]
      */
     protected $_productCollectionFactory;
 
     /**
-     * @var CategoryFactory
+     * Factory for Category
+     *
+     * @var [type]
      */
     protected $_categoryFactory;
 
     /**
-     * @type BrandFactory
+     * Factory for Brand
+     *
+     * @var [type]
      */
     protected $_brandFactory;
 
     /**
-     * @type array
+     * Character
+     *
+     * @var array
      */
     protected $_char = [];
 
     /**
-     * @var Registry
+     * Registry
+     *
+     * @var [type]
      */
     protected $_coreRegistry;
 
     /**
-     * @var BlockFactory
+     * Factory for Block
+     *
+     * @var [type]
      */
     protected $_blockFactory;
 
     /**
-     * @var AdapterFactory
+     * Factory for Image
+     *
+     * @var [type]
      */
     protected $_imageFactory;
 
     /**
-     * @var ResourceConnection
+     * Connections
+     *
+     * @var [type]
      */
     protected $_connection;
 
     /**
-     * Brand constructor.
+     * Constructor
      *
      * @param Context $context
      * @param CollectionFactory $productCollectionFactory
@@ -138,9 +153,9 @@ class Brand extends Template
     }
 
     /**
-     * @return Template
-     * @throws LocalizedException
-     * @throws NoSuchEntityException
+     * Prepare Layout
+     *
+     * @return void
      */
     protected function _prepareLayout()
     {
@@ -192,9 +207,10 @@ class Brand extends Template
     }
 
     /**
-     * @param $block
+     * Addition Crumb
      *
-     * @return $this
+     * @param [type] $block
+     * @return void
      */
     protected function additionCrumb($block)
     {
@@ -205,7 +221,9 @@ class Brand extends Template
     }
 
     /**
-     * @return BrandHelper
+     * Helper
+     *
+     * @return void
      */
     public function helper()
     {
@@ -213,11 +231,10 @@ class Brand extends Template
     }
 
     /**
-     * Retrieve HTML title value separator (with space)
+     * Title Separator
      *
-     * @param null $store
-     *
-     * @return string
+     * @param [type] $store
+     * @return void
      */
     public function getTitleSeparator($store = null)
     {
@@ -231,11 +248,10 @@ class Brand extends Template
     }
 
     /**
-     * Get Brand Filter Class for Mixitup
+     * Filter Class
      *
-     * @param $brand
-     *
-     * @return string
+     * @param [type] $brand
+     * @return void
      */
     public function getFilterClass($brand)
     {
@@ -243,9 +259,9 @@ class Brand extends Template
     }
 
     /**
-     * Is show description below Brand name
+     * Show Description
      *
-     * @return mixed
+     * @return void
      */
     public function showDescription()
     {
@@ -253,9 +269,9 @@ class Brand extends Template
     }
 
     /**
-     * Is show product quantity near Brand name
+     * Show Product Qty
      *
-     * @return mixed
+     * @return void
      */
     public function showProductQty()
     {
@@ -263,9 +279,9 @@ class Brand extends Template
     }
 
     /**
-     * Is show quick view near Brand name
+     * Show Quick View
      *
-     * @return mixed
+     * @return void
      */
     public function showQuickView()
     {
@@ -273,12 +289,11 @@ class Brand extends Template
     }
 
     /**
-     * Get Brand, Category collection function
+     * Collection
      *
-     * @param null $type
-     * @param null $option
-     *
-     * @return Collection|mixed
+     * @param [type] $type
+     * @param [type] $option
+     * @return void
      */
     public function getCollection($type = null, $option = null)
     {
@@ -286,11 +301,10 @@ class Brand extends Template
     }
 
     /**
-     * Apply Metadata for brand
+     * Apply Seo Code
      *
-     * @param Category $category
-     *
-     * @throws LocalizedException
+     * @param [type] $category
+     * @return void
      */
     public function applySeoCode($category)
     {
@@ -314,9 +328,9 @@ class Brand extends Template
     }
 
     /**
-     * Get page title
+     * Page Title
      *
-     * @return Phrase
+     * @return void
      */
     public function getPageTitle()
     {
@@ -324,7 +338,9 @@ class Brand extends Template
     }
 
     /**
-     * @return mixed
+     * Meta Title
+     *
+     * @return void
      */
     public function getMetaTitle()
     {
@@ -332,11 +348,10 @@ class Brand extends Template
     }
 
     /**
-     * Get quantity of products for brand
+     * Product Quantity
      *
-     * @param $optionId
-     *
-     * @return mixed
+     * @param [type] $optionId
+     * @return void
      */
     public function getProductQuantity($optionId)
     {
@@ -359,9 +374,9 @@ class Brand extends Template
     }
 
     /**
-     * Get the first character in the brand name
+     * First Char
      *
-     * @return array
+     * @return void
      */
     public function getFirstChar()
     {
@@ -386,9 +401,9 @@ class Brand extends Template
     }
 
     /**
-     * Get brand by alphabet
+     * Alphabet
      *
-     * @return array
+     * @return void
      */
     public function getAlphaBet()
     {
@@ -470,7 +485,9 @@ class Brand extends Template
     }
 
     /**
-     * @return array
+     * Option Ids
+     *
+     * @return void
      */
     public function getOptionIds()
     {
@@ -486,9 +503,10 @@ class Brand extends Template
     }
 
     /**
-     * @param $brand
+     * Image Url
      *
-     * @return string
+     * @param [type] $brand
+     * @return void
      */
     public function getImageUrl($brand)
     {
@@ -496,10 +514,10 @@ class Brand extends Template
     }
 
     /**
-     * @param $brand
+     * Brand Thumbnail
      *
-     * @return string
-     * @throws NoSuchEntityException
+     * @param [type] $brand
+     * @return void
      */
     public function getBrandThumbnail($brand)
     {
@@ -510,9 +528,9 @@ class Brand extends Template
     }
 
     /**
-     * Get category collection
+     * Categories
      *
-     * @return \Mavenbird\Shopbybrand\Model\ResourceModel\Category\Collection
+     * @return void
      */
     public function getCategories()
     {
@@ -520,8 +538,9 @@ class Brand extends Template
     }
 
     /**
-     * @return bool
-     * Check layout
+     * In Brand Category View
+     *
+     * @return boolean
      */
     public function isInBrandCategoryView()
     {
@@ -531,9 +550,10 @@ class Brand extends Template
     }
 
     /**
-     * @param $option
+     * Load By Option
      *
-     * @return mixed
+     * @param [type] $option
+     * @return void
      */
     public function loadByOption($option)
     {
@@ -541,9 +561,10 @@ class Brand extends Template
     }
 
     /**
-     * @param $catId
+     * Brand Qty
      *
-     * @return mixed
+     * @param [type] $catId
+     * @return void
      */
     public function getBrandQty($catId)
     {
@@ -554,7 +575,9 @@ class Brand extends Template
     }
 
     /**
-     * @return mixed
+     * Logo Width
+     *
+     * @return void
      */
     public function getLogoWidth()
     {
@@ -562,7 +585,9 @@ class Brand extends Template
     }
 
     /**
-     * @return mixed
+     * Logo Height
+     *
+     * @return void
      */
     public function getLogoHeight()
     {

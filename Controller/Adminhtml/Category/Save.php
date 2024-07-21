@@ -30,24 +30,24 @@ use Mavenbird\Shopbybrand\Controller\Adminhtml\Category;
 use Mavenbird\Shopbybrand\Model\CategoryFactory;
 use RuntimeException;
 
-/**
- * Class Save
- * @package Mavenbird\Shopbybrand\Controller\Adminhtml\Category
- */
 class Save extends Category
 {
     /**
-     * @var CategoryFactory
+     * Factory for Category
+     *
+     * @var [type]
      */
     protected $categoryFactory;
 
     /**
-     * @type FilterManager
+     * Filters
+     *
+     * @var [type]
      */
     protected $_filter;
 
     /**
-     * Save constructor.
+     * Constructor
      *
      * @param Context $context
      * @param CategoryFactory $categoryFactory
@@ -65,7 +65,9 @@ class Save extends Category
     }
 
     /**
-     * @return ResponseInterface|ResultInterface|void
+     * Execute
+     *
+     * @return void
      */
     public function execute()
     {
@@ -117,9 +119,10 @@ class Save extends Category
     }
 
     /**
-     * @param $data
+     * Prepare Data
      *
-     * @return mixed
+     * @param [type] $data
+     * @return void
      */
     private function prepareData(&$data)
     {
@@ -131,11 +134,10 @@ class Save extends Category
     }
 
     /**
-     * Format URL key from name or defined key
+     * Format Url Key
      *
-     * @param string $str
-     *
-     * @return string
+     * @param [type] $str
+     * @return void
      */
     public function formatUrlKey($str)
     {
@@ -143,11 +145,10 @@ class Save extends Category
     }
 
     /**
-     * Validate input data
+     * Validate Data
      *
      * @param array $data
-     *
-     * @return array
+     * @return void
      */
     public function validateData(array $data)
     {
@@ -179,8 +180,9 @@ class Save extends Category
     }
 
     /**
-     * Get input data function
-     * @return array
+     * Get Data
+     *
+     * @return void
      */
     public function getData()
     {

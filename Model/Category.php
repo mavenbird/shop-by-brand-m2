@@ -1,22 +1,21 @@
 <?php
 /**
- * Mavenbird
+ * Mavenbird Technologies Private Limited
  *
  * NOTICE OF LICENSE
  *
- * This source file is subject to the Mavenbird.com license that is
- * available through the world-wide-web at this URL:
- * https://www.Mavenbird.com/LICENSE.txt
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://mavenbird.com/Mavenbird-Module-License.txt
  *
- * DISCLAIMER
+ * =================================================================
  *
- * Do not edit or add to this file if you wish to upgrade this extension to newer
- * version in the future.
- *
- * @category    Mavenbird
- * @package     Mavenbird_Shopbybrand
- * @copyright   Copyright (c) Mavenbird (https://www.Mavenbird.com/)
- * @license     https://www.Mavenbird.com/LICENSE.txt
+ * @category   Mavenbird
+ * @package    Mavenbird_Shopbybrand
+ * @author     Mavenbird Team
+ * @copyright  Copyright (c) 2018-2024 Mavenbird Technologies Private Limited ( http://mavenbird.com )
+ * @license    http://mavenbird.com/Mavenbird-Module-License.txt
  */
 
 namespace Mavenbird\Shopbybrand\Model;
@@ -30,25 +29,24 @@ use Magento\Framework\Registry;
 use Mavenbird\Shopbybrand\Api\Data\BrandCategoryInterface;
 use Mavenbird\Shopbybrand\Model\ResourceModel\Category\CollectionFactory;
 
-/**
- * Class Category
- *
- * @package Mavenbird\Shopbybrand\Model
- */
 class Category extends AbstractModel implements BrandCategoryInterface
 {
     /**
-     * @var CollectionFactory
+     * Factory for Collection Category
+     *
+     * @var [type]
      */
     protected $categoryCollectionFactory;
 
     /**
-     * @var string
+     * Brand Category Table
+     *
+     * @var [type]
      */
     protected $tableBrandCategory;
 
     /**
-     * Category constructor.
+     * Constructor
      *
      * @param Context $context
      * @param Registry $registry
@@ -75,6 +73,8 @@ class Category extends AbstractModel implements BrandCategoryInterface
     }
 
     /**
+     * Construct
+     *
      * @return void
      */
     public function _construct()
@@ -83,7 +83,9 @@ class Category extends AbstractModel implements BrandCategoryInterface
     }
 
     /**
-     * @return mixed
+     * Enable
+     *
+     * @return boolean
      */
     public function isEnable()
     {
@@ -91,10 +93,11 @@ class Category extends AbstractModel implements BrandCategoryInterface
     }
 
     /**
-     * @param null $whereCond
-     * @param null $groupCond
+     * Category Collection
      *
-     * @return ResourceModel\Category\Collection
+     * @param [type] $whereCond
+     * @param [type] $groupCond
+     * @return void
      */
     public function getCategoryCollection($whereCond = null, $groupCond = null)
     {
@@ -114,7 +117,9 @@ class Category extends AbstractModel implements BrandCategoryInterface
     }
 
     /**
-     * @return string|null
+     * Store Ids
+     *
+     * @return void
      */
     public function getStoreIds()
     {
@@ -122,9 +127,10 @@ class Category extends AbstractModel implements BrandCategoryInterface
     }
 
     /**
-     * @param string $store
+     * Set Store Ids
      *
-     * @return $this
+     * @param [type] $store
+     * @return void
      */
     public function setStoreIds($store)
     {
@@ -132,7 +138,9 @@ class Category extends AbstractModel implements BrandCategoryInterface
     }
 
     /**
-     * @return string|null
+     * Get Name
+     *
+     * @return void
      */
     public function getName()
     {
@@ -140,9 +148,10 @@ class Category extends AbstractModel implements BrandCategoryInterface
     }
 
     /**
-     * @param string $name
+     * Set Name
      *
-     * @return $this
+     * @param [type] $name
+     * @return void
      */
     public function setName($name)
     {
@@ -150,7 +159,9 @@ class Category extends AbstractModel implements BrandCategoryInterface
     }
 
     /**
-     * @return string|null
+     * Get Url Key
+     *
+     * @return void
      */
     public function getUrlKey()
     {
@@ -158,9 +169,10 @@ class Category extends AbstractModel implements BrandCategoryInterface
     }
 
     /**
-     * @param string $url
+     * Set Url Key
      *
-     * @return $this
+     * @param [type] $url
+     * @return void
      */
     public function setUrlKey($url)
     {
@@ -168,7 +180,9 @@ class Category extends AbstractModel implements BrandCategoryInterface
     }
 
     /**
-     * @return int
+     * Get Status
+     *
+     * @return void
      */
     public function getStatus()
     {
@@ -176,9 +190,10 @@ class Category extends AbstractModel implements BrandCategoryInterface
     }
 
     /**
-     * @param int $status
+     * Set Status
      *
-     * @return $this
+     * @param [type] $status
+     * @return void
      */
     public function setStatus($status)
     {
@@ -186,7 +201,9 @@ class Category extends AbstractModel implements BrandCategoryInterface
     }
 
     /**
-     * @return mixed|string|null
+     * Get Meta Title
+     *
+     * @return void
      */
     public function getMetaTitle()
     {
@@ -194,9 +211,10 @@ class Category extends AbstractModel implements BrandCategoryInterface
     }
 
     /**
-     * @param string $value
+     * Set Meta Title
      *
-     * @return BrandCategoryInterface|$this
+     * @param [type] $value
+     * @return void
      */
     public function setMetaTitle($value)
     {
@@ -204,7 +222,9 @@ class Category extends AbstractModel implements BrandCategoryInterface
     }
 
     /**
-     * @return mixed|string|null
+     * Get Meta Keywords
+     *
+     * @return void
      */
     public function getMetaKeywords()
     {
@@ -212,7 +232,9 @@ class Category extends AbstractModel implements BrandCategoryInterface
     }
 
     /**
-     * @return mixed|string|null
+     * Get Meta Description
+     *
+     * @return void
      */
     public function getMetaDescription()
     {
@@ -220,9 +242,10 @@ class Category extends AbstractModel implements BrandCategoryInterface
     }
 
     /**
-     * @param string $value
+     * Set Meta Description
      *
-     * @return BrandCategoryInterface|$this
+     * @param [type] $value
+     * @return void
      */
     public function setMetaDescription($value)
     {
@@ -230,9 +253,10 @@ class Category extends AbstractModel implements BrandCategoryInterface
     }
 
     /**
-     * @param string $value
+     * Set Meta Keywords
      *
-     * @return BrandCategoryInterface|$this
+     * @param [type] $value
+     * @return void
      */
     public function setMetaKeywords($value)
     {
@@ -240,7 +264,9 @@ class Category extends AbstractModel implements BrandCategoryInterface
     }
 
     /**
-     * @return int|null
+     * Get Meta Robots
+     *
+     * @return void
      */
     public function getMetaRobots()
     {
@@ -248,9 +274,10 @@ class Category extends AbstractModel implements BrandCategoryInterface
     }
 
     /**
-     * @param int $value
+     * Set Meta Robots
      *
-     * @return BrandCategoryInterface|$this
+     * @param [type] $value
+     * @return void
      */
     public function setMetaRobots($value)
     {
@@ -258,7 +285,9 @@ class Category extends AbstractModel implements BrandCategoryInterface
     }
 
     /**
-     * @return string
+     * Get Created At
+     *
+     * @return void
      */
     public function getCreatedAt()
     {
@@ -266,7 +295,9 @@ class Category extends AbstractModel implements BrandCategoryInterface
     }
 
     /**
-     * @return string
+     * Get Updated At
+     *
+     * @return void
      */
     public function getUpdatedAt()
     {
@@ -274,11 +305,10 @@ class Category extends AbstractModel implements BrandCategoryInterface
     }
 
     /**
-     * Set product created date
+     * Set Created At
      *
-     * @param string $createdAt
-     *
-     * @return $this
+     * @param [type] $createdAt
+     * @return void
      */
     public function setCreatedAt($createdAt)
     {
@@ -286,11 +316,10 @@ class Category extends AbstractModel implements BrandCategoryInterface
     }
 
     /**
-     * Set product updated date
+     * Set Updated At
      *
-     * @param string $updatedAt
-     *
-     * @return $this
+     * @param [type] $updatedAt
+     * @return void
      */
     public function setUpdatedAt($updatedAt)
     {

@@ -30,15 +30,15 @@ $singleStore = $block->isSingleStoreMode();
         <th class="col-select-brand"><?= /** @noEscape */ __('Selected') ?></th>
         <th class="col-brands-id"><?= /** @noEscape */ __('Option Id') ?></th>
         <th class="col-brands-name"><?= /** @noEscape */ __('Name') ?></th>
-        <?php if (!$singleStore) : ?>
+        <?php if (!$singleStore): ?>
             <th class="col-brands-store"><?= /** @noEscape */ __('Store view') ?></th>
         <?php endif; ?>
     </tr>
     </thead>
     <tbody data-role="options-container" id="default-table-content">
     <?php
-    if ($brands) :
-        foreach ($brands as $brand) : ?>
+    if ($brands):
+        foreach ($brands as $brand): ?>
             <tr class="brands-row brand-<?= /** @noEscape */ $brand->getId() ?>">
                 <td>
                     <?php if (in_array($brand->getId(), $block->getSelectedBrands(), true)) { ?>
@@ -54,18 +54,18 @@ $singleStore = $block->isSingleStoreMode();
                 </td>
                 <td><span class="brands id"><?= /** @noEscape */ $brand->getId() ?></span></td>
                 <td><span class="brands name"><?= /** @noEscape */ $brand->getValue() ?></span></td>
-                <?php if (!$singleStore) : ?>
+                <?php if (!$singleStore): ?>
                     <td>
                         <select disabled title="<?= /** @noEscape */ __('Store View') ?>">
-                            <option value="0" <?php if ($brand->getStoreId() === '0') :
+                            <option value="0" <?php if ($brand->getStoreId() === '0'):
                                 ?>selected<?php
                                               endif; ?>><?= /** @noEscape */ __('All store view') ?></option>
-                            <?php foreach ($stores as $store) : ?>
+                            <?php foreach ($stores as $store): ?>
                                 <optgroup label="<?= /** @noEscape */ $store['label'] ?>">
-                                    <?php if (is_array($store['value'])) : ?>
-                                        <?php foreach ($values = $store['value'] as $value) : ?>
+                                    <?php if (is_array($store['value'])): ?>
+                                        <?php foreach ($values = $store['value'] as $value): ?>
                                             <option value="<?= /** @noEscape */ $value['value'] ?>"
-                                                <?php if ($brand->getStoreId() === $value['value']) :
+                                                <?php if ($brand->getStoreId() === $value['value']):
                                                     ?>selected<?php
                                                 endif; ?>>
                                                 <?= /** @noEscape */ $value['label'] ?>
@@ -79,7 +79,7 @@ $singleStore = $block->isSingleStoreMode();
                 <?php endif; ?>
             </tr>
         <?php endforeach; ?>
-    <?php else : ?>
+    <?php else: ?>
         <tr class="no-result-row">
             <td><span><?= /** @noEscape */ __('No brand found') ?></span></td>
         </tr>

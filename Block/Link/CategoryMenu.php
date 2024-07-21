@@ -1,39 +1,34 @@
 <?php
 /**
- * Mavenbird
+ * Mavenbird Technologies Private Limited
  *
  * NOTICE OF LICENSE
  *
- * This source file is subject to the Mavenbird.com license that is
- * available through the world-wide-web at this URL:
- * https://www.Mavenbird.com/LICENSE.txt
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://mavenbird.com/Mavenbird-Module-License.txt
  *
- * DISCLAIMER
+ * =================================================================
  *
- * Do not edit or add to this file if you wish to upgrade this extension to newer
- * version in the future.
- *
- * @category    Mavenbird
- * @package     Mavenbird_Shopbybrand
- * @copyright   Copyright (c) Mavenbird (https://www.Mavenbird.com/)
- * @license     https://www.Mavenbird.com/LICENSE.txt
+ * @category   Mavenbird
+ * @package    Mavenbird_Shopbybrand
+ * @author     Mavenbird Team
+ * @copyright  Copyright (c) 2018-2024 Mavenbird Technologies Private Limited ( http://mavenbird.com )
+ * @license    http://mavenbird.com/Mavenbird-Module-License.txt
  */
 
-namespace Mavenbird\Shopbybrand\Block\Link;
+ namespace Mavenbird\Shopbybrand\Block\Link;
 
 use Magento\Framework\Exception\NoSuchEntityException;
 use Mavenbird\Shopbybrand\Block\Brand;
 
-/**
- * Class CategoryMenu
- *
- * @package Mavenbird\Shopbybrand\Block\Link
- */
 class CategoryMenu extends Brand
 {
-
     /**
-     * @return array
+     * Get Brand
+     *
+     * @return void
      */
     public function getBrands()
     {
@@ -55,7 +50,9 @@ class CategoryMenu extends Brand
     }
 
     /**
-     * @return mixed
+     * Enable Dropdown Menu
+     *
+     * @return void
      */
     public function enableDropdownMenu()
     {
@@ -63,7 +60,9 @@ class CategoryMenu extends Brand
     }
 
     /**
-     * @return string
+     * Brand Title
+     *
+     * @return void
      */
     public function getBrandTitle()
     {
@@ -71,10 +70,10 @@ class CategoryMenu extends Brand
     }
 
     /**
-     * @param \Mavenbird\Shopbybrand\Model\Brand $brand
+     * Brand Url
      *
-     * @return string
-     * @throws NoSuchEntityException
+     * @param [type] $brand
+     * @return void
      */
     public function getBrandUrl($brand = null)
     {
@@ -82,9 +81,10 @@ class CategoryMenu extends Brand
     }
 
     /**
-     * @param \Mavenbird\Shopbybrand\Model\Brand $brand
+     * Brand Image Url
      *
-     * @return string
+     * @param [type] $brand
+     * @return void
      */
     public function getBrandImageUrl($brand)
     {
@@ -92,7 +92,9 @@ class CategoryMenu extends Brand
     }
 
     /**
-     * @return int
+     * Limit
+     *
+     * @return void
      */
     public function getLimit()
     {

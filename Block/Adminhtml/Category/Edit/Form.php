@@ -24,15 +24,12 @@ namespace Mavenbird\Shopbybrand\Block\Adminhtml\Category\Edit;
 use Magento\Backend\Block\Widget\Form\Generic;
 use Magento\Framework\Exception\LocalizedException;
 
-/**
- * Class Form
- * @package Mavenbird\Shopbybrand\Block\Adminhtml\Category\Edit
- */
 class Form extends Generic
 {
     /**
-     * @return Generic
-     * @throws LocalizedException
+     * Prepare Form
+     *
+     * @return void
      */
     protected function _prepareForm()
     {

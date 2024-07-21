@@ -1,22 +1,21 @@
 <?php
 /**
- * Mavenbird
+ * Mavenbird Technologies Private Limited
  *
  * NOTICE OF LICENSE
  *
- * This source file is subject to the Mavenbird.com license that is
- * available through the world-wide-web at this URL:
- * https://www.Mavenbird.com/LICENSE.txt
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://mavenbird.com/Mavenbird-Module-License.txt
  *
- * DISCLAIMER
+ * =================================================================
  *
- * Do not edit or add to this file if you wish to upgrade this extension to newer
- * version in the future.
- *
- * @category    Mavenbird
- * @package     Mavenbird_Shopbybrand
- * @copyright   Copyright (c) Mavenbird (https://www.Mavenbird.com/)
- * @license     https://www.Mavenbird.com/LICENSE.txt
+ * @category   Mavenbird
+ * @package    Mavenbird_Shopbybrand
+ * @author     Mavenbird Team
+ * @copyright  Copyright (c) 2018-2024 Mavenbird Technologies Private Limited ( http://mavenbird.com )
+ * @license    http://mavenbird.com/Mavenbird-Module-License.txt
  */
 
 namespace Mavenbird\Shopbybrand\Block\Link;
@@ -28,19 +27,17 @@ use Magento\Framework\View\Element\Template\Context;
 use Mavenbird\Shopbybrand\Helper\Data;
 use Mavenbird\Shopbybrand\Model\Config\Source\BrandPosition;
 
-/**
- * Class Footer
- * @package Mavenbird\Shopbybrand\Block\Link
- */
 class Footer extends Current
 {
     /**
-     * @var \Magento\Framework\App\Http\Context
+     * Data
+     *
+     * @var [type]
      */
     protected $helper;
 
     /**
-     * Footer constructor.
+     * Constructor
      *
      * @param Context $context
      * @param DefaultPathInterface $defaultPath
@@ -59,7 +56,9 @@ class Footer extends Current
     }
 
     /**
-     * @return string
+     * To Html
+     *
+     * @return void
      */
     protected function _toHtml()
     {
@@ -76,8 +75,9 @@ class Footer extends Current
     }
 
     /**
-     * @return string
-     * @throws NoSuchEntityException
+     * Href
+     *
+     * @return void
      */
     public function getHref()
     {

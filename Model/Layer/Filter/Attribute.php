@@ -25,10 +25,6 @@ use Magento\Catalog\Model\Layer\Filter\AbstractFilter;
 use Magento\Framework\App\RequestInterface;
 use Magento\Framework\Exception\LocalizedException;
 
-/**
- * Class Attribute
- * @package Mavenbird\Shopbybrand\Model\Layer\Filter
- */
 class Attribute extends AbstractFilter
 {
     /**

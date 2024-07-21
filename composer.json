@@ -1,13 +1,18 @@
 {
   "name": "mavenbird/module-shop-by-brand",
-  "description": "Shop By Brand Extension for Magento 2",
+  "description": "Magento 2 module for browsing products by brand.",
+  "require": {
+    "php": ">=8.0.0"
+  },
   "type": "magento2-module",
-  "version": "2.6.2",
+  "version": "1.0.0",
   "license": "proprietary",
   "authors": [
     {
       "name": "Mavenbird",
-      "email": "support@mavenbird.com"
+      "email": "support@mavenbird.com",
+      "homepage": "https://www.mavenbird.com",
+      "role": "Technical Support"
     }
   ],
   "autoload": {
@@ -15,7 +20,7 @@
       "registration.php"
     ],
     "psr-4": {
-      "Mavenbird\\Shopbybrand\\": ""
+      "Mavenbird\\ShopByBrand\\": ""
     }
   }
 }

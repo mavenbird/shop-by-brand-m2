@@ -1,22 +1,21 @@
 <?php
 /**
- * Mavenbird
+ * Mavenbird Technologies Private Limited
  *
  * NOTICE OF LICENSE
  *
- * This source file is subject to the Mavenbird.com license that is
- * available through the world-wide-web at this URL:
- * https://www.Mavenbird.com/LICENSE.txt
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://mavenbird.com/Mavenbird-Module-License.txt
  *
- * DISCLAIMER
+ * =================================================================
  *
- * Do not edit or add to this file if you wish to upgrade this extension to newer
- * version in the future.
- *
- * @category    Mavenbird
- * @package     Mavenbird_Shopbybrand
- * @copyright   Copyright (c) Mavenbird (https://www.Mavenbird.com/)
- * @license     https://www.Mavenbird.com/LICENSE.txt
+ * @category   Mavenbird
+ * @package    Mavenbird_Shopbybrand
+ * @author     Mavenbird Team
+ * @copyright  Copyright (c) 2018-2024 Mavenbird Technologies Private Limited ( http://mavenbird.com )
+ * @license    http://mavenbird.com/Mavenbird-Module-License.txt
  */
 
 namespace Mavenbird\Shopbybrand\Observer;
@@ -27,30 +26,31 @@ use Magento\Framework\Event\ObserverInterface;
 use Magento\Framework\View\Page\Config;
 use Mavenbird\Shopbybrand\Helper\Data;
 
-/**
- * Class NoindexPagination
- *
- * @package Mavenbird\Shopbybrand\Observer
- */
 class NoindexPagination implements ObserverInterface
 {
     /**
-     * @type Data
+     * Data
+     *
+     * @var [type]
      */
     protected $_helper;
 
     /**
-     * @var Http
+     * Requests
+     *
+     * @var [type]
      */
     protected $request;
 
     /**
-     * @var Config $_corePageConfig ;
+     * Config
+     *
+     * @var [type]
      */
     protected $_corePageConfig;
 
     /**
-     * NoindexPagination constructor.
+     * Construct
      *
      * @param Http $request
      * @param Config $_corePageConfig
@@ -67,10 +67,10 @@ class NoindexPagination implements ObserverInterface
     }
 
     /**
-     * @param Observer $observer
+     * Execute
      *
+     * @param Observer $observer
      * @return void
-     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     public function execute(Observer $observer)
     {

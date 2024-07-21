@@ -24,16 +24,32 @@ namespace Mavenbird\Shopbybrand\Controller\Adminhtml\Category;
 use Exception;
 use Magento\Framework\View\Result\PageFactory;
 use Mavenbird\Shopbybrand\Controller\Adminhtml\Category;
+use Mavenbird\Shopbybrand\Model\Category as Categories;
 
-/**
- * Class MassDelete
- * @package Mavenbird\Shopbybrand\Controller\Adminhtml\Category
- */
 class MassDelete extends Category
 {
     /**
+     * Category
+     *
+     * @var [type]
+     */
+    protected $categories;
+    
+    /**
+     * Construct
+     *
+     * @param Categories $categories
+     */
+    public function __construct(
+        Categories $categories
+    ) {
+        $this->categories = $categories;
+    }
+
+    /**
+     * Execute
+     *
      * @return void
-     * @var PageFactory
      */
     public function execute()
     {
@@ -45,7 +61,7 @@ class MassDelete extends Category
             foreach ($ids as $id) {
                 try {
                     /** @var \Mavenbird\Shopbybrand\Model\Category $cat */
-                    $cat = $this->_objectManager->create(\Mavenbird\Shopbybrand\Model\Category::class)->load($id);
+                    $cat = $this->categories->load($id);
                     $cat->delete();
                     $numOfSuccess++;
                 } catch (Exception $e) {

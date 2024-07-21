@@ -1,22 +1,21 @@
 <?php
 /**
- * Mavenbird
+ * Mavenbird Technologies Private Limited
  *
  * NOTICE OF LICENSE
  *
- * This source file is subject to the Mavenbird.com license that is
- * available through the world-wide-web at this URL:
- * https://www.Mavenbird.com/LICENSE.txt
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://mavenbird.com/Mavenbird-Module-License.txt
  *
- * DISCLAIMER
+ * =================================================================
  *
- * Do not edit or add to this file if you wish to upgrade this extension to newer
- * version in the future.
- *
- * @category    Mavenbird
- * @package     Mavenbird_Shopbybrand
- * @copyright   Copyright (c) Mavenbird (https://www.Mavenbird.com/)
- * @license     https://www.Mavenbird.com/LICENSE.txt
+ * @category   Mavenbird
+ * @package    Mavenbird_Shopbybrand
+ * @author     Mavenbird Team
+ * @copyright  Copyright (c) 2018-2024 Mavenbird Technologies Private Limited ( http://mavenbird.com )
+ * @license    http://mavenbird.com/Mavenbird-Module-License.txt
  */
 
 namespace Mavenbird\Shopbybrand\Plugin\Controller;
@@ -36,57 +35,62 @@ use Magento\Framework\Filesystem\Directory\ReadFactory;
 use Magento\Framework\Message\ManagerInterface;
 use Magento\ImportExport\Controller\Adminhtml\Import\Download;
 
-/**
- * Download sample file controller
- */
 class ImportDownloadSample
 {
-    /**
-     * Import file name
-     */
-    const IMPORT_FILE = 'Mavenbird_brand';
-    /**
-     * Module name
-     */
-    const SAMPLE_FILES_MODULE = 'Mavenbird_Shopbybrand';
+    public const IMPORT_FILE = 'Mavenbird_brand';
+    public const SAMPLE_FILES_MODULE = 'Mavenbird_Shopbybrand';
 
     /**
-     * @type Http
+     * Requests
+     *
+     * @var [type]
      */
     protected $request;
 
     /**
-     * @var RawFactory
+     * Factory for Raw Result
+     *
+     * @var [type]
      */
     protected $resultRawFactory;
 
     /**
-     * @var ReadFactory
+     * Factory for Read
+     *
+     * @var [type]
      */
     protected $readFactory;
 
     /**
-     * @var ComponentRegistrar
+     * Components Registrar
+     *
+     * @var [type]
      */
     protected $componentRegistrar;
 
     /**
-     * @var FileFactory
+     * Factory for File
+     *
+     * @var [type]
      */
     protected $fileFactory;
 
     /**
-     * @var RedirectFactory
+     * Factory for Redirect
+     *
+     * @var [type]
      */
     protected $resultRedirectFactory;
 
     /**
-     * @var ManagerInterface
+     * Messages Manager
+     *
+     * @var [type]
      */
     protected $messageManager;
 
     /**
-     * ImportDownloadSample constructor.
+     * Constructor
      *
      * @param Context $context
      * @param FileFactory $fileFactory
@@ -113,11 +117,11 @@ class ImportDownloadSample
     }
 
     /**
+     * Around Execute
+     *
      * @param Download $download
      * @param Closure $proceed
-     *
-     * @return Redirect|Raw
-     * @throws Exception
+     * @return void
      */
     public function aroundExecute(
         Download $download,

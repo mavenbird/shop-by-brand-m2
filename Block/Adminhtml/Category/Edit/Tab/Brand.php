@@ -27,15 +27,12 @@ use Magento\Framework\Data\Form\Element\Renderer\RendererInterface;
 use Magento\Framework\Exception\LocalizedException;
 use Mavenbird\Shopbybrand\Block\Adminhtml\Form\Renderer\BrandCategory;
 
-/**
- * Class Brand
- * @package Mavenbird\Shopbybrand\Block\Adminhtml\Category\Edit\Tab
- */
 class Brand extends Generic implements TabInterface
 {
     /**
-     * @return Generic
-     * @throws LocalizedException
+     * Prepare Form
+     *
+     * @return void
      */
     protected function _prepareForm()
     {
@@ -85,7 +82,7 @@ class Brand extends Generic implements TabInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function canShowTab()
     {
@@ -93,7 +90,7 @@ class Brand extends Generic implements TabInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function isHidden()
     {

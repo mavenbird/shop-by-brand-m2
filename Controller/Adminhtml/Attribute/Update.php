@@ -35,44 +35,52 @@ use Magento\Store\Model\StoreManagerInterface;
 use Mavenbird\Shopbybrand\Helper\Data as HelperData;
 use Mavenbird\Shopbybrand\Model\BrandFactory;
 
-/**
- * Class Update
- * @package Mavenbird\Shopbybrand\Controller\Adminhtml\Attribute
- */
 class Update extends Action
 {
     /**
-     * @type Data
+     * Helper
+     *
+     * @var [type]
      */
     protected $_jsonHelper;
 
     /**
-     * @type HelperData
+     * Brands Helper
+     *
+     * @var [type]
      */
     protected $_brandHelper;
 
     /**
-     * @type Repository
+     * Repository for Product Attribute
+     *
+     * @var [type]
      */
     protected $_productAttributeRepository;
 
     /**
-     * @type BrandFactory
+     * Factory for Brand
+     *
+     * @var [type]
      */
     protected $_brandFactory;
 
     /**
-     * @type PageFactory
+     * Factory for Result Page
+     *
+     * @var [type]
      */
     protected $_resultPageFactory;
 
     /**
-     * @type StoreManagerInterface
+     * Stores Manager
+     *
+     * @var [type]
      */
     protected $_storeManager;
 
     /**
-     * Update constructor.
+     * Constructor
      *
      * @param Context $context
      * @param Data $jsonHelper
@@ -102,9 +110,9 @@ class Update extends Action
     }
 
     /**
-     * @return ResponseInterface|ResultInterface|void
-     * @throws NoSuchEntityException
-     * @throws LocalizedException
+     * Execute
+     *
+     * @return void
      */
     public function execute()
     {

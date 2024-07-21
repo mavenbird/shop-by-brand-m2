@@ -29,24 +29,24 @@ use Magento\Framework\View\Result\Page;
 use Magento\Framework\View\Result\PageFactory;
 use Mavenbird\Shopbybrand\Helper\Data;
 
-/**
- * Class Index
- * @package Mavenbird\Shopbybrand\Controller\Index
- */
 class Index extends Action
 {
     /**
-     * @type PageFactory
+     * Factory for Result Page
+     *
+     * @var [type]
      */
     protected $resultPageFactory;
 
     /**
-     * @type Data
+     * Data
+     *
+     * @var [type]
      */
     protected $helper;
 
     /**
-     * Index constructor.
+     * Constructor
      *
      * @param Context $context
      * @param PageFactory $resultPageFactory
@@ -64,7 +64,9 @@ class Index extends Action
     }
 
     /**
-     * @return ResponseInterface|ResultInterface|Page|void
+     * Execute
+     *
+     * @return void
      */
     public function execute()
     {

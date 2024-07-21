@@ -37,55 +37,66 @@ use Mavenbird\Shopbybrand\Helper\Data as Helper;
 use Mavenbird\Shopbybrand\Model\Brand;
 use Mavenbird\Shopbybrand\Model\BrandFactory;
 
-/**
- * Class View
- *
- * @package Mavenbird\Shopbybrand\Controller\Index
- */
 class View extends Action
 {
     /**
-     * @type PageFactory
+     * Factory for Result Page
+     *
+     * @var [type]
      */
     protected $resultPageFactory;
 
     /**
-     * @type Helper
+     * Data
+     *
+     * @var [type]
      */
     protected $helper;
 
     /**
-     * @type BrandFactory
+     * Factory for Brand
+     *
+     * @var [type]
      */
     protected $_brandFactory;
 
     /**
-     * @var CategoryRepositoryInterface
+     * Repository for Category
+     *
+     * @var [type]
      */
     protected $categoryRepository;
 
     /**
-     * @var StoreManagerInterface
+     * Stores Manager
+     *
+     * @var [type]
      */
     protected $_storeManager;
 
     /**
-     * @type ForwardFactory
+     * Factory for Forward Result
+     *
+     * @var [type]
      */
     protected $resultForwardFactory;
 
     /**
-     * @type Registry
+     * Registry
+     *
+     * @var [type]
      */
     protected $_coreRegistry;
 
     /**
-     * @type Data
+     * Helper
+     *
+     * @var [type]
      */
     protected $_jsonHelper;
 
     /**
-     * View constructor.
+     * Constructor
      *
      * @param Context $context
      * @param PageFactory $resultPageFactory
@@ -121,7 +132,9 @@ class View extends Action
     }
 
     /**
-     * @return $this|ResponseInterface|ResultInterface|Page
+     * Execute
+     *
+     * @return void
      */
     public function execute()
     {
@@ -153,7 +166,9 @@ class View extends Action
     }
 
     /**
-     * @return bool|Brand
+     * Init Brand
+     *
+     * @return void
      */
     protected function _initBrand()
     {

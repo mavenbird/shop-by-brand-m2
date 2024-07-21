@@ -21,10 +21,6 @@
 
 namespace Mavenbird\Shopbybrand\Block\Adminhtml\Category\Edit;
 
-/**
- * Class Tabs
- * @package Mavenbird\Shopbybrand\Block\Adminhtml\ProductsPage\Edit
- */
 class Tabs extends \Magento\Backend\Block\Widget\Tabs
 {
     /**

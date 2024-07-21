@@ -1,7 +1,21 @@
-/*
-* 	Owl Carousel Owl Demo Theme 
-*	v1.3.3
-*/
+/**
+ * Mavenbird Technologies Private Limited
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://mavenbird.com/Mavenbird-Module-License.txt
+ *
+ * =================================================================
+ *
+ * @category   Mavenbird
+ * @package    Mavenbird_Shopbybrand
+ * @author     Mavenbird Team
+ * @copyright  Copyright (c) 2018-2024 Mavenbird Technologies Private Limited ( http://mavenbird.com )
+ * @license    http://mavenbird.com/Mavenbird-Module-License.txt
+ */
 
 .owl-theme .owl-controls{
     margin-top: 10px;
@@ -14,7 +28,7 @@
     color: #FFF;
     display: inline-block;
     zoom: 1;
-    *display:inline;/*IE7 life-saver */
+    display:inline;/*IE7 life-saver */
     margin: 5px;
     padding: 3px 10px;
     font-size: 12px;
@@ -38,7 +52,7 @@
 .owl-theme .owl-controls .owl-page{
     display: inline-block;
     zoom: 1;
-    *display: inline;/*IE7 life-saver */
+    display: inline;/*IE7 life-saver */
 }
 .owl-theme .owl-controls .owl-page span{
     display: block;

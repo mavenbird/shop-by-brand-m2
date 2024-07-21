@@ -26,19 +26,17 @@ use Magento\Framework\View\Element\Template\Context;
 use Mavenbird\Shopbybrand\Helper\Data as Helper;
 use Mavenbird\Shopbybrand\Model\Config\Source\ShowBrandInfo;
 
-/**
- * Class Logo
- * @package Mavenbird\Shopbybrand\Block\Product
- */
 class Logo extends Template
 {
     /**
-     * @var Helper
+     * Data
+     *
+     * @var [type]
      */
     protected $helper;
 
     /**
-     * Logo constructor.
+     * Constructor
      *
      * @param Context $context
      * @param Helper $helper
@@ -53,7 +51,9 @@ class Logo extends Template
     }
 
     /**
-     * @return mixed|null
+     * Brand Object
+     *
+     * @return void
      */
     public function getBrandObject()
     {
@@ -65,7 +65,9 @@ class Logo extends Template
     }
 
     /**
-     * @return Helper
+     * Helper
+     *
+     * @return void
      */
     public function helper()
     {
@@ -73,7 +75,9 @@ class Logo extends Template
     }
 
     /**
-     * @return mixed
+     * Show Brand Info
+     *
+     * @return void
      */
     public function showBrandInfo()
     {
@@ -81,7 +85,9 @@ class Logo extends Template
     }
 
     /**
-     * @return mixed
+     * Logo Width
+     *
+     * @return void
      */
     public function getLogoWidth()
     {
@@ -89,7 +95,9 @@ class Logo extends Template
     }
 
     /**
-     * @return mixed
+     * Logo Height
+     *
+     * @return void
      */
     public function getLogoHeight()
     {

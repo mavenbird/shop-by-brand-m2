@@ -23,21 +23,19 @@ namespace Mavenbird\Shopbybrand\Block\Brand;
 
 use Mavenbird\Shopbybrand\Block\Brand;
 
-/**
- * Class Featured
- * @package Mavenbird\Shopbybrand\Block\Brand
- */
 class Featured extends Brand
 {
     /**
-     * Default feature template
+     * Templates
      *
-     * @type string
+     * @var string
      */
     protected $_template = 'Mavenbird_Shopbybrand::brand/featured.phtml';
 
     /**
-     * @return string
+     * Include Css Lib
+     *
+     * @return void
      */
     public function includeCssLib()
     {
@@ -53,7 +51,9 @@ class Featured extends Brand
     }
 
     /**
-     * @return mixed
+     * Feature Title
+     *
+     * @return void
      */
     public function getFeatureTitle()
     {
@@ -61,7 +61,9 @@ class Featured extends Brand
     }
 
     /**
-     * @return bool
+     * Show Label
+     *
+     * @return void
      */
     public function showLabel()
     {
@@ -69,7 +71,9 @@ class Featured extends Brand
     }
 
     /**
-     * @return array
+     * Featured Brand
+     *
+     * @return void
      */
     public function getFeaturedBrand()
     {

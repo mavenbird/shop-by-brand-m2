@@ -23,10 +23,6 @@ namespace Mavenbird\Shopbybrand\Block\Adminhtml;
 
 use Magento\Backend\Block\Widget\Grid\Container;
 
-/**
- * Class Category
- * @package Mavenbird\Shopbybrand\Block\Adminhtml
- */
 class Category extends Container
 {
     /**

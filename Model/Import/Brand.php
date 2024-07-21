@@ -1,22 +1,21 @@
 <?php
 /**
- * Mavenbird
+ * Mavenbird Technologies Private Limited
  *
  * NOTICE OF LICENSE
  *
- * This source file is subject to the Mavenbird.com license that is
- * available through the world-wide-web at this URL:
- * https://www.Mavenbird.com/LICENSE.txt
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://mavenbird.com/Mavenbird-Module-License.txt
  *
- * DISCLAIMER
+ * =================================================================
  *
- * Do not edit or add to this file if you wish to upgrade this extension to newer
- * version in the future.
- *
- * @category    Mavenbird
- * @package     Mavenbird_Shopbybrand
- * @copyright   Copyright (c) Mavenbird (https://www.Mavenbird.com/)
- * @license     https://www.Mavenbird.com/LICENSE.txt
+ * @category   Mavenbird
+ * @package    Mavenbird_Shopbybrand
+ * @author     Mavenbird Team
+ * @copyright  Copyright (c) 2018-2024 Mavenbird Technologies Private Limited ( http://mavenbird.com )
+ * @license    http://mavenbird.com/Mavenbird-Module-License.txt
  */
 
 namespace Mavenbird\Shopbybrand\Model\Import;
@@ -45,78 +44,96 @@ use Magento\Swatches\Helper\Media;
 use Magento\Swatches\Model\Swatch;
 use Mavenbird\Shopbybrand\Helper\Data;
 
-/**
- * Class Brand
- * @package Mavenbird\Shopbybrand\Model\Import
- */
 class Brand extends AbstractEntity
 {
-    const COL_ATTR_CODE                = 'attribute_code';
-    const COL_NAME                     = 'brand_name';
-    const COL_STORE_ID                 = 'store_id';
-    const COL_VALUE                    = 'label';
-    const COL_URL_KEY                  = 'url_key';
-    const COL_IMAGE                    = 'image';
-    const COL_FEATURED                 = 'is_featured';
-    const COL_SHORT_DESCRIPTION        = 'short_description';
-    const COL_DESCRIPTION              = 'description';
-    const COL_STATIC_BLOCK             = 'static_block';
-    const COL_META_TITLE               = 'meta_title';
-    const COL_META_DESCRIPTION         = 'meta_description';
-    const COL_META_KEYWORDS            = 'meta_keywords';
-    const COL_SWATCH_TYPE              = 'swatch_type';
-    const COL_SWATCH_VALUE             = 'swatch_value';
-    const SCOPE_DEFAULT                = 0;
-    const SCOPE_STORE                  = 1;
-    const ERROR_TITLE_IS_EMPTY         = 'Empty TITLE';
-    const ERROR_INVALID_ATTRIBUTE_CODE = 'invalidAttributeCode';
-    const ERROR_INVALID_BRAND_OPTION   = 'invalidBrandOption';
-    const ERROR_INVALID_VALUE          = 'invalidValue';
-    const ERROR_INVALID_ATTRIBUTE      = 'invalidAttribute';
+    public const COL_ATTR_CODE                = 'attribute_code';
+    public const COL_NAME                     = 'brand_name';
+    public const COL_STORE_ID                 = 'store_id';
+    public const COL_VALUE                    = 'label';
+    public const COL_URL_KEY                  = 'url_key';
+    public const COL_IMAGE                    = 'image';
+    public const COL_FEATURED                 = 'is_featured';
+    public const COL_SHORT_DESCRIPTION        = 'short_description';
+    public const COL_DESCRIPTION              = 'description';
+    public const COL_STATIC_BLOCK             = 'static_block';
+    public const COL_META_TITLE               = 'meta_title';
+    public const COL_META_DESCRIPTION         = 'meta_description';
+    public const COL_META_KEYWORDS            = 'meta_keywords';
+    public const COL_SWATCH_TYPE              = 'swatch_type';
+    public const COL_SWATCH_VALUE             = 'swatch_value';
+    public const SCOPE_DEFAULT                = 0;
+    public const SCOPE_STORE                  = 1;
+    public const ERROR_TITLE_IS_EMPTY         = 'Empty TITLE';
+    public const ERROR_INVALID_ATTRIBUTE_CODE = 'invalidAttributeCode';
+    public const ERROR_INVALID_BRAND_OPTION   = 'invalidBrandOption';
+    public const ERROR_INVALID_VALUE          = 'invalidValue';
+    public const ERROR_INVALID_ATTRIBUTE      = 'invalidAttribute';
 
     /**
-     * @var CollectionFactory
+     * Collection of attribute options
+     *
+     * @var [type]
      */
     protected $_optionCollection;
 
     /**
-     * @var Data
+     * Helper for brand
+     *
+     * @var [type]
      */
     protected $_brandHelper;
 
     /**
-     * @var Repository
+     * Repository for product
+     *
+     * @var [type]
      */
     protected $_productRepository;
 
     /**
-     * @var array \Magento\CatalogImportExport\Model\Import\Uploader
+     * Uploader for file
+     *
+     * @var [type]
      */
     protected $_fileUploader;
 
     /**
-     * @var UploaderFactory
+     * Factory for uploader
+     *
+     * @var [type]
      */
     protected $_uploaderFactory;
 
     /**
-     * @var WriteInterface
+     * Directory for media
+     *
+     * @var [type]
      */
     protected $_mediaDirectory;
 
     /**
-     * @var Media
+     * Helper for Swatch
+     *
+     * @var [type]
      */
     protected $swatchHelper;
 
-    /** @inheritdoc */
+    /**
+     * Available Behavior
+     *
+     * @var array
+     */
     protected $_availableBehaviors = [
         Import::BEHAVIOR_ADD_UPDATE,
         Import::BEHAVIOR_REPLACE,
         Import::BEHAVIOR_DELETE
     ];
 
-    /** @inheritdoc */
+    /**
+     * Message Template
+     *
+     * @var array
+     */
     protected $_messageTemplates = [
         self::ERROR_INVALID_ATTRIBUTE_CODE => 'Invalid value in Attribute Code column',
         self::ERROR_INVALID_BRAND_OPTION   => 'Invalid value in Brand name column',
@@ -124,32 +141,46 @@ class Brand extends AbstractEntity
         self::ERROR_INVALID_ATTRIBUTE      => 'Attribute does not exist'
     ];
 
-    /** @inheritdoc */
+    /**
+     * Valid Column Name
+     *
+     * @var array
+     */
     protected $validColumnNames = [
         self::COL_NAME,
         self::COL_STORE_ID
     ];
 
     /**
-     * @var array Attribute list
+     * Attribute Lists
+     *
+     * @var array
      */
     protected $_attributeList = [];
 
     /**
-     * @var array Option List
+     * Option Lists
+     *
+     * @var array
      */
     protected $_optionList = [];
 
-    /** @inheritdoc */
+    /**
+     * Master Attributes Code
+     *
+     * @var string
+     */
     protected $masterAttributeCode = 'brand_name';
 
     /**
-     * @var ResourceConnection
+     * Resources
+     *
+     * @var [type]
      */
     protected $_resource;
 
     /**
-     * Brand constructor.
+     * Constructor
      *
      * @param StringUtils $string
      * @param ScopeConfigInterface $scopeConfig
@@ -195,7 +226,7 @@ class Brand extends AbstractEntity
     }
 
     /**
-     * {@inheritDoc}
+     * @inheritDoc
      */
     public function getEntityTypeCode()
     {
@@ -203,9 +234,9 @@ class Brand extends AbstractEntity
     }
 
     /**
-     * @return bool
-     * @throws LocalizedException
-     * @throws NoSuchEntityException
+     * Import data
+     *
+     * @return void
      */
     protected function _importData()
     {
@@ -219,9 +250,9 @@ class Brand extends AbstractEntity
     }
 
     /**
-     * Delete rows
+     * Delete brands
      *
-     * @return $this
+     * @return void
      */
     protected function _deleteBrands()
     {
@@ -267,12 +298,11 @@ class Brand extends AbstractEntity
     }
 
     /**
-     * Row validation.
+     * Validate row
      *
      * @param array $rowData
-     * @param int $rowNum
-     *
-     * @return bool
+     * @param [type] $rowNum
+     * @return void
      */
     public function validateRow(array $rowData, $rowNum)
     {
@@ -302,11 +332,12 @@ class Brand extends AbstractEntity
     }
 
     /**
-     * @param $attributeCode
-     * @param $storeId
-     * @param $rowNum
+     * Process brand options
      *
-     * @return bool|mixed
+     * @param [type] $attributeCode
+     * @param [type] $storeId
+     * @param [type] $rowNum
+     * @return void
      */
     private function processBrandOptions($attributeCode, $storeId, $rowNum)
     {
@@ -331,9 +362,10 @@ class Brand extends AbstractEntity
     }
 
     /**
-     * @param $rowData
+     * Attribute code
      *
-     * @return mixed
+     * @param [type] $rowData
+     * @return void
      */
     private function getAttributeCode($rowData)
     {
@@ -342,8 +374,9 @@ class Brand extends AbstractEntity
     }
 
     /**
-     * @throws LocalizedException
-     * @throws NoSuchEntityException
+     * Save brands
+     *
+     * @return void
      */
     protected function _saveBrands()
     {
@@ -467,12 +500,10 @@ class Brand extends AbstractEntity
     }
 
     /**
-     * Returns an object for upload a media files
+     * Uploader
      *
-     * @param $type
-     *
-     * @return Uploader
-     * @throws LocalizedException
+     * @param [type] $type
+     * @return void
      */
     protected function _getUploader($type)
     {
@@ -527,9 +558,10 @@ class Brand extends AbstractEntity
     }
 
     /**
-     * @param $key
+     * Attribute fields
      *
-     * @return array
+     * @param [type] $key
+     * @return void
      */
     public function getAttributeFields($key)
     {

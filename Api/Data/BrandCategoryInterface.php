@@ -1,44 +1,39 @@
 <?php
 /**
- * Mavenbird
+ * Mavenbird Technologies Private Limited
  *
  * NOTICE OF LICENSE
  *
- * This source file is subject to the Mavenbird.com license that is
- * available through the world-wide-web at this URL:
- * https://www.Mavenbird.com/LICENSE.txt
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://mavenbird.com/Mavenbird-Module-License.txt
  *
- * DISCLAIMER
+ * =================================================================
  *
- * Do not edit or add to this file if you wish to upgrade this extension to newer
- * version in the future.
- *
- * @category    Mavenbird
- * @package     Magepaza_Shopbybrand
- * @copyright   Copyright (c) Mavenbird (https://www.Mavenbird.com/)
- * @license     https://www.Mavenbird.com/LICENSE.txt
+ * @category   Mavenbird
+ * @package    Mavenbird_Shopbybrand
+ * @author     Mavenbird Team
+ * @copyright  Copyright (c) 2018-2024 Mavenbird Technologies Private Limited ( http://mavenbird.com )
+ * @license    http://mavenbird.com/Mavenbird-Module-License.txt
  */
 
 namespace Mavenbird\Shopbybrand\Api\Data;
 
-/**
- * Interface BrandCategoryInterface
- * @package Mavenbird\Shopbybrand\Api\Data
- */
 interface BrandCategoryInterface
 {
-    const STATUS           = 'status';
-    const STORE_IDS        = 'store_ids';
-    const NAME             = 'name';
-    const URL_KEY          = 'url_key';
-    const META_TITLE       = 'meta_title';
-    const META_KEYWORDS    = 'meta_keywords';
-    const META_DESCRIPTION = 'meta_description';
-    const META_ROBOTS      = 'meta_robots';
-    const CREATED_AT       = 'created_at';
-    const UPDATED_AT       = 'updated_at';
+    public const STATUS           = 'status';
+    public const STORE_IDS        = 'store_ids';
+    public const NAME             = 'name';
+    public const URL_KEY          = 'url_key';
+    public const META_TITLE       = 'meta_title';
+    public const META_KEYWORDS    = 'meta_keywords';
+    public const META_DESCRIPTION = 'meta_description';
+    public const META_ROBOTS      = 'meta_robots';
+    public const CREATED_AT       = 'created_at';
+    public const UPDATED_AT       = 'updated_at';
 
-    const ATTRIBUTES = [
+    public const ATTRIBUTES = [
         'cat_id',
         self::STATUS,
         self::STORE_IDS,
@@ -69,126 +64,152 @@ interface BrandCategoryInterface
     public function setId($id);
 
     /**
-     * @return string|null
+     * Store Ids
+     *
+     * @return void
      */
     public function getStoreIds();
 
     /**
-     * @param string $store
+     * Set Store Ids
      *
-     * @return $this
+     * @param [type] $store
+     * @return void
      */
     public function setStoreIds($store);
 
     /**
-     * @return string|null
+     * Get Name
+     *
+     * @return void
      */
     public function getName();
 
     /**
-     * @param string $name
+     * Set Name
      *
-     * @return $this
+     * @param [type] $name
+     * @return void
      */
     public function setName($name);
 
     /**
-     * @return int
+     * Get Status
+     *
+     * @return void
      */
     public function getStatus();
 
     /**
-     * @param int $status
+     * Set Status
      *
-     * @return $this
+     * @param [type] $status
+     * @return void
      */
     public function setStatus($status);
 
     /**
-     * @return string|null
+     * Get Url Key
+     *
+     * @return void
      */
     public function getUrlKey();
 
     /**
-     * @param string $url
+     * Set Url Key
      *
-     * @return $this
+     * @param [type] $url
+     * @return void
      */
     public function setUrlKey($url);
 
     /**
-     * @return string|null
+     * Get Meta Title
+     *
+     * @return void
      */
     public function getMetaTitle();
 
     /**
-     * @param string $value
+     * Set Meta Title
      *
-     * @return $this
+     * @param [type] $value
+     * @return void
      */
     public function setMetaTitle($value);
 
     /**
-     * @return string|null
+     * Get Meta Keywords
+     *
+     * @return void
      */
     public function getMetaKeywords();
 
     /**
-     * @param string $value
+     * Set Meta Keywords
      *
-     * @return $this
+     * @param [type] $value
+     * @return void
      */
     public function setMetaKeywords($value);
 
     /**
-     * @return string|null
+     * Get Meta Description
+     *
+     * @return void
      */
     public function getMetaDescription();
 
     /**
-     * @param string $value
+     * Set Meta Description
      *
-     * @return $this
+     * @param [type] $value
+     * @return void
      */
     public function setMetaDescription($value);
 
     /**
-     * @return int|null
+     * Get Meta Robots
+     *
+     * @return void
      */
     public function getMetaRobots();
 
     /**
-     * @param int $value
+     * Set Meta Robots
      *
-     * @return $this
+     * @param [type] $value
+     * @return void
      */
     public function setMetaRobots($value);
 
     /**
-     * @return string|null
+     * Get Created At
+     *
+     * @return void
      */
     public function getCreatedAt();
 
     /**
-     * @param string $createdAt
+     * Set Created At
      *
-     * @return $this
+     * @param [type] $createdAt
+     * @return void
      */
     public function setCreatedAt($createdAt);
 
     /**
-     * Product updated date
+     * Get Updated At
      *
-     * @return string|null
+     * @return void
      */
     public function getUpdatedAt();
 
     /**
-     * Set product updated date
+     * Set Updated At
      *
-     * @param string $updatedAt
-     *
-     * @return $this
+     * @param [type] $updatedAt
+     * @return void
      */
     public function setUpdatedAt($updatedAt);
 }

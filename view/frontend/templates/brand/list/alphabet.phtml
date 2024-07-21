@@ -1,22 +1,21 @@
 <?php
 /**
- * Mavenbird
+ * Mavenbird Technologies Private Limited
  *
  * NOTICE OF LICENSE
  *
- * This source file is subject to the Mavenbird.com license that is
- * available through the world-wide-web at this URL:
- * https://www.Mavenbird.com/LICENSE.txt
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://mavenbird.com/Mavenbird-Module-License.txt
  *
- * DISCLAIMER
+ * =================================================================
  *
- * Do not edit or add to this file if you wish to upgrade this extension to newer
- * version in the future.
- *
- * @category    Mavenbird
- * @package     Mavenbird_Shopbybrand
- * @copyright   Copyright (c) Mavenbird (https://www.Mavenbird.com/)
- * @license     https://www.Mavenbird.com/LICENSE.txt
+ * @category   Mavenbird
+ * @package    Mavenbird_Shopbybrand
+ * @author     Mavenbird Team
+ * @copyright  Copyright (c) 2018-2024 Mavenbird Technologies Private Limited ( http://mavenbird.com )
+ * @license    http://mavenbird.com/Mavenbird-Module-License.txt
  */
 
 /** @var \Mavenbird\Shopbybrand\Block\Brand $block */
@@ -24,8 +23,8 @@ $helper     = $block->helper();
 $firstChars = $block->getFirstChar();
 $displayType = $helper->getBrandConfig('display');
 
-if (!empty($firstChars)) : ?>
-    <?php foreach ($firstChars as $char) : ?>
+if (!empty($firstChars)): ?>
+    <?php foreach ($firstChars as $char): ?>
         <?php $mixValue = (is_numeric($char)) ? 'num' . $char : ucfirst($char); ?>
         <?php $brandCharCollection = $block->getCollectionByChar($char); ?>
         <div class="product-list-container brand-list-container mix <?= /** @noEscape */ $mixValue ?>
@@ -33,13 +32,13 @@ if (!empty($firstChars)) : ?>
             <div class="brand-char-title"><?= /** @noEscape */ $char ?></div>
             <div class="brand-list-content">
                 <ol class="products list items product-items">
-                    <?php foreach ($brandCharCollection as $brand) : ?>
+                    <?php foreach ($brandCharCollection as $brand): ?>
                         <li class="item product product-item mix
                         <?= /** @noEscape */ $block->getFilterClass($brand) ?>
                         <?= /** @noEscape */ $block->getCatFilterClass($brand->getId()) ?>">
-                            <?php if ($displayType !== \Mavenbird\Shopbybrand\Model\Config\Source\BrandListDisplay::DISPLAY_LABEL) : ?>
+                            <?php if ($displayType !== \Mavenbird\Shopbybrand\Model\Config\Source\BrandListDisplay::DISPLAY_LABEL): ?>
                                 <div class="product-item-info" data-container="product-grid" style="width: 240px">
-                                    <?php if ($block->showQuickView()) : ?>
+                                    <?php if ($block->showQuickView()): ?>
                                         <div title="Quick View" class="changelog module-version quickview_popup">
                                             <a class="fa fa-eye open_model"
                                                id="<?= /** @noEscape */ $helper->getQuickview($brand) ?>"></a>
@@ -57,7 +56,7 @@ if (!empty($firstChars)) : ?>
                             </span>
                                     </a>
                                     <div class="product details product-item-details">
-                                        <?php if ($displayType !== \Mavenbird\Shopbybrand\Model\Config\Source\BrandListDisplay::DISPLAY_LOGO) : ?>
+                                        <?php if ($displayType !== \Mavenbird\Shopbybrand\Model\Config\Source\BrandListDisplay::DISPLAY_LOGO): ?>
                                             <?php $productQty = $block->showProductQty() ? $brand->getValue() . ' (' . $block->getProductQuantity($brand->getOptionId()) . ')' : $brand->getValue() ?>
                                             <strong class="product name product-item-name"
                                                     style="text-align: center">
@@ -68,28 +67,28 @@ if (!empty($firstChars)) : ?>
                                                 </a>
                                             </strong>
                                         <?php endif; ?>
-                                        <?php if ($block->showDescription()) : ?>
+                                        <?php if ($block->showDescription()): ?>
                                             <div class="product description product-item-description">
                                                 <?= /** @noEscape */ $helper->getBrandDescription($brand, true) ?>
                                             </div>
                                         <?php endif; ?>
                                     </div>
                                 </div>
-                            <?php else : ?>
+                            <?php else: ?>
                                 <?php $productQty = $block->showProductQty() ? $brand->getValue() . ' (' . $block->getProductQuantity($brand->getOptionId()) . ')' : $brand->getValue() ?>
                                 <div class="brand-name-type-label-only" data-container="product-grid">
                                     <strong class="product name product-item-name" style="margin: 0;">
                                         <a class="product-item-link" href="<?= /** @noEscape */ $helper->getBrandUrl($brand) ?>" style="float: left; padding-right: 10px;">
                                             <?= /** @noEscape */ $productQty ?>
                                         </a>
-                                        <?php if ($block->showQuickView()) : ?>
+                                        <?php if ($block->showQuickView()): ?>
                                             <div title="Quick View" class="changelog module-version quickview_popup">
                                                 <a class="fa fa-eye open_model"
                                                    id="<?= /** @noEscape */ $helper->getQuickview($brand) ?>"></a>
                                             </div>
                                         <?php endif; ?>
                                     </strong>
-                                    <?php if ($block->showDescription()) : ?>
+                                    <?php if ($block->showDescription()): ?>
                                         <div class="product description product-item-description">
                                             <?= /** @noEscape */ $helper->getBrandDescription($brand, true) ?>
                                         </div>
@@ -103,6 +102,6 @@ if (!empty($firstChars)) : ?>
         </div>
         <div style="clear: both"></div>
     <?php endforeach; ?>
-<?php else : ?>
+<?php else: ?>
     <?= /** @noEscape */ __('There is no brand available.') ?>
 <?php endif; ?>

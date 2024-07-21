@@ -1,29 +1,28 @@
 <?php
 /**
- * Mavenbird
+ * Mavenbird Technologies Private Limited
  *
  * NOTICE OF LICENSE
  *
- * This source file is subject to the Mavenbird.com license that is
- * available through the world-wide-web at this URL:
- * https://www.Mavenbird.com/LICENSE.txt
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://mavenbird.com/Mavenbird-Module-License.txt
  *
- * DISCLAIMER
+ * =================================================================
  *
- * Do not edit or add to this file if you wish to upgrade this extension to newer
- * version in the future.
- *
- * @category    Mavenbird
- * @package     Mavenbird_Shopbybrand
- * @copyright   Copyright (c) Mavenbird (https://www.Mavenbird.com/)
- * @license     https://www.Mavenbird.com/LICENSE.txt
+ * @category   Mavenbird
+ * @package    Mavenbird_Shopbybrand
+ * @author     Mavenbird Team
+ * @copyright  Copyright (c) 2018-2024 Mavenbird Technologies Private Limited ( http://mavenbird.com )
+ * @license    http://mavenbird.com/Mavenbird-Module-License.txt
  */
 
 /** @var \Mavenbird\Shopbybrand\Block\Brand $block */
 $helper = $block->helper();
 $allChars = $block->getAlphabet();
 ?>
-<script type="text/javascript">
+<script>
     require([
             'jquery',
             'Mavenbird_Shopbybrand/js/lib/mixitup.min',
@@ -55,20 +54,20 @@ $allChars = $block->getAlphabet();
 
 <div class="block block-brand-list" style="margin-top: 20px;border-top: solid 1px #dfdfdf; padding-top: 30px">
     <div class="block-title">
-        <?php if ($helper->getBrandConfig('brand_filter/enabled_alpha_filter')) : ?>
+        <?php if ($helper->getBrandConfig('brand_filter/enabled_alpha_filter')): ?>
             <ul class="nav brand-options navbar-nav controls">
                 <li id="mm-first-opt" class="control active">
                     <a class="filter mm-option-item" data-filter="all"><?= /** @noEscape */ __('All') ?></a>
                 </li>
-                <?php foreach ($allChars as $_char) : ?>
+                <?php foreach ($allChars as $_char): ?>
                     <?php $_numberChar['char'] = (is_numeric($_char['char'])) ? 'num' . $_char['char'] : $_char['char']; ?>
-                    <?php if ($_char['active']) : ?>
+                    <?php if ($_char['active']): ?>
                         <li class="control">
                             <a class="filter mm-option-item" data-filter=".<?= /** @noEscape */ $_numberChar['char'] ?>">
                                 <?= isset($_char['label']) ? /** @noEscape */ $_char['label'] : /** @noEscape */ $_char['char'] ?>
                             </a>
                         </li>
-                    <?php else : ?>
+                    <?php else: ?>
                         <li class="disabled">
                             <a class="disabled mm-option-item">
                                 <?= isset($_char['label']) ? /** @noEscape */ $_char['label'] : /** @noEscape */ $_char['char'] ?>

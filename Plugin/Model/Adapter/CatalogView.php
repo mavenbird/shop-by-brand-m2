@@ -1,41 +1,38 @@
 <?php
 /**
- * Mavenbird
+ * Mavenbird Technologies Private Limited
  *
  * NOTICE OF LICENSE
  *
- * This source file is subject to the Mavenbird.com license that is
- * available through the world-wide-web at this URL:
- * https://www.Mavenbird.com/LICENSE.txt
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://mavenbird.com/Mavenbird-Module-License.txt
  *
- * DISCLAIMER
+ * =================================================================
  *
- * Do not edit or add to this file if you wish to upgrade this extension to newer
- * version in the future.
- *
- * @category    Mavenbird
- * @package     Mavenbird_Shopbybrand
- * @copyright   Copyright (c) Mavenbird (https://www.Mavenbird.com/)
- * @license     https://www.Mavenbird.com/LICENSE.txt
+ * @category   Mavenbird
+ * @package    Mavenbird_Shopbybrand
+ * @author     Mavenbird Team
+ * @copyright  Copyright (c) 2018-2024 Mavenbird Technologies Private Limited ( http://mavenbird.com )
+ * @license    http://mavenbird.com/Mavenbird-Module-License.txt
  */
 
 namespace Mavenbird\Shopbybrand\Plugin\Model\Adapter;
 
 use Magento\Framework\App\RequestInterface;
 
-/**
- * Class Preprocessor
- * @package Mavenbird\LayeredNavigation\Model\Plugin\Adapter
- */
 class CatalogView
 {
     /**
-     * @var RequestInterface
+     * Requests
+     *
+     * @var [type]
      */
     protected $_request;
 
     /**
-     * CatalogView constructor.
+     * Construct
      *
      * @param RequestInterface $request
      */
@@ -45,10 +42,11 @@ class CatalogView
     }
 
     /**
-     * @param \Magento\CatalogSearch\Model\Adapter\Aggregation\Checker\Query\CatalogView $subject
-     * @param $result
+     * After Is Applicable
      *
-     * @return bool
+     * @param \Magento\CatalogSearch\Model\Adapter\Aggregation\Checker\Query\CatalogView $subject
+     * @param [type] $result
+     * @return void
      */
     public function afterIsApplicable(
         \Magento\CatalogSearch\Model\Adapter\Aggregation\Checker\Query\CatalogView $subject,

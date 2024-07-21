@@ -1,22 +1,21 @@
 <?php
 /**
- * Mavenbird
+ * Mavenbird Technologies Private Limited
  *
  * NOTICE OF LICENSE
  *
- * This source file is subject to the Mavenbird.com license that is
- * available through the world-wide-web at this URL:
- * https://www.Mavenbird.com/LICENSE.txt
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://mavenbird.com/Mavenbird-Module-License.txt
  *
- * DISCLAIMER
+ * =================================================================
  *
- * Do not edit or add to this file if you wish to upgrade this extension to newer
- * version in the future.
- *
- * @category    Mavenbird
- * @package     Mavenbird_Shopbybrand
- * @copyright   Copyright (c) Mavenbird (https://www.Mavenbird.com/)
- * @license     https://www.Mavenbird.com/LICENSE.txt
+ * @category   Mavenbird
+ * @package    Mavenbird_Shopbybrand
+ * @author     Mavenbird Team
+ * @copyright  Copyright (c) 2018-2024 Mavenbird Technologies Private Limited ( http://mavenbird.com )
+ * @license    http://mavenbird.com/Mavenbird-Module-License.txt
  */
 
 namespace Mavenbird\Shopbybrand\Model;
@@ -45,85 +44,109 @@ use Mavenbird\Shopbybrand\Model\ResourceModel\Brand as BrandResourceModel;
 use Mavenbird\Shopbybrand\Model\ResourceModel\Category as BrandCategoryResource;
 use Mavenbird\Shopbybrand\Model\ResourceModel\Category\Collection;
 
-/**
- * Class BrandRepository
- * @package Mavenbird\Shopbybrand\Model
- */
 class BrandRepository implements BrandRepositoryInterface
 {
 
     /**
-     * @var EavCollectionFactory
+     * Factory for attribute option collection
+     *
+     * @var [type]
      */
     protected $_attrOptionCollectionFactory;
 
     /**
-     * @var Helper
+     * Data
+     *
+     * @var [type]
      */
     protected $helper;
 
     /**
-     * @var ProductRepositoryInterface
+     * Repository for product
+     *
+     * @var [type]
      */
     protected $productRepository;
 
     /**
-     * @var AttributeOptionManagementInterface
+     * Option Management
+     *
+     * @var [type]
      */
     protected $eavOptionManagement;
 
     /**
-     * @var BrandFactory
+     * Factory for Brand
+     *
+     * @var [type]
      */
     protected $brandFactory;
 
     /**
-     * @var BrandResourceModel
+     * Model
+     *
+     * @var [type]
      */
     protected $resourceModel;
 
     /**
-     * @var AttributeRepository
+     * Repository for Attribute
+     *
+     * @var [type]
      */
     protected $attributeRepository;
 
     /**
-     * @var Attribute
+     * Eav Model
+     *
+     * @var [type]
      */
     protected $eavResourceModel;
 
     /**
-     * @var CategoryFactory
+     * Factory for Brand Category
+     *
+     * @var [type]
      */
     protected $categoryFactory;
 
     /**
-     * @var FilterManager
+     * Filters
+     *
+     * @var [type]
      */
     protected $filter;
 
     /**
-     * @var EavAttribute
+     * Eav Attributes
+     *
+     * @var [type]
      */
     protected $eavAttribute;
 
     /**
-     * @var ProductCollectionFactory
+     * Factory for Product Collection
+     *
+     * @var [type]
      */
     protected $productCollectionFactory;
 
     /**
-     * @var Visibility
+     * Visible Product
+     *
+     * @var [type]
      */
     protected $visibleProducts;
 
     /**
-     * @var BrandCategoryResource
+     * Brand Category
+     *
+     * @var [type]
      */
     protected $brandCategoryResource;
 
     /**
-     * BrandRepository constructor.
+     *  Constructor
      *
      * @param EavAttribute $eavAttribute
      * @param EavCollectionFactory $attrOptionCollectionFactory
@@ -257,9 +280,9 @@ class BrandRepository implements BrandRepositoryInterface
     }
 
     /**
-     * @return AttributeOptionInterface[]
-     * @throws InputException
-     * @throws StateException
+     * Get Items
+     *
+     * @return void
      */
     public function getItems()
     {
@@ -270,13 +293,10 @@ class BrandRepository implements BrandRepositoryInterface
     }
 
     /**
-     * Add option to attribute
+     * Add Option
      *
-     * @param BrandInterface $option
-     *
-     * @return bool
-     * @throws StateException
-     * @throws NoSuchEntityException
+     * @param [type] $option
+     * @return void
      */
     public function addOption($option)
     {
@@ -515,11 +535,10 @@ class BrandRepository implements BrandRepositoryInterface
     }
 
     /**
-     * @param BrandCategoryInterface $category
+     * Validate data
      *
-     * @return bool
-     * @throws InputException
-     * @throws NoSuchEntityException
+     * @param [type] $category
+     * @return void
      */
     public function validateData($category)
     {

@@ -24,31 +24,22 @@ namespace Mavenbird\Shopbybrand\Block\Sidebar;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Mavenbird\Shopbybrand\Block\Brand;
 
-/**
- * Class BrandList
- *
- * @package Mavenbird\Shopbybrand\Block\Sidebar
- */
 class BrandList extends Brand
 {
     /**
-     * Default feature template
+     * Templates
      *
-     * @type string
+     * @var string
      */
     protected $_template = 'Mavenbird_Shopbybrand::sidebar/list.phtml';
 
-    /**
-     * Default title sidebar brand thumbnail
-     */
-    const TITLE = 'Brand List';
-    /**
-     * Default title sidebar brand thumbnail
-     */
-    const LIMIT = '7';
+    public const TITLE = 'Brand List';
+    public const LIMIT = '7';
 
     /**
-     * @return mixed|string
+     * Title
+     *
+     * @return void
      */
     public function getTitle()
     {
@@ -76,10 +67,10 @@ class BrandList extends Brand
     }
 
     /**
-     * @param null $brand
+     * Brand Url
      *
-     * @return string
-     * @throws NoSuchEntityException
+     * @param [type] $brand
+     * @return void
      */
     public function getBrandUrl($brand = null)
     {
@@ -87,9 +78,10 @@ class BrandList extends Brand
     }
 
     /**
-     * @param $brand
+     * Brand Image Url
      *
-     * @return string
+     * @param [type] $brand
+     * @return void
      */
     public function getBrandImageUrl($brand)
     {

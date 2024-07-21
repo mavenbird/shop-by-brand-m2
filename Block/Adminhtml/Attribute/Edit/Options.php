@@ -1,22 +1,21 @@
 <?php
 /**
- * Mavenbird
+ * Mavenbird Technologies Private Limited
  *
  * NOTICE OF LICENSE
  *
- * This source file is subject to the Mavenbird.com license that is
- * available through the world-wide-web at this URL:
- * https://www.Mavenbird.com/LICENSE.txt
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://mavenbird.com/Mavenbird-Module-License.txt
  *
- * DISCLAIMER
+ * =================================================================
  *
- * Do not edit or add to this file if you wish to upgrade this extension to newer
- * version in the future.
- *
- * @category    Mavenbird
- * @package     Mavenbird_Shopbybrand
- * @copyright   Copyright (c) Mavenbird (https://www.Mavenbird.com/)
- * @license     https://www.Mavenbird.com/LICENSE.txt
+ * @category   Mavenbird
+ * @package    Mavenbird_Shopbybrand
+ * @author     Mavenbird Team
+ * @copyright  Copyright (c) 2018-2024 Mavenbird Technologies Private Limited ( http://mavenbird.com )
+ * @license    http://mavenbird.com/Mavenbird-Module-License.txt
  */
 
 namespace Mavenbird\Shopbybrand\Block\Adminhtml\Attribute\Edit;
@@ -28,22 +27,24 @@ use Magento\Framework\Registry;
 use Magento\Framework\Validator\UniversalFactory;
 use Mavenbird\Shopbybrand\Helper\Data;
 
-/**
- * Class Options
- * @package Mavenbird\Shopbybrand\Block\Adminhtml\Attribute\Edit
- */
 class Options extends OOptions
 {
     /**
-     * @var Data
+     * Helper
+     *
+     * @var [type]
      */
     protected $brandHelper;
 
-    /** @var string Option template */
+    /**
+     * Templates
+     *
+     * @var string
+     */
     protected $_template = 'Mavenbird_Shopbybrand::catalog/product/attribute/options.phtml';
 
     /**
-     * Options constructor.
+     * Constructor
      *
      * @param Context $context
      * @param Registry $registry
@@ -66,7 +67,9 @@ class Options extends OOptions
     }
 
     /**
-     * @inheritdoc
+     * Construct
+     *
+     * @return void
      */
     protected function _construct()
     {
@@ -78,7 +81,9 @@ class Options extends OOptions
     }
 
     /**
-     * @return bool
+     * Brand Attribute
+     *
+     * @return boolean
      */
     public function isBrandAttribute()
     {
@@ -90,7 +95,9 @@ class Options extends OOptions
     }
 
     /**
-     * @return string
+     * Brand Update Url
+     *
+     * @return void
      */
     public function getBrandUpdateUrl()
     {
@@ -98,9 +105,9 @@ class Options extends OOptions
     }
 
     /**
-     * Returns stores sorted by Sort Order
+     * Stores Sorted By Sort Order
      *
-     * @return array
+     * @return void
      */
     public function getStoresSortedBySortOrder()
     {

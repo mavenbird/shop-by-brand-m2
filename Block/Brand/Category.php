@@ -25,21 +25,20 @@ use Magento\Eav\Model\ResourceModel\Entity\Attribute\Option\Collection;
 use Mavenbird\Shopbybrand\Block\Brand;
 use Mavenbird\Shopbybrand\Helper\Data;
 
-/**
- * Class Category
- * @package Mavenbird\Shopbybrand\Block\Brand
- */
 class Category extends Brand
 {
     /**
-     * @var Collection
+     * Collection of Brand Category
+     *
+     * @var [type]
      */
     protected $brandCategoryCollection;
 
     /**
-     * @param $char
+     * Collection By Char
      *
-     * @return Collection|mixed
+     * @param [type] $char
+     * @return void
      */
     public function getCollectionByChar($char)
     {

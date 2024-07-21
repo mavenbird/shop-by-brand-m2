@@ -25,21 +25,17 @@ use Magento\Backend\Block\Widget\Context;
 use Magento\Backend\Block\Widget\Form\Container;
 use Magento\Framework\Registry;
 
-/**
- * Class Edit
- * @package Mavenbird\Shopbybrand\Block\Adminhtml\Category
- */
 class Edit extends Container
 {
     /**
-     * Core registry
+     * Registry
      *
      * @var Registry
      */
     protected $_coreRegistry;
 
     /**
-     * Edit constructor.
+     * Constructor
      *
      * @param Registry $coreRegistry
      * @param Context $context

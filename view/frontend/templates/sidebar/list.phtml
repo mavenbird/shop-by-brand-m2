@@ -1,27 +1,26 @@
 <?php
 /**
- * Mavenbird
+ * Mavenbird Technologies Private Limited
  *
  * NOTICE OF LICENSE
  *
- * This source file is subject to the Mavenbird.com license that is
- * available through the world-wide-web at this URL:
- * https://www.Mavenbird.com/LICENSE.txt
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://mavenbird.com/Mavenbird-Module-License.txt
  *
- * DISCLAIMER
+ * =================================================================
  *
- * Do not edit or add to this file if you wish to upgrade this extension to newer
- * version in the future.
- *
- * @category    Mavenbird
- * @package     Mavenbird_Shopbybrand
- * @copyright   Copyright (c) Mavenbird (https://www.Mavenbird.com/)
- * @license     https://www.Mavenbird.com/LICENSE.txt
+ * @category   Mavenbird
+ * @package    Mavenbird_Shopbybrand
+ * @author     Mavenbird Team
+ * @copyright  Copyright (c) 2018-2024 Mavenbird Technologies Private Limited ( http://mavenbird.com )
+ * @license    http://mavenbird.com/Mavenbird-Module-License.txt
  */
 
 /** @var \Mavenbird\Shopbybrand\Block\Sidebar\BrandList $block */
 $brands = $block->getCollection();
-if (!empty($brands)) :?>
+if (!empty($brands)):?>
 <div class="block block-brand-thumbnail widget" id="block-brand-thumbnail-container">
     <div class="block-title">
         <strong role="heading" aria-level="2" class="block-subtitle"
@@ -30,14 +29,14 @@ if (!empty($brands)) :?>
     <div class="block-content">
         <div class="filter-options-content" id='brand-thumbnail-menu'>
             <ul>
-                <?php foreach ($brands as $brand) : ?>
+                <?php foreach ($brands as $brand): ?>
                         <li>
                             <a href='<?= /** @noEscape */ $block->getBrandUrl($brand) ?>'>
                                 <div class="brand-items"
                                      id="item-<?= /** @noEscape */ $brand->getId() ?>">
                                     <img class="img-responsive brand-thumbnail-image"
-                                         src="<?= $brand->getImage() ? $block->escapeUrl($block->getBrandThumbnail($brand))
-                                             : $block->escapeUrl($block->helper()->getBrandImageUrl($brand)) ?>"
+                                         src="<?= $brand->getImage() ? $escaper->escapeUrl($block->getBrandThumbnail($brand))
+                                             : $escaper->escapeUrl($block->helper()->getBrandImageUrl($brand)) ?>"
                                          style="width: 40px;height: 40px; float: left;" alt=""/>
                                     <span><?= /** @noEscape */ $brand->getValue() ?></span>
                                 </div>

@@ -1,70 +1,62 @@
 <?php
 /**
- * Mavenbird
+ * Mavenbird Technologies Private Limited
  *
  * NOTICE OF LICENSE
  *
- * This source file is subject to the Mavenbird.com license that is
- * available through the world-wide-web at this URL:
- * https://www.Mavenbird.com/LICENSE.txt
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://mavenbird.com/Mavenbird-Module-License.txt
  *
- * DISCLAIMER
+ * =================================================================
  *
- * Do not edit or add to this file if you wish to upgrade this extension to newer
- * version in the future.
- *
- * @category    Mavenbird
- * @package     Mavenbird_Shopbybrand
- * @copyright   Copyright (c) Mavenbird (https://www.Mavenbird.com/)
- * @license     https://www.Mavenbird.com/LICENSE.txt
+ * @category   Mavenbird
+ * @package    Mavenbird_Shopbybrand
+ * @author     Mavenbird Team
+ * @copyright  Copyright (c) 2018-2024 Mavenbird Technologies Private Limited ( http://mavenbird.com )
+ * @license    http://mavenbird.com/Mavenbird-Module-License.txt
  */
 
 namespace Mavenbird\Shopbybrand\Api\Data;
 
-/**
- * Interface BrandInterface
- * @package Mavenbird\Shopbybrand\Api\Data
- */
 interface BrandInterface
 {
-    /**
-     * Constants used as data array keys
-     */
-    const BRAND_ID = 'brand_id';
+    public const BRAND_ID = 'brand_id';
 
-    const OPTION_ID = 'option_id';
+    public const OPTION_ID = 'option_id';
 
-    const PAGE_TITLE = 'page_title';
+    public const PAGE_TITLE = 'page_title';
 
-    const URL_KEY = 'url_key';
+    public const URL_KEY = 'url_key';
 
-    const IMAGE = 'image';
+    public const IMAGE = 'image';
 
-    const SHORT_DESCRIPTION = 'short_description';
+    public const SHORT_DESCRIPTION = 'short_description';
 
-    const DESCRIPTION = 'description';
+    public const DESCRIPTION = 'description';
 
-    const IS_FEATURED = 'is_featured';
+    public const IS_FEATURED = 'is_featured';
 
-    const STATIC_BLOCK = 'static_block';
+    public const STATIC_BLOCK = 'static_block';
 
-    const META_TITLE = 'meta_title';
+    public const META_TITLE = 'meta_title';
 
-    const META_KEYWORDS = 'meta_keywords';
+    public const META_KEYWORDS = 'meta_keywords';
 
-    const META_DESCRIPTION = 'meta_description';
+    public const META_DESCRIPTION = 'meta_description';
 
-    const LABEL = 'label';
+    public const LABEL = 'label';
 
-    const VALUE = 'value';
+    public const VALUE = 'value';
 
-    const SORT_ORDER = 'sort_order';
+    public const SORT_ORDER = 'sort_order';
 
-    const STORE_LABELS = 'store_labels';
+    public const STORE_LABELS = 'store_labels';
 
-    const IS_DEFAULT = 'is_default';
+    public const IS_DEFAULT = 'is_default';
 
-    const ATTRIBUTES = [
+    public const ATTRIBUTES = [
         self::BRAND_ID,
         self::OPTION_ID,
         self::PAGE_TITLE,
@@ -112,122 +104,152 @@ interface BrandInterface
     public function setOptionId($id);
 
     /**
-     * @return string|null
+     * Get Page Title
+     *
+     * @return void
      */
     public function getPageTitle();
 
     /**
-     * @param string $title
+     * Set Page Title
      *
-     * @return $this
+     * @param [type] $title
+     * @return void
      */
     public function setPageTitle($title);
 
     /**
-     * @return string|null
+     * Get Url key
+     *
+     * @return void
      */
     public function getUrlKey();
 
     /**
-     * @param string $url
+     * Set Url Key
      *
-     * @return $this
+     * @param [type] $url
+     * @return void
      */
     public function setUrlKey($url);
 
     /**
-     * @return string|null
+     * Get Image
+     *
+     * @return void
      */
     public function getImage();
 
     /**
-     * @param string $image
+     * Set Image
      *
-     * @return $this
+     * @param [type] $image
+     * @return void
      */
     public function setImage($image);
 
     /**
-     * @return string|null
+     * Get Short Description
+     *
+     * @return void
      */
     public function getShortDescription();
 
     /**
-     * @param string $value
+     * Set Short Descriptions
      *
-     * @return $this
+     * @param [type] $value
+     * @return void
      */
     public function setShortDescription($value);
 
     /**
-     * @return string|null
+     * Get Description
+     *
+     * @return void
      */
     public function getDescription();
 
     /**
-     * @param string $value
+     * Set Description
      *
-     * @return $this
+     * @param [type] $value
+     * @return void
      */
     public function setDescription($value);
 
     /**
-     * @return int|null
+     * Get Is Featured
+     *
+     * @return void
      */
     public function getIsFeatured();
 
     /**
-     * @param int $value
+     * Set Is Featured
      *
-     * @return $this
+     * @param [type] $value
+     * @return void
      */
     public function setIsFeatured($value);
 
     /**
-     * @return string|null
+     * Get Static Block
+     *
+     * @return void
      */
     public function getStaticBlock();
 
     /**
-     * @param string $value
+     * Set Static Block
      *
-     * @return $this
+     * @param [type] $value
+     * @return void
      */
     public function setStaticBlock($value);
 
     /**
-     * @return string|null
+     * Get Meta Title
+     *
+     * @return void
      */
     public function getMetaTitle();
 
     /**
-     * @param string $value
+     * Set Meta Title
      *
-     * @return $this
+     * @param [type] $value
+     * @return void
      */
     public function setMetaTitle($value);
 
     /**
-     * @return string|null
+     * Get Meta Keywords
+     *
+     * @return void
      */
     public function getMetaKeywords();
 
     /**
-     * @param string $value
+     * Set Meta Keywords
      *
-     * @return $this
+     * @param [type] $value
+     * @return void
      */
     public function setMetaKeywords($value);
 
     /**
-     * @return string|null
+     * Get Meta Description
+     *
+     * @return void
      */
     public function getMetaDescription();
 
     /**
-     * @param string $value
+     * Set Meta Description
      *
-     * @return $this
+     * @param [type] $value
+     * @return void
      */
     public function setMetaDescription($value);
 
@@ -280,14 +302,14 @@ interface BrandInterface
     public function setSortOrder($sortOrder);
 
     /**
-     * is default
+     * Get Is Default
      *
      * @return bool|null
      */
     public function getIsDefault();
 
     /**
-     * set is default
+     * Set Is Default
      *
      * @param bool $isDefault
      *

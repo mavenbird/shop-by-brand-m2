@@ -25,21 +25,38 @@ use Exception;
 use Magento\Framework\App\ResponseInterface;
 use Magento\Framework\Controller\ResultInterface;
 use Mavenbird\Shopbybrand\Controller\Adminhtml\Category;
+use Mavenbird\Shopbybrand\Model\Category as Categories;
 
-/**
- * Class Delete
- * @package Mavenbird\Shopbybrand\Controller\Adminhtml\Category
- */
 class Delete extends Category
 {
     /**
-     * @return ResponseInterface|ResultInterface|void
+     * Category
+     *
+     * @var [type]
+     */
+    protected $categories;
+
+    /**
+     * Construct
+     *
+     * @param Categories $categories
+     */
+    public function __construct(
+        Categories $categories
+    ) {
+        $this->categories = $categories;
+    }
+
+    /**
+     * Execute
+     *
+     * @return void
      */
     public function execute()
     {
         $id = $this->getRequest()->getParam('cat_id');
         try {
-            $cat = $this->_objectManager->create(\Mavenbird\Shopbybrand\Model\Category::class)->load($id);
+            $cat = $this->categories->load($id);
             if ($cat && $cat->getId()) {
                 $cat->delete();
                 $this->messageManager->addSuccessMessage(__('Delete successfully !'));

@@ -25,25 +25,27 @@ use Magento\Eav\Model\ResourceModel\Entity\Attribute\Option\Collection;
 use Mavenbird\Shopbybrand\Block\Brand;
 use Mavenbird\Shopbybrand\Helper\Data;
 
-/**
- * Class BrandList
- * @package Mavenbird\Shopbybrand\Block\Brand
- */
 class BrandList extends Brand
 {
+    /**
+     * Options Ids
+     *
+     * @var array
+     */
     protected $optionIds = [];
 
     /**
-     * @var Collection
+     * Brand Collections
+     *
+     * @var [type]
      */
     protected $brandCollection;
 
     /**
-     * Get Brand List by First Character
+     * Collection By Char
      *
-     * @param $char
-     *
-     * @return Collection|mixed
+     * @param [type] $char
+     * @return void
      */
     public function getCollectionByChar($char)
     {
@@ -59,11 +61,10 @@ class BrandList extends Brand
     }
 
     /**
-     * Get Category Filter Class for Mixitup
+     * Cat Filter Class
      *
-     * @param $optionId
-     *
-     * @return string
+     * @param [type] $optionId
+     * @return void
      */
     public function getCatFilterClass($optionId)
     {
@@ -71,9 +72,10 @@ class BrandList extends Brand
     }
 
     /**
-     * @param $catName
+     * Cat Name Filter
      *
-     * @return mixed
+     * @param [type] $catName
+     * @return void
      */
     public function getCatNameFilter($catName)
     {
@@ -81,9 +83,10 @@ class BrandList extends Brand
     }
 
     /**
-     * @param string $char
+     * Option Id By Char
      *
-     * @return mixed
+     * @param [type] $char
+     * @return void
      */
     public function getOptionIdByChar($char)
     {
@@ -91,9 +94,10 @@ class BrandList extends Brand
     }
 
     /**
-     * @param Collection $collection
+     * Option Ids To Filter
      *
-     * @return string
+     * @param [type] $collection
+     * @return void
      */
     public function getOptionIdsToFilter($collection)
     {

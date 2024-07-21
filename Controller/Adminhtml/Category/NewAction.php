@@ -23,14 +23,12 @@ namespace Mavenbird\Shopbybrand\Controller\Adminhtml\Category;
 
 use Mavenbird\Shopbybrand\Controller\Adminhtml\Category;
 
-/**
- * Class NewAction
- * @package Mavenbird\Shopbybrand\Controller\Adminhtml\Category
- */
 class NewAction extends Category
 {
     /**
-     * Forward to edit page
+     * Execute
+     *
+     * @return void
      */
     public function execute()
     {

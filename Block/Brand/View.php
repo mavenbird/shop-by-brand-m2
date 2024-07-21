@@ -28,15 +28,12 @@ use Mavenbird\Shopbybrand\Block\Brand;
 use Mavenbird\Shopbybrand\Model\BrandFactory;
 use Mavenbird\Shopbybrand\Model\CategoryFactory;
 
-/**
- * Class View
- * @package Mavenbird\Shopbybrand\Block
- */
 class View extends Brand
 {
     /**
-     * @return $this
-     * @throws LocalizedException
+     * Prepare Layout
+     *
+     * @return void
      */
     protected function _prepareLayout()
     {
@@ -71,10 +68,10 @@ class View extends Brand
     }
 
     /**
-     * @param $block
+     * Addition Crumb
      *
-     * @return $this|Brand
-     * @throws NoSuchEntityException
+     * @param [type] $block
+     * @return void
      */
     protected function additionCrumb($block)
     {
@@ -93,9 +90,9 @@ class View extends Brand
     }
 
     /**
-     * Retrieve current brand model object
+     * Brand
      *
-     * @return \Mavenbird\Shopbybrand\Model\Brand
+     * @return void
      */
     public function getBrand()
     {
@@ -107,7 +104,9 @@ class View extends Brand
     }
 
     /**
-     * @return mixed
+     * Meta Title
+     *
+     * @return void
      */
     public function getMetaTitle()
     {
@@ -124,7 +123,9 @@ class View extends Brand
     }
 
     /**
-     * @return string
+     * Brand Image
+     *
+     * @return void
      */
     public function getBrandImage()
     {
@@ -136,7 +137,9 @@ class View extends Brand
     }
 
     /**
-     * @return string
+     * Brand Description
+     *
+     * @return void
      */
     public function getBrandDescription()
     {
@@ -149,8 +152,9 @@ class View extends Brand
     }
 
     /**
-     * @return string
-     * @throws LocalizedException
+     * Static Content
+     *
+     * @return void
      */
     public function getStaticContent()
     {
@@ -174,7 +178,9 @@ class View extends Brand
     }
 
     /**
-     * @return string
+     * Product List Html
+     *
+     * @return void
      */
     public function getProductListHtml()
     {

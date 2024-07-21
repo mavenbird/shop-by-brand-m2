@@ -1,22 +1,21 @@
 <?php
 /**
- * Mavenbird
+ * Mavenbird Technologies Private Limited
  *
  * NOTICE OF LICENSE
  *
- * This source file is subject to the Mavenbird.com license that is
- * available through the world-wide-web at this URL:
- * https://www.Mavenbird.com/LICENSE.txt
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://mavenbird.com/Mavenbird-Module-License.txt
  *
- * DISCLAIMER
+ * =================================================================
  *
- * Do not edit or add to this file if you wish to upgrade this extension to newer
- * version in the future.
- *
- * @category    Mavenbird
- * @package     Mavenbird_Shopbybrand
- * @copyright   Copyright (c) Mavenbird (https://www.Mavenbird.com/)
- * @license     https://www.Mavenbird.com/LICENSE.txt
+ * @category   Mavenbird
+ * @package    Mavenbird_Shopbybrand
+ * @author     Mavenbird Team
+ * @copyright  Copyright (c) 2018-2024 Mavenbird Technologies Private Limited ( http://mavenbird.com )
+ * @license    http://mavenbird.com/Mavenbird-Module-License.txt
  */
 
 namespace Mavenbird\Shopbybrand\Model;
@@ -38,29 +37,31 @@ use Magento\Sitemap\Model\ResourceModel\Cms\PageFactory;
 use Magento\Store\Model\StoreManagerInterface;
 use Mavenbird\Shopbybrand\Helper\Data as HelperData;
 
-/**
- * Class Sitemap
- * @package Mavenbird\Shopbybrand\Model
- */
 class Sitemap extends \Magento\Sitemap\Model\Sitemap
 {
     /**
-     * @var HelperData
+     * Data
+     *
+     * @var [type]
      */
     protected $helper;
 
     /**
-     * @var mixed
+     * Routers
+     *
+     * @var [type]
      */
     protected $router;
 
     /**
-     * @var BrandFactory
+     * Faactory for brand
+     *
+     * @var [type]
      */
     protected $_brandFactory;
 
     /**
-     * Sitemap constructor.
+     * Constructor
      *
      * @param HelperData $helper
      * @param Context $context
@@ -123,9 +124,10 @@ class Sitemap extends \Magento\Sitemap\Model\Sitemap
     }
 
     /**
-     * @param null $storeId
+     * Brand Site Map Collection
      *
-     * @return array
+     * @param [type] $storeId
+     * @return void
      */
     public function getBrandsSiteMapCollection($storeId = null)
     {
@@ -161,7 +163,9 @@ class Sitemap extends \Magento\Sitemap\Model\Sitemap
     }
 
     /**
-     * init SiteMap items
+     * Init Sitemap Items
+     *
+     * @return void
      */
     public function _initSitemapItems()
     {

@@ -1,22 +1,21 @@
 <?php
 /**
- * Mavenbird
+ * Mavenbird Technologies Private Limited
  *
  * NOTICE OF LICENSE
  *
- * This source file is subject to the Mavenbird.com license that is
- * available through the world-wide-web at this URL:
- * https://www.Mavenbird.com/LICENSE.txt
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://mavenbird.com/Mavenbird-Module-License.txt
  *
- * DISCLAIMER
+ * =================================================================
  *
- * Do not edit or add to this file if you wish to upgrade this extension to newer
- * version in the future.
- *
- * @category    Mavenbird
- * @package     Mavenbird_Shopbybrand
- * @copyright   Copyright (c) Mavenbird (https://www.Mavenbird.com/)
- * @license     https://www.Mavenbird.com/LICENSE.txt
+ * @category   Mavenbird
+ * @package    Mavenbird_Shopbybrand
+ * @author     Mavenbird Team
+ * @copyright  Copyright (c) 2018-2024 Mavenbird Technologies Private Limited ( http://mavenbird.com )
+ * @license    http://mavenbird.com/Mavenbird-Module-License.txt
  */
 
 namespace Mavenbird\Shopbybrand\Helper;
@@ -45,97 +44,115 @@ use Mavenbird\Shopbybrand\Model\BrandFactory;
 use Mavenbird\Shopbybrand\Model\Category;
 use Mavenbird\Shopbybrand\Model\CategoryFactory;
 use Mavenbird\Shopbybrand\Model\ResourceModel\Category\Collection as BrandCategoryCollection;
-
+use Magento\Framework\App\ProductMetadataInterface;
+use Magento\Framework\App\Config\ScopeConfigInterface;
 
 class Data extends AbstractData
 {
-    const CONFIG_MODULE_PATH = 'shopbybrand';
-    /**
-     * Image size default
-     */
-    const IMAGE_SIZE = '135x135';
-    /**
-     * General configuration path
-     */
-    const GENERAL_CONFIGURATION = 'shopbybrand/general';
-    /**
-     * Brand sidebar configuration path
-     */
-    const BRAND_SIDEBAR_CONFIGURATION = 'sidebar';
-    /**
-     * Brand page configuration path
-     */
-    const BRAND_CONFIGURATION = 'brandpage';
-    /**
-     * Search brand configuration path
-     */
-    const BRAND_DETAIL_CONFIGURATION = 'brandview';
-    /**
-     * Brand media path
-     */
-    const BRAND_MEDIA_PATH = 'mavenbird/brand';
-    /**
-     * Default route name
-     */
-    const DEFAULT_ROUTE = 'brand';
-    /**
-     * Get Brand by
-     */
-    const CATEGORY = 'category';
-    /**
-     * Get Brand by
-     */
-    const BRAND_FIRST_CHAR = 'char';
+    public const CONFIG_MODULE_PATH = 'shopbybrand';
+    public const IMAGE_SIZE = '135x135';
+    public const GENERAL_CONFIGURATION = 'shopbybrand/general';
+    public const BRAND_SIDEBAR_CONFIGURATION = 'sidebar';
+    public const BRAND_CONFIGURATION = 'brandpage';
+    public const BRAND_DETAIL_CONFIGURATION = 'brandview';
+    public const BRAND_MEDIA_PATH = 'mavenbird/brand';
+    public const DEFAULT_ROUTE = 'brand';
+    public const CATEGORY = 'category';
+    public const BRAND_FIRST_CHAR = 'char';
 
     /**
-     * @var FilterManager
+     * Filter Manager
+     *
+     * @var [type]
      */
     protected $_filter;
 
     /**
-     * @var TranslitUrl
+     * Translit Urls
+     *
+     * @var [type]
      */
     protected $translitUrl;
 
     /**
-     * @var CategoryFactory
+     * Factory for Category
+     *
+     * @var [type]
      */
     protected $categoryFactory;
 
     /**
-     * @type string
+     * Character
+     *
+     * @var string
      */
     protected $_char = '';
 
     /**
-     * @type BrandFactory
+     * Factory for Brand
+     *
+     * @var [type]
      */
     protected $_brandFactory;
 
     /**
-     * @type
+     * Brand Collections
+     *
+     * @var [type]
      */
     protected $_brandCollection;
 
     /**
-     * @var Registry
+     * Core Registry
+     *
+     * @var [type]
      */
     protected $registry;
 
     /**
-     * @var Attribute
+     * Attributes
+     *
+     * @var [type]
      */
     protected $_attribute;
 
+    /**
+     * Brand Collections
+     *
+     * @var [type]
+     */
     protected $brandCollectionCache;
 
     /**
-     * @var FilterProvider
+     * Filter Providers
+     *
+     * @var [type]
      */
     protected $filterProvider;
 
+     /**
+     * Products Metadata
+     *
+     * @var [type]
+     */
+    protected $productMetadata;
+
     /**
-     * Data constructor.
+     * Urls
+     *
+     * @var [type]
+     */
+    protected $url;
+
+     /**
+     * Scope Config
+     *
+     * @var ScopeConfigInterface
+     */
+    protected $scopeConfig;
+
+    /**
+     * Constructor.
      *
      * @param Context $context
      * @param StoreManagerInterface $storeManager
@@ -158,7 +175,10 @@ class Data extends AbstractData
         BrandFactory $brandFactory,
         Registry $registry,
         Attribute $attribute,
-        FilterProvider $filterProvider
+        FilterProvider $filterProvider,
+        ProductMetadataInterface $productMetadata,
+        UrlInterface $url,
+        ScopeConfigInterface $scopeConfig
     ) {
         $this->_filter         = $filter;
         $this->translitUrl     = $translitUrl;
@@ -167,14 +187,19 @@ class Data extends AbstractData
         $this->registry        = $registry;
         $this->_attribute      = $attribute;
         $this->filterProvider  = $filterProvider;
+        $this->objectManager  = $objectManager;
+        $this->storeManager  = $storeManager;
+        $this->productMetadata = $productMetadata;
+        $this->url = $url;
 
-        parent::__construct($context, $objectManager, $storeManager);
+        parent::__construct($context, $objectManager, $storeManager, $productMetadata, $url, $scopeConfig);
     }
 
     /**
-     * @param $position
+     * Show Brand Link
      *
-     * @return bool
+     * @param [type] $position
+     * @return boolean
      */
     public function canShowBrandLink($position)
     {
@@ -187,10 +212,10 @@ class Data extends AbstractData
     }
 
     /**
-     * @param null $brand
+     * Brand Url
      *
-     * @return string
-     * @throws NoSuchEntityException
+     * @param [type] $brand
+     * @return void
      */
     public function getBrandUrl($brand = null)
     {
@@ -201,9 +226,10 @@ class Data extends AbstractData
     }
 
     /**
-     * @param Brand $brand
+     * Process Key
      *
-     * @return string
+     * @param [type] $brand
+     * @return void
      */
     public function processKey($brand)
     {
@@ -216,11 +242,10 @@ class Data extends AbstractData
     }
 
     /**
-     * Format URL key from name or defined key
+     * Format Url Key
      *
-     * @param string $str
-     *
-     * @return string
+     * @param [type] $str
+     * @return void
      */
     public function formatUrlKey($str)
     {
@@ -228,9 +253,10 @@ class Data extends AbstractData
     }
 
     /**
-     * @param Brand $brand
+     * Brand Image Url
      *
-     * @return string
+     * @param [type] $brand
+     * @return void
      */
     public function getBrandImageUrl($brand)
     {
@@ -250,9 +276,9 @@ class Data extends AbstractData
     }
 
     /**
-     * Get Brand Title
+     * Brand Title
      *
-     * @return string
+     * @return void
      */
     public function getBrandTitle()
     {
@@ -260,12 +286,11 @@ class Data extends AbstractData
     }
 
     /**
-     * Retrieve Brand description
+     * Brand Description
      *
-     * @param Brand $brand
-     * @param bool|false $short
-     *
-     * @return mixed
+     * @param [type] $brand
+     * @param boolean $short
+     * @return void
      */
     public function getBrandDescription($brand, $short = false)
     {
@@ -283,11 +308,10 @@ class Data extends AbstractData
     }
 
     /**
-     * Retrieve Attribute code for Brand
+     * Attribute Code
      *
-     * @param null $store
-     *
-     * @return mixed
+     * @param [type] $store
+     * @return void
      */
     public function getAttributeCode($store = null)
     {
@@ -295,10 +319,9 @@ class Data extends AbstractData
     }
 
     /**
-     * Retrieve route name for brand.
-     * If empty, default 'brands' will be used
+     * Route
      *
-     * @return string
+     * @return void
      */
     public function getRoute()
     {
@@ -308,11 +331,10 @@ class Data extends AbstractData
     }
 
     /**
-     * Retrieve category rewrite suffix for store
+     * Get Url Suffix
      *
-     * @param int $storeId
-     *
-     * @return string
+     * @param [type] $storeId
+     * @return void
      */
     public function getUrlSuffix($storeId = null)
     {
@@ -324,10 +346,11 @@ class Data extends AbstractData
     }
 
     /**
-     * @param string $code
-     * @param null $store
+     * Brand Config
      *
-     * @return mixed
+     * @param string $code
+     * @param [type] $store
+     * @return void
      */
     public function getBrandConfig($code = '', $store = null)
     {
@@ -337,10 +360,11 @@ class Data extends AbstractData
     }
 
     /**
-     * @param string $group
-     * @param null $store
+     * Image Size
      *
-     * @return array
+     * @param string $group
+     * @param [type] $store
+     * @return void
      */
     public function getImageSize($group = '', $store = null)
     {
@@ -350,10 +374,11 @@ class Data extends AbstractData
     }
 
     /**
-     * @param string $code
-     * @param null $store
+     * Feature Config
      *
-     * @return mixed
+     * @param string $code
+     * @param [type] $store
+     * @return void
      */
     public function getFeatureConfig($code = '', $store = null)
     {
@@ -363,9 +388,10 @@ class Data extends AbstractData
     }
 
     /**
-     * @param null $store
+     * Enable Feature
      *
-     * @return mixed
+     * @param [type] $store
+     * @return void
      */
     public function enableFeature($store = null)
     {
@@ -373,10 +399,11 @@ class Data extends AbstractData
     }
 
     /**
-     * @param string $code
-     * @param null $store
+     * Search Config
      *
-     * @return mixed
+     * @param string $code
+     * @param [type] $store
+     * @return void
      */
     public function getSearchConfig($code = '', $store = null)
     {
@@ -386,9 +413,10 @@ class Data extends AbstractData
     }
 
     /**
-     * @param null $store
+     * Enable Search
      *
-     * @return mixed
+     * @param [type] $store
+     * @return void
      */
     public function enableSearch($store = null)
     {
@@ -396,10 +424,11 @@ class Data extends AbstractData
     }
 
     /**
-     * @param string $code
-     * @param null $store
+     * Brand Detail Config
      *
-     * @return mixed
+     * @param string $code
+     * @param [type] $store
+     * @return void
      */
     public function getBrandDetailConfig($code = '', $store = null)
     {
@@ -409,10 +438,11 @@ class Data extends AbstractData
     }
 
     /**
-     * @param string $code
-     * @param null $store
+     * Sidebar Config
      *
-     * @return mixed
+     * @param string $code
+     * @param [type] $store
+     * @return void
      */
     public function getSidebarConfig($code = '', $store = null)
     {
@@ -422,7 +452,9 @@ class Data extends AbstractData
     }
 
     /**
-     * @return array
+     * All Brands Attribute Code
+     *
+     * @return void
      */
     public function getAllBrandsAttributeCode()
     {
@@ -438,12 +470,11 @@ class Data extends AbstractData
     }
 
     /**
-     * generate url_key for brand category
+     * Generate Url Key
      *
-     * @param $name
-     * @param $count
-     *
-     * @return string
+     * @param [type] $name
+     * @param [type] $count
+     * @return void
      */
     public function generateUrlKey($name, $count)
     {
@@ -460,11 +491,10 @@ class Data extends AbstractData
     }
 
     /**
-     * replace vietnamese characters to english characters
+     * Remove Unicode
      *
-     * @param $str
-     *
-     * @return mixed|string
+     * @param [type] $str
+     * @return void
      */
     public function removeUnicode($str)
     {
@@ -481,10 +511,10 @@ class Data extends AbstractData
     }
 
     /**
-     * @param null $cat
+     * Cat Url
      *
-     * @return string
-     * @throws NoSuchEntityException
+     * @param [type] $cat
+     * @return void
      */
     public function getCatUrl($cat = null)
     {
@@ -496,7 +526,9 @@ class Data extends AbstractData
     }
 
     /**
-     * @return int
+     * Store Id
+     *
+     * @return void
      */
     public function getStoreId()
     {
@@ -510,10 +542,11 @@ class Data extends AbstractData
     }
 
     /**
-     * @param $routePath
-     * @param $routeSize
+     * Brand Route
      *
-     * @return bool
+     * @param [type] $routePath
+     * @param [type] $routeSize
+     * @return boolean
      */
     public function isBrandRoute($routePath, $routeSize)
     {
@@ -534,9 +567,10 @@ class Data extends AbstractData
     }
 
     /**
-     * @param $urlKey
+     * Category By Url Key
      *
-     * @return mixed|null
+     * @param [type] $urlKey
+     * @return void
      */
     public function getCategoryByUrlKey($urlKey)
     {
@@ -550,10 +584,11 @@ class Data extends AbstractData
     }
 
     /**
-     * @param null $type
-     * @param null $ids
+     * Brand List
      *
-     * @return Attribute\Option\Collection
+     * @param [type] $type
+     * @param [type] $ids
+     * @return void
      */
     public function getBrandList($type = null, $ids = null)
     {
@@ -580,13 +615,10 @@ class Data extends AbstractData
     }
 
     /**
-     * If $key is empty, checks whether there's any data in the object
-     *
-     * Otherwise checks if the specified attribute is set.
+     * Has Data
      *
      * @param string $key
-     *
-     * @return bool
+     * @return boolean
      */
     public function hasData($key = '')
     {
@@ -598,11 +630,10 @@ class Data extends AbstractData
     }
 
     /**
-     * Get condition for sql
+     * Check Character
      *
-     * @param $char
-     *
-     * @return string
+     * @param [type] $char
+     * @return void
      */
     public function checkCharacter($char)
     {
@@ -649,7 +680,9 @@ class Data extends AbstractData
     }
 
     /**
-     * @return BrandCategoryCollection
+     * Category List
+     *
+     * @return void
      */
     public function getCategoryList()
     {
@@ -665,9 +698,10 @@ class Data extends AbstractData
     }
 
     /**
-     * @param $brand
+     * Filter Class
      *
-     * @return string
+     * @param [type] $brand
+     * @return void
      */
     public function getFilterClass($brand)
     {
@@ -682,9 +716,10 @@ class Data extends AbstractData
     }
 
     /**
-     * @param $optionId
+     * Cat Filter Class
      *
-     * @return string
+     * @param [type] $optionId
+     * @return void
      */
     public function getCatFilterClass($optionId)
     {
@@ -702,9 +737,9 @@ class Data extends AbstractData
     }
 
     /**
-     * Is show quick view near Brand name
+     * Show Quick View
      *
-     * @return mixed
+     * @return void
      */
     public function showQuickView()
     {
@@ -712,7 +747,9 @@ class Data extends AbstractData
     }
 
     /**
-     * @return string
+     * Quick View Url
+     *
+     * @return void
      */
     public function getQuickViewUrl()
     {
@@ -720,9 +757,10 @@ class Data extends AbstractData
     }
 
     /**
-     * @param null $brand
+     * Quick View
      *
-     * @return string
+     * @param [type] $brand
+     * @return void
      */
     public function getQuickview($brand = null)
     {
@@ -731,31 +769,33 @@ class Data extends AbstractData
         return $this->getRoute() . $key . $this->getUrlSuffix();
     }
 
-/**
- * @param Product $product
- *
- * @return array|string|null
- */
-public function getBrandTextFromProduct(Product $product = null)
-{
-    $currentProduct = $product ?: $this->getCurrentProduct();
-    if (!$currentProduct) {
-        return null;
+    /**
+     * Brand Text From Product
+     *
+     * @param Product|null $product
+     * @return void
+     */
+    public function getBrandTextFromProduct(Product $product = null)
+    {
+        $currentProduct = $product ?: $this->getCurrentProduct();
+        if (!$currentProduct) {
+            return null;
+        }
+
+        $attCode = $this->getAttributeCode();
+
+        if (!$attCode) {
+            // Handle the case where the attribute code is not defined
+            return null;
+        }
+
+        return $currentProduct->getAttributeText($attCode);
     }
-
-    $attCode = $this->getAttributeCode();
-
-    if (!$attCode) {
-        // Handle the case where the attribute code is not defined
-        return null;
-    }
-
-    return $currentProduct->getAttributeText($attCode);
-}
-
 
     /**
-     * @return mixed|null
+     * Brand Object
+     *
+     * @return void
      */
     public function getBrandObject()
     {
@@ -773,8 +813,9 @@ public function getBrandTextFromProduct(Product $product = null)
     }
 
     /**
-     * Get current product
-     * @return mixed
+     * Current Product
+     *
+     * @return void
      */
     public function getCurrentProduct()
     {
@@ -786,8 +827,9 @@ public function getBrandTextFromProduct(Product $product = null)
     }
 
     /**
-     * Get current brand
-     * @return mixed
+     * Brand
+     *
+     * @return void
      */
     public function getBrand()
     {
@@ -795,11 +837,10 @@ public function getBrandTextFromProduct(Product $product = null)
     }
 
     /**
-     * convert strings in an array to uppercase
+     * Convert Uppercase
      *
-     * @param $array
-     *
-     * @return array|null
+     * @param [type] $array
+     * @return void
      */
     public function convertUppercase($array)
     {
@@ -811,11 +852,10 @@ public function getBrandTextFromProduct(Product $product = null)
     }
 
     /**
-     * Get attribute id
+     * Attribute Id
      *
-     * @param $code
-     *
-     * @return int
+     * @param [type] $code
+     * @return void
      */
     public function getAttributeId($code)
     {

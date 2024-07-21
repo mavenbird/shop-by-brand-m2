@@ -1,21 +1,21 @@
 <?php
 /**
- * Mavenbird
+ * Mavenbird Technologies Private Limited
  *
  * NOTICE OF LICENSE
  *
- * This source file is subject to the Mavenbird.com license that is
- * available through the world-wide-web at this URL:
- * https://www.Mavenbird.com/LICENSE.txt
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://mavenbird.com/Mavenbird-Module-License.txt
  *
- * DISCLAIMER
+ * =================================================================
  *
- * Do not edit or add to this file if you wish to upgrade this extension to newer
- * version in the future.
- *
- * @category    Mavenbird
- * @copyright   Copyright (c) 2016-2018 Mavenbird (http://www.Mavenbird.com/)
- * @license     https://www.Mavenbird.com/LICENSE.txt
+ * @category   Mavenbird
+ * @package    Mavenbird_Shopbybrand
+ * @author     Mavenbird Team
+ * @copyright  Copyright (c) 2018-2024 Mavenbird Technologies Private Limited ( http://mavenbird.com )
+ * @license    http://mavenbird.com/Mavenbird-Module-License.txt
  */
 
 namespace Mavenbird\Shopbybrand\Helper;
@@ -28,52 +28,86 @@ use Magento\Framework\App\ProductMetadataInterface;
 use Magento\Framework\Json\Helper\Data as JsonHelper;
 use Magento\Framework\ObjectManagerInterface;
 use Magento\Framework\UrlInterface;
-use Magento\Store\Model\ScopeInterface;
 use Magento\Store\Model\StoreManagerInterface;
+use Magento\Framework\App\Config\ScopeConfigInterface; // Add this line
 
-/**
- * Class AbstractData
- * @package Mavenbird\Shopbybrand\Helper
- */
 class AbstractData extends AbstractHelper
 {
-    const CONFIG_MODULE_PATH = 'mavenbird';
+    public const CONFIG_MODULE_PATH = 'mavenbird';
 
     /**
-     * @type array
+     * Datas
+     *
+     * @var array
      */
     protected $_data = [];
 
     /**
-     * @type \Magento\Store\Model\StoreManagerInterface
+     * Stores Manager
+     *
+     * @var StoreManagerInterface
      */
     protected $storeManager;
 
     /**
-     * @type \Magento\Framework\ObjectManagerInterface
+     * Object Managers
+     *
+     * @var ObjectManagerInterface
      */
     protected $objectManager;
 
     /**
-     * @param \Magento\Framework\App\Helper\Context $context
-     * @param \Magento\Framework\ObjectManagerInterface $objectManager
-     * @param \Magento\Store\Model\StoreManagerInterface $storeManager
+     * Products Metadata
+     *
+     * @var ProductMetadataInterface
+     */
+    protected $productMetadata;
+
+    /**
+     * Urls
+     *
+     * @var UrlInterface
+     */
+    protected $url;
+
+    /**
+     * Scope Config
+     *
+     * @var ScopeConfigInterface
+     */
+    protected $scopeConfig; // Add this line
+
+    /**
+     * Constructor
+     *
+     * @param Context $context
+     * @param ObjectManagerInterface $objectManager
+     * @param StoreManagerInterface $storeManager
+     * @param ProductMetadataInterface $productMetadata
+     * @param UrlInterface $url
+     * @param ScopeConfigInterface $scopeConfig // Add this line
      */
     public function __construct(
         Context $context,
         ObjectManagerInterface $objectManager,
-        StoreManagerInterface $storeManager
-    )
-    {
+        StoreManagerInterface $storeManager,
+        ProductMetadataInterface $productMetadata,
+        UrlInterface $url,
+        ScopeConfigInterface $scopeConfig // Add this line
+    ) {
         $this->objectManager = $objectManager;
+        $this->productMetadata = $productMetadata;
         $this->storeManager = $storeManager;
-
+        $this->url = $url;
+        $this->scopeConfig = $scopeConfig; // Add this line
         parent::__construct($context);
     }
 
     /**
-     * @param null $storeId
-     * @return bool
+     * Enabled
+     *
+     * @param int|null $storeId
+     * @return boolean
      */
     public function isEnabled($storeId = null)
     {
@@ -81,9 +115,11 @@ class AbstractData extends AbstractHelper
     }
 
     /**
+     * Config General
+     *
      * @param string $code
-     * @param null $storeId
-     * @return mixed
+     * @param int|null $storeId
+     * @return string|null
      */
     public function getConfigGeneral($code = '', $storeId = null)
     {
@@ -93,9 +129,11 @@ class AbstractData extends AbstractHelper
     }
 
     /**
+     * Module Config
+     *
      * @param string $field
-     * @param null $storeId
-     * @return mixed
+     * @param int|null $storeId
+     * @return string|null
      */
     public function getModuleConfig($field = '', $storeId = null)
     {
@@ -105,22 +143,26 @@ class AbstractData extends AbstractHelper
     }
 
     /**
-     * @param $field
-     * @param null $storeId
-     * @return mixed
+     * Config Value
+     *
+     * @param string $field
+     * @param int|null $storeId
+     * @return string|null
      */
     public function getConfigValue($field, $storeId = null)
     {
         return $this->scopeConfig->getValue(
             $field,
-            ScopeInterface::SCOPE_STORE,
+            \Magento\Store\Model\ScopeInterface::SCOPE_STORE,
             $storeId
         );
     }
 
     /**
-     * @param $name
-     * @return null
+     * Get Data
+     *
+     * @param string $name
+     * @return mixed
      */
     public function getData($name)
     {
@@ -132,8 +174,10 @@ class AbstractData extends AbstractHelper
     }
 
     /**
-     * @param $name
-     * @param $value
+     * Set Data
+     *
+     * @param string $name
+     * @param mixed $value
      * @return $this
      */
     public function setData($name, $value)
@@ -144,19 +188,20 @@ class AbstractData extends AbstractHelper
     }
 
     /**
-     * @return mixed
+     * Get Current Url
+     *
+     * @return string
      */
     public function getCurrentUrl()
     {
-        $model = $this->objectManager->get(UrlInterface::class);
-
-        return $model->getCurrentUrl();
+        return $this->url->getCurrentUrl();
     }
 
     /**
-     * @param $data
+     * Serialize
+     *
+     * @param mixed $data
      * @return string
-     * @throws \Zend_Serializer_Exception
      */
     public function serialize($data)
     {
@@ -168,19 +213,20 @@ class AbstractData extends AbstractHelper
     }
 
     /**
-     * @param $ver
-     * @return mixed
+     * Version Compare
+     *
+     * @param string $ver
+     * @return bool
      */
     public function versionCompare($ver)
     {
-        $productMetadata = $this->objectManager->get(ProductMetadataInterface::class);
-        $version = $productMetadata->getVersion(); //will return the magento version
+        $version = $this->productMetadata->getVersion();
 
         return version_compare($version, $ver, '>=');
     }
 
     /**
-     * Encode the mixed $valueToEncode into the JSON format
+     * Json Encode
      *
      * @param mixed $valueToEncode
      * @return string
@@ -197,7 +243,9 @@ class AbstractData extends AbstractHelper
     }
 
     /**
-     * @return \Magento\Framework\Json\Helper\Data|mixed
+     * Json Helper
+     *
+     * @return JsonHelper
      */
     public static function getJsonHelper()
     {
@@ -205,7 +253,9 @@ class AbstractData extends AbstractHelper
     }
 
     /**
-     * @return \Zend_Serializer_Adapter_PhpSerialize|mixed
+     * Serialize Class
+     *
+     * @return \Zend_Serializer_Adapter_PhpSerialize
      */
     protected function getSerializeClass()
     {
@@ -213,9 +263,10 @@ class AbstractData extends AbstractHelper
     }
 
     /**
-     * @param $string
+     * Unserialize
+     *
+     * @param string $string
      * @return mixed
-     * @throws \Zend_Serializer_Exception
      */
     public function unserialize($string)
     {
@@ -227,8 +278,7 @@ class AbstractData extends AbstractHelper
     }
 
     /**
-     * Decodes the given $encodedValue string which is
-     * encoded in the JSON format
+     * Json Decode
      *
      * @param string $encodedValue
      * @return mixed
@@ -245,14 +295,14 @@ class AbstractData extends AbstractHelper
     }
 
     /**
-     * Is Admin Store
+     * Admin
      *
-     * @return bool
+     * @return boolean
      */
     public function isAdmin()
     {
         /** @var \Magento\Framework\App\State $state */
-        $state = $this->objectManager->get('Magento\Framework\App\State');
+        $state = $this->_state;
 
         try {
             $areaCode = $state->getAreaCode();
@@ -264,9 +314,11 @@ class AbstractData extends AbstractHelper
     }
 
     /**
-     * @param $path
+     * Create Object
+     *
+     * @param string $path
      * @param array $arguments
-     * @return mixed
+     * @return object
      */
     public function createObject($path, $arguments = [])
     {
@@ -274,8 +326,10 @@ class AbstractData extends AbstractHelper
     }
 
     /**
-     * @param $path
-     * @return mixed
+     * Object
+     *
+     * @param string $path
+     * @return object
      */
     public function getObject($path)
     {

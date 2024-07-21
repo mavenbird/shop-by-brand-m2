@@ -29,11 +29,6 @@ use Magento\Framework\App\RouterInterface;
 use Magento\Framework\Url;
 use Mavenbird\Shopbybrand\Helper\Data as BrandHelper;
 
-/**
- * Class Router
- *
- * @package Mavenbird\Shopbybrand\Controller
- */
 class Router implements RouterInterface
 {
     /**

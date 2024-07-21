@@ -1,22 +1,21 @@
 <?php
 /**
- * Mavenbird
+ * Mavenbird Technologies Private Limited
  *
  * NOTICE OF LICENSE
  *
- * This source file is subject to the Mavenbird.com license that is
- * available through the world-wide-web at this URL:
- * https://www.Mavenbird.com/LICENSE.txt
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://mavenbird.com/Mavenbird-Module-License.txt
  *
- * DISCLAIMER
+ * =================================================================
  *
- * Do not edit or add to this file if you wish to upgrade this extension to newer
- * version in the future.
- *
- * @category    Mavenbird
- * @package     Mavenbird_Shopbybrand
- * @copyright   Copyright (c) Mavenbird (https://www.Mavenbird.com/)
- * @license     https://www.Mavenbird.com/LICENSE.txt
+ * @category   Mavenbird
+ * @package    Mavenbird_Shopbybrand
+ * @author     Mavenbird Team
+ * @copyright  Copyright (c) 2018-2024 Mavenbird Technologies Private Limited ( http://mavenbird.com )
+ * @license    http://mavenbird.com/Mavenbird-Module-License.txt
  */
 
 namespace Mavenbird\Shopbybrand\Model\Config\Source;
@@ -24,18 +23,18 @@ namespace Mavenbird\Shopbybrand\Model\Config\Source;
 use Magento\Cms\Model\BlockFactory;
 use Magento\Framework\Data\OptionSourceInterface;
 
-/**
- * Class StaticBlock
- * @package Mavenbird\Shopbybrand\Model\Config\Source
- */
 class StaticBlock implements OptionSourceInterface
 {
     /**
-     * @type BlockFactory
+     * Factory for block
+     *
+     * @var [type]
      */
     protected $_blockFactory;
 
     /**
+     * Construct
+     *
      * @param BlockFactory $blockFactory
      */
     public function __construct(BlockFactory $blockFactory)
@@ -44,7 +43,9 @@ class StaticBlock implements OptionSourceInterface
     }
 
     /**
-     * @return array
+     * Options Array
+     *
+     * @return void
      */
     public function toOptionArray()
     {
@@ -60,7 +61,9 @@ class StaticBlock implements OptionSourceInterface
     }
 
     /**
-     * @return array
+     * Get Option Array
+     *
+     * @return void
      */
     public function getOptionArray()
     {

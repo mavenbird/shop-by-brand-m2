@@ -29,24 +29,24 @@ use Magento\Framework\App\ResponseInterface;
 use Magento\Framework\Controller\ResultInterface;
 use Mavenbird\Shopbybrand\Helper\Data;
 
-/**
- * Class View
- * @package Mavenbird\Shopbybrand\Controller\Adminhtml\Attribute
- */
 class View extends Action
 {
     /**
-     * @type Data
+     * Helper
+     *
+     * @var [type]
      */
     protected $_brandHelper;
 
     /**
-     * @type Repository
+     * Repository for Product Attribute
+     *
+     * @var [type]
      */
     protected $_productAttributeRepository;
 
     /**
-     * View constructor.
+     * Constructor
      *
      * @param Context $context
      * @param Repository $productRepository
@@ -64,7 +64,9 @@ class View extends Action
     }
 
     /**
-     * @return ResponseInterface|ResultInterface|void
+     * Execute
+     *
+     * @return void
      */
     public function execute()
     {

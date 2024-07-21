@@ -1,22 +1,21 @@
 <?php
 /**
- * Mavenbird
+ * Mavenbird Technologies Private Limited
  *
  * NOTICE OF LICENSE
  *
- * This source file is subject to the Mavenbird.com license that is
- * available through the world-wide-web at this URL:
- * https://www.Mavenbird.com/LICENSE.txt
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://mavenbird.com/Mavenbird-Module-License.txt
  *
- * DISCLAIMER
+ * =================================================================
  *
- * Do not edit or add to this file if you wish to upgrade this extension to newer
- * version in the future.
- *
- * @category    Mavenbird
- * @package     Mavenbird_Shopbybrand
- * @copyright   Copyright (c) Mavenbird (https://www.Mavenbird.com/)
- * @license     https://www.Mavenbird.com/LICENSE.txt
+ * @category   Mavenbird
+ * @package    Mavenbird_Shopbybrand
+ * @author     Mavenbird Team
+ * @copyright  Copyright (c) 2018-2024 Mavenbird Technologies Private Limited ( http://mavenbird.com )
+ * @license    http://mavenbird.com/Mavenbird-Module-License.txt
  */
 
 namespace Mavenbird\Shopbybrand\Model;
@@ -35,60 +34,61 @@ use Mavenbird\Shopbybrand\Api\Data\BrandInterface;
 use Mavenbird\Shopbybrand\Helper\Data as Helper;
 use Zend_Db_Expr;
 
-/**
- * Class Brand
- * @package Mavenbird\Shopbybrand\Model
- */
 class Brand extends AbstractModel implements BrandInterface
 {
-    /**
-     * Cache tag
-     *
-     * @var string
-     */
-    const CACHE_TAG = 'mavenbird_shopbybrand_brand';
+    public const CACHE_TAG = 'mavenbird_shopbybrand_brand';
 
     /**
-     * Cache tag
+     * Cache tags
      *
      * @var string
      */
     protected $_cacheTag = 'mavenbird_shopbybrand_brand';
 
     /**
-     * Event prefix
+     * Events prefix
      *
      * @var string
      */
     protected $_eventPrefix = 'mavenbird_shopbybrand_brand';
 
     /**
-     * @type StoreManagerInterface
+     * Stores manager
+     *
+     * @var [type]
      */
     protected $_storeManager;
 
     /**
-     * @type Helper
+     * Data
+     *
+     * @var [type]
      */
     protected $helper;
 
     /**
-     * @type CollectionFactory
+     * Factory for attribute option collection
+     *
+     * @var [type]
      */
     protected $_attrOptionCollectionFactory;
 
     /**
-     * @var Registry
+     * Core Registry
+     *
+     * @var [type]
      */
     protected $registry;
 
     /**
-     * @var EavAttribute
+     * Eav Attributes
+     *
+     * @var [type]
      */
     protected $eavAttribute;
 
     /**
-     * Brand constructor.
+     * Constructor
      *
      * @param Context $context
      * @param Registry $registry
@@ -121,7 +121,7 @@ class Brand extends AbstractModel implements BrandInterface
     }
 
     /**
-     * Initialize resource model
+     * Construct
      *
      * @return void
      */
@@ -131,9 +131,9 @@ class Brand extends AbstractModel implements BrandInterface
     }
 
     /**
-     * Get identities
+     * Identities
      *
-     * @return array
+     * @return void
      */
     public function getIdentities()
     {
@@ -141,11 +141,12 @@ class Brand extends AbstractModel implements BrandInterface
     }
 
     /**
-     * @param null $storeId
-     * @param array|string $conditions
-     * @param null $sqlString
+     * Brand Collection
      *
-     * @return Collection
+     * @param [type] $storeId
+     * @param array $conditions
+     * @param [type] $sqlString
+     * @return void
      */
     public function getBrandCollection($storeId = null, $conditions = [], $sqlString = null)
     {
@@ -210,10 +211,11 @@ class Brand extends AbstractModel implements BrandInterface
     }
 
     /**
-     * @param $optionId
-     * @param null $store
+     * Load By Option
      *
-     * @return mixed
+     * @param [type] $optionId
+     * @param [type] $store
+     * @return void
      */
     public function loadByOption($optionId, $store = null)
     {
@@ -223,7 +225,9 @@ class Brand extends AbstractModel implements BrandInterface
     }
 
     /**
-     * @return int
+     * Option Id
+     *
+     * @return void
      */
     public function getOptionId()
     {
@@ -231,7 +235,9 @@ class Brand extends AbstractModel implements BrandInterface
     }
 
     /**
-     * @return mixed|string|null
+     * Page Title
+     *
+     * @return void
      */
     public function getPageTitle()
     {
@@ -239,7 +245,9 @@ class Brand extends AbstractModel implements BrandInterface
     }
 
     /**
-     * @return mixed|string|null
+     * Url Key
+     *
+     * @return void
      */
     public function getUrlKey()
     {
@@ -247,7 +255,9 @@ class Brand extends AbstractModel implements BrandInterface
     }
 
     /**
-     * @return mixed|string|null
+     * Image
+     *
+     * @return void
      */
     public function getImage()
     {
@@ -255,7 +265,9 @@ class Brand extends AbstractModel implements BrandInterface
     }
 
     /**
-     * @return mixed|string|null
+     * Short Description
+     *
+     * @return void
      */
     public function getShortDescription()
     {
@@ -263,7 +275,9 @@ class Brand extends AbstractModel implements BrandInterface
     }
 
     /**
-     * @return mixed|string|null
+     * Description
+     *
+     * @return void
      */
     public function getDescription()
     {
@@ -271,7 +285,9 @@ class Brand extends AbstractModel implements BrandInterface
     }
 
     /**
-     * @return int|mixed|null
+     * Is Featured
+     *
+     * @return void
      */
     public function getIsFeatured()
     {
@@ -279,7 +295,9 @@ class Brand extends AbstractModel implements BrandInterface
     }
 
     /**
-     * @return mixed|string|null
+     * Static Block
+     *
+     * @return void
      */
     public function getStaticBlock()
     {
@@ -287,7 +305,9 @@ class Brand extends AbstractModel implements BrandInterface
     }
 
     /**
-     * @return mixed|string|null
+     * Meta Title
+     *
+     * @return void
      */
     public function getMetaTitle()
     {
@@ -295,7 +315,9 @@ class Brand extends AbstractModel implements BrandInterface
     }
 
     /**
-     * @return mixed|string|null
+     * Meta Keywords
+     *
+     * @return void
      */
     public function getMetaKeywords()
     {
@@ -303,7 +325,9 @@ class Brand extends AbstractModel implements BrandInterface
     }
 
     /**
-     * @return mixed|string|null
+     * Meta Description
+     *
+     * @return void
      */
     public function getMetaDescription()
     {
@@ -311,10 +335,10 @@ class Brand extends AbstractModel implements BrandInterface
     }
 
     /**
+     * Set Option Id
      *
-     * @param int $id
-     *
-     * @return $this
+     * @param [type] $id
+     * @return void
      */
     public function setOptionId($id)
     {
@@ -322,9 +346,10 @@ class Brand extends AbstractModel implements BrandInterface
     }
 
     /**
-     * @param string $title
+     * Set Page Title
      *
-     * @return BrandInterface|Brand
+     * @param [type] $title
+     * @return void
      */
     public function setPageTitle($title)
     {
@@ -332,9 +357,10 @@ class Brand extends AbstractModel implements BrandInterface
     }
 
     /**
-     * @param string $image
+     * Set Image
      *
-     * @return BrandInterface|Brand
+     * @param [type] $image
+     * @return void
      */
     public function setImage($image)
     {
@@ -342,9 +368,10 @@ class Brand extends AbstractModel implements BrandInterface
     }
 
     /**
-     * @param string $value
+     * Set Description
      *
-     * @return BrandInterface|Brand
+     * @param [type] $value
+     * @return void
      */
     public function setDescription($value)
     {
@@ -352,9 +379,10 @@ class Brand extends AbstractModel implements BrandInterface
     }
 
     /**
-     * @param string $value
+     * Set Short Description
      *
-     * @return BrandInterface|Brand
+     * @param [type] $value
+     * @return void
      */
     public function setShortDescription($value)
     {
@@ -362,9 +390,10 @@ class Brand extends AbstractModel implements BrandInterface
     }
 
     /**
-     * @param int $value
+     * Set Is Featured
      *
-     * @return BrandInterface|Brand
+     * @param [type] $value
+     * @return void
      */
     public function setIsFeatured($value)
     {
@@ -372,9 +401,10 @@ class Brand extends AbstractModel implements BrandInterface
     }
 
     /**
-     * @param string $url
+     * Set Url Key
      *
-     * @return BrandInterface|Brand
+     * @param [type] $url
+     * @return void
      */
     public function setUrlKey($url)
     {
@@ -382,9 +412,10 @@ class Brand extends AbstractModel implements BrandInterface
     }
 
     /**
-     * @param string $value
+     * Set Static Block
      *
-     * @return BrandInterface|Brand
+     * @param [type] $value
+     * @return void
      */
     public function setStaticBlock($value)
     {
@@ -392,29 +423,32 @@ class Brand extends AbstractModel implements BrandInterface
     }
 
     /**
-     * @param string $value
+     * Set Meta Title
      *
-     * @return BrandInterface|Brand
+     * @param [type] $value
+     * @return void
      */
     public function setMetaTitle($value)
     {
         return $this->setData(self::META_TITLE, $value);
     }
 
-    /**
-     * @param string $value
-     *
-     * @return BrandInterface|Brand
-     */
+   /**
+    * Set Meta Description
+    *
+    * @param [type] $value
+    * @return void
+    */
     public function setMetaDescription($value)
     {
         return $this->setData(self::META_DESCRIPTION, $value);
     }
 
     /**
-     * @param string $value
+     * Set Meta Keywords
      *
-     * @return BrandInterface|Brand
+     * @param [type] $value
+     * @return void
      */
     public function setMetaKeywords($value)
     {
@@ -422,7 +456,7 @@ class Brand extends AbstractModel implements BrandInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getLabel()
     {
@@ -430,7 +464,7 @@ class Brand extends AbstractModel implements BrandInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getValue()
     {
@@ -438,7 +472,7 @@ class Brand extends AbstractModel implements BrandInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getSortOrder()
     {
@@ -446,7 +480,7 @@ class Brand extends AbstractModel implements BrandInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getIsDefault()
     {
@@ -454,7 +488,7 @@ class Brand extends AbstractModel implements BrandInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getStoreLabels()
     {
@@ -464,9 +498,8 @@ class Brand extends AbstractModel implements BrandInterface
     /**
      * Set option label
      *
-     * @param string $label
-     *
-     * @return $this
+     * @param [type] $label
+     * @return void
      */
     public function setLabel($label)
     {
@@ -476,9 +509,8 @@ class Brand extends AbstractModel implements BrandInterface
     /**
      * Set option value
      *
-     * @param string $value
-     *
-     * @return string
+     * @param [type] $value
+     * @return void
      */
     public function setValue($value)
     {
@@ -486,11 +518,10 @@ class Brand extends AbstractModel implements BrandInterface
     }
 
     /**
-     * Set option order
+     * Set sort order
      *
-     * @param int $sortOrder
-     *
-     * @return $this
+     * @param [type] $sortOrder
+     * @return void
      */
     public function setSortOrder($sortOrder)
     {
@@ -498,11 +529,10 @@ class Brand extends AbstractModel implements BrandInterface
     }
 
     /**
-     * set is default
+     * Set is default
      *
-     * @param bool $isDefault
-     *
-     * @return $this
+     * @param [type] $isDefault
+     * @return void
      */
     public function setIsDefault($isDefault)
     {
@@ -510,11 +540,10 @@ class Brand extends AbstractModel implements BrandInterface
     }
 
     /**
-     * Set option label for store scopes
+     * Set store labels
      *
-     * @param AttributeOptionLabelInterface[] $storeLabels
-     *
-     * @return $this
+     * @param array|null $storeLabels
+     * @return void
      */
     public function setStoreLabels(array $storeLabels = null)
     {

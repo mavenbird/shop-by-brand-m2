@@ -32,30 +32,31 @@ use Magento\Framework\Registry;
 use Magento\Store\Model\System\Store;
 use Mavenbird\Shopbybrand\Model\Config\Source\MetaRobots;
 
-/**
- * Class Category
- *
- * @package Mavenbird\Shopbybrand\Block\Adminhtml\Category\Edit\Tab
- */
 class Category extends Generic implements TabInterface
 {
     /**
-     * @var Store
+     * Store
+     *
+     * @var [type]
      */
     protected $_systemStore;
 
     /**
-     * @var Enabledisable
+     * Bool Options
+     *
+     * @var [type]
      */
     protected $_booleanOptions;
 
     /**
-     * @var MetaRobots
+     * Robot Options
+     *
+     * @var [type]
      */
     protected $metaRobotsOptions;
 
     /**
-     * Category constructor.
+     * Constructor
      *
      * @param MetaRobots $metaRobotsOptions
      * @param Enabledisable $booleanOptions
@@ -82,8 +83,9 @@ class Category extends Generic implements TabInterface
     }
 
     /**
-     * @return Generic
-     * @throws LocalizedException
+     * Prepare Form
+     *
+     * @return void
      */
     protected function _prepareForm()
     {
@@ -181,7 +183,7 @@ class Category extends Generic implements TabInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function canShowTab()
     {
@@ -189,7 +191,7 @@ class Category extends Generic implements TabInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function isHidden()
     {

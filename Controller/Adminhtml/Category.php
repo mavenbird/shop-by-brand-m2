@@ -23,14 +23,7 @@ namespace Mavenbird\Shopbybrand\Controller\Adminhtml;
 
 use Magento\Backend\App\Action;
 
-/**
- * Class Category
- * @package Mavenbird\Shopbybrand\Controller\Adminhtml
- */
 abstract class Category extends Action
 {
-    /**
-     * Authorization level of a basic admin session
-     */
-    const ADMIN_RESOURCE = 'Mavenbird_Shopbybrand::categories';
+    public const ADMIN_RESOURCE = 'Mavenbird_Shopbybrand::categories';
 }

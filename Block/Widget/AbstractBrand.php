@@ -1,22 +1,21 @@
 <?php
 /**
- * Mavenbird
+ * Mavenbird Technologies Private Limited
  *
  * NOTICE OF LICENSE
  *
- * This source file is subject to the Mavenbird.com license that is
- * available through the world-wide-web at this URL:
- * https://www.Mavenbird.com/LICENSE.txt
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://mavenbird.com/Mavenbird-Module-License.txt
  *
- * DISCLAIMER
+ * =================================================================
  *
- * Do not edit or add to this file if you wish to upgrade this extension to newer
- * version in the future.
- *
- * @category    Mavenbird
- * @package     Mavenbird_Shopbybrand
- * @copyright   Copyright (c) Mavenbird (https://www.Mavenbird.com/)
- * @license     https://www.Mavenbird.com/LICENSE.txt
+ * @category   Mavenbird
+ * @package    Mavenbird_Shopbybrand
+ * @author     Mavenbird Team
+ * @copyright  Copyright (c) 2018-2024 Mavenbird Technologies Private Limited ( http://mavenbird.com )
+ * @license    http://mavenbird.com/Mavenbird-Module-License.txt
  */
 
 namespace Mavenbird\Shopbybrand\Block\Widget;
@@ -26,20 +25,17 @@ use Magento\Framework\View\Element\Template\Context;
 use Magento\Widget\Block\BlockInterface;
 use Mavenbird\Shopbybrand\Helper\Data as Helper;
 
-/**
- * Class AbstractBrand
- *
- * @package Mavenbird\Shopbybrand\Block\Brand
- */
 class AbstractBrand extends Template implements BlockInterface
 {
     /**
-     * @type Helper
+     * Data
+     *
+     * @var [type]
      */
     protected $helper;
 
     /**
-     * AbstractBrand constructor.
+     * Constructor
      *
      * @param Context $context
      * @param Helper $helper
@@ -54,7 +50,9 @@ class AbstractBrand extends Template implements BlockInterface
     }
 
     /**
-     * @return string
+     * Include Css Lib
+     *
+     * @return void
      */
     public function includeCssLib()
     {
@@ -70,7 +68,9 @@ class AbstractBrand extends Template implements BlockInterface
     }
 
     /**
-     * @return Helper
+     * Helper
+     *
+     * @return void
      */
     public function helper()
     {
@@ -78,7 +78,9 @@ class AbstractBrand extends Template implements BlockInterface
     }
 
     /**
-     * @return mixed
+     * Title
+     *
+     * @return void
      */
     public function getTitle()
     {

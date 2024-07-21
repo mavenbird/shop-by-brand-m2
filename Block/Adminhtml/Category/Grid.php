@@ -30,29 +30,31 @@ use Magento\Framework\DataObject;
 use Magento\Store\Model\System\Store;
 use Mavenbird\Shopbybrand\Model\ResourceModel\Category\Collection;
 
-/**
- * Class Grid
- * @package Mavenbird\Shopbybrand\Block\Adminhtml\Category
- */
 class Grid extends Extended
 {
     /**
-     * @var Collection
+     * Factory for Collection
+     *
+     * @var [type]
      */
     protected $_collectionFactory;
 
     /**
-     * @var Enabledisable
+     * Bool Options
+     *
+     * @var [type]
      */
     protected $_booleanOptions;
 
     /**
-     * @var Store
+     * Store
+     *
+     * @var [type]
      */
     protected $_systemStore;
 
     /**
-     * Grid constructor.
+     * Constructor
      *
      * @param Context $context
      * @param Data $backendHelper
@@ -91,7 +93,9 @@ class Grid extends Extended
     }
 
     /**
-     * @return $this
+     * Prepare Collection
+     *
+     * @return void
      */
     protected function _prepareCollection()
     {
@@ -174,8 +178,11 @@ class Grid extends Extended
     }
 
     /**
-     * @param $collection
+     * Filter Store Condition
+     *
+     * @param [type] $collection
      * @param DataObject $column
+     * @return void
      */
     protected function _filterStoreCondition($collection, DataObject $column)
     {
@@ -187,7 +194,7 @@ class Grid extends Extended
     }
 
     /**
-     * Get option hash
+     * Get Status Option
      *
      * @return array
      */
@@ -202,7 +209,9 @@ class Grid extends Extended
     }
 
     /**
-     * @return $this
+     * Prepare Mass Action
+     *
+     * @return void
      */
     protected function _prepareMassaction()
     {
@@ -219,7 +228,9 @@ class Grid extends Extended
     }
 
     /**
-     * @return string
+     * Grid Url
+     *
+     * @return void
      */
     public function getGridUrl()
     {
@@ -227,9 +238,10 @@ class Grid extends Extended
     }
 
     /**
-     * @param Product|Object $row
+     * Row Url
      *
-     * @return string
+     * @param [type] $row
+     * @return void
      */
     public function getRowUrl($row)
     {

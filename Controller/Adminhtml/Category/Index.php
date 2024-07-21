@@ -26,23 +26,25 @@ use Magento\Framework\View\Result\Page;
 use Magento\Framework\View\Result\PageFactory;
 use Mavenbird\Shopbybrand\Controller\Adminhtml\Category;
 
-/**
- * Class Index
- * @package Mavenbird\LayeredNavigationUltimate\Controller\Adminhtml\ProductsPage
- */
 class Index extends Category
 {
     /**
-     * @var PageFactory
+     * Factory for Result Page
+     *
+     * @var [type]
      */
     protected $resultPageFactory;
 
     /**
-     * @var \Magento\Backend\Model\View\Result\Page
+     * Result pages
+     *
+     * @var [type]
      */
     protected $resultPage;
 
     /**
+     * Construct
+     *
      * @param Context $context
      * @param PageFactory $resultPageFactory
      */
@@ -56,7 +58,9 @@ class Index extends Category
     }
 
     /**
-     * @return \Magento\Backend\Model\View\Result\Page|Page
+     * Execute
+     *
+     * @return void
      */
     public function execute()
     {

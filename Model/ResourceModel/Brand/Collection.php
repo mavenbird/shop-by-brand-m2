@@ -1,22 +1,21 @@
 <?php
 /**
- * Mavenbird
+ * Mavenbird Technologies Private Limited
  *
  * NOTICE OF LICENSE
  *
- * This source file is subject to the Mavenbird.com license that is
- * available through the world-wide-web at this URL:
- * https://www.Mavenbird.com/LICENSE.txt
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://mavenbird.com/Mavenbird-Module-License.txt
  *
- * DISCLAIMER
+ * =================================================================
  *
- * Do not edit or add to this file if you wish to upgrade this extension to newer
- * version in the future.
- *
- * @category    Mavenbird
- * @package     Mavenbird_Shopbybrand
- * @copyright   Copyright (c) Mavenbird (https://www.Mavenbird.com/)
- * @license     https://www.Mavenbird.com/LICENSE.txt
+ * @category   Mavenbird
+ * @package    Mavenbird_Shopbybrand
+ * @author     Mavenbird Team
+ * @copyright  Copyright (c) 2018-2024 Mavenbird Technologies Private Limited ( http://mavenbird.com )
+ * @license    http://mavenbird.com/Mavenbird-Module-License.txt
  */
 
 namespace Mavenbird\Shopbybrand\Model\ResourceModel\Brand;
@@ -24,37 +23,32 @@ namespace Mavenbird\Shopbybrand\Model\ResourceModel\Brand;
 use Magento\Framework\DB\Select;
 use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
 use Mavenbird\Shopbybrand\Model\ResourceModel\Brand;
-use Zend_Db_Select;
 
-/**
- * Class Collection
- * @package Mavenbird\Shopbybrand\Model\ResourceModel\Brand
- */
 class Collection extends AbstractCollection
 {
     /**
-     * ID Field Name
+     * ID Fields Name
      *
      * @var string
      */
     protected $_idFieldName = 'brand_id';
 
     /**
-     * Event prefix
+     * Events prefix
      *
      * @var string
      */
     protected $_eventPrefix = 'mavenbird_shopbybrand_brand_collection';
 
     /**
-     * Event object
+     * Events object
      *
      * @var string
      */
     protected $_eventObject = 'brand_collection';
 
     /**
-     * Define resource model
+     * Construct
      *
      * @return void
      */
@@ -64,25 +58,25 @@ class Collection extends AbstractCollection
     }
 
     /**
-     * Get SQL for get record count.
-     * Extra GROUP BY strip added.
+     * Selecet Count SQL
      *
-     * @return Select
+     * @return void
      */
     public function getSelectCountSql()
     {
         $countSelect = parent::getSelectCountSql();
-        $countSelect->reset(Zend_Db_Select::GROUP);
+        $countSelect->reset(Select::GROUP);
 
         return $countSelect;
     }
 
     /**
-     * @param string $valueField
+     * Option Array
+     *
+     * @param [type] $valueField
      * @param string $labelField
      * @param array $additional
-     *
-     * @return array
+     * @return void
      */
     protected function _toOptionArray($valueField = null, $labelField = 'name', $additional = [])
     {

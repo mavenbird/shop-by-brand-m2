@@ -1,30 +1,25 @@
 <?php
 /**
- * Mavenbird
+ * Mavenbird Technologies Private Limited
  *
  * NOTICE OF LICENSE
  *
- * This source file is subject to the Mavenbird.com license that is
- * available through the world-wide-web at this URL:
- * https://www.Mavenbird.com/LICENSE.txt
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://mavenbird.com/Mavenbird-Module-License.txt
  *
- * DISCLAIMER
+ * =================================================================
  *
- * Do not edit or add to this file if you wish to upgrade this extension to newer
- * version in the future.
- *
- * @category    Mavenbird
- * @package     Mavenbird_Shopbybrand
- * @copyright   Copyright (c) Mavenbird (https://www.Mavenbird.com/)
- * @license     https://www.Mavenbird.com/LICENSE.txt
+ * @category   Mavenbird
+ * @package    Mavenbird_Shopbybrand
+ * @author     Mavenbird Team
+ * @copyright  Copyright (c) 2018-2024 Mavenbird Technologies Private Limited ( http://mavenbird.com )
+ * @license    http://mavenbird.com/Mavenbird-Module-License.txt
  */
 
 namespace Mavenbird\Shopbybrand\Api;
 
-/**
- * Class BrandRepositoryInterface
- * @package Mavenbird\Shopbybrand\Api
- */
 interface BrandRepositoryInterface
 {
     /**
@@ -42,128 +37,110 @@ interface BrandRepositoryInterface
     public function getFeatureBrand();
 
     /**
-     * @param string $name
+     * Brand By Name
      *
-     * @return \Mavenbird\Shopbybrand\Api\Data\BrandInterface[]
+     * @param [type] $name
+     * @return void
      */
     public function getBrandByName($name);
 
     /**
-     * @param string $optionId
+     * Product List
      *
-     * @return \Magento\Catalog\Api\Data\ProductInterface[]
+     * @param [type] $optionId
+     * @return void
      */
     public function getProductList($optionId);
 
     /**
-     * @param string $sku
-     * @param int|null $storeId
+     * Brand By Sku
      *
-     * @return \Mavenbird\Shopbybrand\Api\Data\BrandInterface
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     * @param [type] $sku
+     * @param [type] $storeId
+     * @return void
      */
     public function getBrandBySku($sku, $storeId = null);
 
     /**
-     * @param string $optionId
-     * @param string $sku
-     * @param int|null $storeId
+     * Set Product
      *
-     * @return \Magento\Catalog\Api\Data\ProductInterface
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
-     * @throws \Magento\Framework\Exception\InputException
-     * @throws \Magento\Framework\Exception\StateException
-     * @throws \Magento\Framework\Exception\CouldNotSaveException
+     * @param [type] $optionId
+     * @param [type] $sku
+     * @param [type] $storeId
+     * @return void
      */
     public function setProduct($optionId, $sku, $storeId = null);
 
     /**
-     * @param string $sku
+     * Delete Product
      *
-     * @return bool Will returned True if deleted
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
-     * @throws \Magento\Framework\Exception\InputException
-     * @throws \Magento\Framework\Exception\StateException
-     * @throws \Magento\Framework\Exception\CouldNotSaveException
+     * @param [type] $sku
+     * @return void
      */
     public function deleteProduct($sku);
 
     /**
-     * Add option to brand
+     * Add
      *
-     * @param \Mavenbird\Shopbybrand\Api\Data\BrandInterface $option
-     *
-     * @return bool
-     * @throws \Magento\Framework\Exception\StateException
-     * @throws \Magento\Framework\Exception\InputException
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     * @param [type] $option
+     * @return void
      */
     public function add($option);
 
     /**
-     * @param string $optionId
-     * @param \Mavenbird\Shopbybrand\Api\Data\BrandInterface $option
+     * Update
      *
-     * @return bool
-     * @throws \Magento\Framework\Exception\StateException
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
-     * @throws \Magento\Framework\Exception\InputException
+     * @param [type] $optionId
+     * @param [type] $option
+     * @return void
      */
     public function update($optionId, $option);
 
     /**
-     * Delete option from brand
+     * Delete
      *
-     * @param string $optionId
-     *
-     * @return bool
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
-     * @throws \Magento\Framework\Exception\InputException
-     * @throws \Magento\Framework\Exception\StateException
+     * @param [type] $optionId
+     * @return void
      */
     public function delete($optionId);
 
     /**
-     * @return \Mavenbird\Shopbybrand\Api\Data\BrandCategoryInterface[]
+     * Category
+     *
+     * @return void
      */
     public function getCategory();
 
     /**
-     * @param string $categoryId
+     * Category By Id
      *
-     * @return \Mavenbird\Shopbybrand\Api\Data\BrandCategoryInterface
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     * @param [type] $categoryId
+     * @return void
      */
     public function getCategoryById($categoryId);
 
     /**
-     * @param \Mavenbird\Shopbybrand\Api\Data\BrandCategoryInterface $category
+     * Add Category
      *
-     * @return \Mavenbird\Shopbybrand\Api\Data\BrandCategoryInterface
-     * @throws \Magento\Framework\Exception\StateException
-     * @throws \Magento\Framework\Exception\InputException
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     * @param [type] $category
+     * @return void
      */
     public function addCategory($category);
 
     /**
-     * @param string $categoryId
-     * @param \Mavenbird\Shopbybrand\Api\Data\BrandCategoryInterface $category
+     * Update Category
      *
-     * @return \Mavenbird\Shopbybrand\Api\Data\BrandCategoryInterface
-     * @throws \Magento\Framework\Exception\StateException
-     * @throws \Magento\Framework\Exception\InputException
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     * @param [type] $categoryId
+     * @param [type] $category
+     * @return void
      */
     public function updateCategory($categoryId, $category);
 
     /**
-     * @param string $categoryId
+     * Delete Category
      *
-     * @return bool
-     * @throws \Magento\Framework\Exception\StateException
-     * @throws \Magento\Framework\Exception\InputException
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     * @param [type] $categoryId
+     * @return void
      */
     public function deleteCategory($categoryId);
 }

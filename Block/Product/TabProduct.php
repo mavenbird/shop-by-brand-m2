@@ -33,43 +33,41 @@ use Magento\Framework\Data\Helper\PostHelper;
 use Magento\Framework\Url\Helper\Data;
 use Mavenbird\Shopbybrand\Helper\Data as Helper;
 
-/**
- * Class TabProduct
- * @package Mavenbird\Shopbybrand\Block\Product
- */
 class TabProduct extends ListProduct
 {
-    /**
-     * Default related product page title
-     */
-    const TITLE = 'Products from the same brand';
-    /**
-     * Default limit related products
-     */
-    const LIMIT = 5;
+    public const TITLE = 'Products from the same brand';
+    public const LIMIT = 5;
 
     /**
-     * @var Helper
+     * Data
+     *
+     * @var [type]
      */
     protected $_helper;
 
     /**
-     * @var Visibility
+     * Visible Product
+     *
+     * @var [type]
      */
     protected $visibleProducts;
 
     /**
-     * @var CollectionFactory
+     * Factory for Product Collection
+     *
+     * @var [type]
      */
     protected $_productCollectionFactory;
 
     /**
-     * @var Collection
+     * Brand Products Collections
+     *
+     * @var [type]
      */
     protected $brandProductCollection;
 
     /**
-     * TabProduct constructor.
+     * Constructor
      *
      * @param Context $context
      * @param PostHelper $postDataHelper
@@ -103,7 +101,9 @@ class TabProduct extends ListProduct
     }
 
     /**
-     * set Tab Name
+     * Tab Title
+     *
+     * @return void
      */
     public function setTabTitle()
     {
@@ -113,8 +113,9 @@ class TabProduct extends ListProduct
     }
 
     /**
-     * @return mixed
-     * get ProductCollection in same brand ( filter by Attribute Option_Id )
+     * Product Collection
+     *
+     * @return void
      */
     protected function _getProductCollection()
     {
@@ -144,7 +145,9 @@ class TabProduct extends ListProduct
     }
 
     /**
-     * @return mixed|string
+     * Related Title
+     *
+     * @return void
      */
     public function getRelatedTitle()
     {
@@ -154,7 +157,9 @@ class TabProduct extends ListProduct
     }
 
     /**
-     * @return mixed|string
+     * Limit Product Config
+     *
+     * @return void
      */
     public function getLimitProductConfig()
     {
@@ -162,7 +167,9 @@ class TabProduct extends ListProduct
     }
 
     /**
-     * @return null
+     * Toolbar Html
+     *
+     * @return void
      */
     public function getToolbarHtml()
     {
@@ -170,7 +177,9 @@ class TabProduct extends ListProduct
     }
 
     /**
-     * @return null
+     * Additional Html
+     *
+     * @return void
      */
     public function getAdditionalHtml()
     {
@@ -178,7 +187,9 @@ class TabProduct extends ListProduct
     }
 
     /**
-     * @return bool
+     * Enabled
+     *
+     * @return boolean
      */
     public function isEnabled()
     {

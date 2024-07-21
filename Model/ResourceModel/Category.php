@@ -1,22 +1,21 @@
 <?php
 /**
- * Mavenbird
+ * Mavenbird Technologies Private Limited
  *
  * NOTICE OF LICENSE
  *
- * This source file is subject to the Mavenbird.com license that is
- * available through the world-wide-web at this URL:
- * https://www.Mavenbird.com/LICENSE.txt
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://mavenbird.com/Mavenbird-Module-License.txt
  *
- * DISCLAIMER
+ * =================================================================
  *
- * Do not edit or add to this file if you wish to upgrade this extension to newer
- * version in the future.
- *
- * @category    Mavenbird
- * @package     Mavenbird_Shopbybrand
- * @copyright   Copyright (c) Mavenbird (https://www.Mavenbird.com/)
- * @license     https://www.Mavenbird.com/LICENSE.txt
+ * @category   Mavenbird
+ * @package    Mavenbird_Shopbybrand
+ * @author     Mavenbird Team
+ * @copyright  Copyright (c) 2018-2024 Mavenbird Technologies Private Limited ( http://mavenbird.com )
+ * @license    http://mavenbird.com/Mavenbird-Module-License.txt
  */
 
 namespace Mavenbird\Shopbybrand\Model\ResourceModel;
@@ -29,29 +28,31 @@ use Magento\Framework\Stdlib\DateTime\DateTime;
 use Mavenbird\Shopbybrand\Controller\Adminhtml\Category\Save;
 use Mavenbird\Shopbybrand\Helper\Data;
 
-/**
- * Class Category
- * @package Mavenbird\Shopbybrand\Model\ResourceModel
- */
 class Category extends AbstractDb
 {
     /**
-     * @var Data
+     * Hepler
+     *
+     * @var [type]
      */
     protected $helperData;
 
     /**
-     * @var DateTime
+     * Dates
+     *
+     * @var [type]
      */
     protected $date;
 
     /**
-     * @var Save
+     * Forms Data
+     *
+     * @var [type]
      */
     protected $formData;
 
     /**
-     * Category constructor.
+     * Constructor
      *
      * @param Data $helperData
      * @param DateTime $date
@@ -72,7 +73,7 @@ class Category extends AbstractDb
     }
 
     /**
-     * Initialize resource
+     * Construct
      *
      * @return void
      */
@@ -82,10 +83,10 @@ class Category extends AbstractDb
     }
 
     /**
-     * @param AbstractModel $object
+     * Before Save
      *
-     * @return $this|AbstractDb
-     * @throws LocalizedException
+     * @param AbstractModel $object
+     * @return void
      */
     protected function _beforeSave(AbstractModel $object)
     {
@@ -188,12 +189,11 @@ class Category extends AbstractDb
     }
 
     /**
-     * Auto Generate Url Key function ( depends on Category Name if leave UrlKey empty )
+     * Generate Url Key
      *
-     * @param $name
-     * @param $count
-     *
-     * @return string
+     * @param [type] $name
+     * @param [type] $count
+     * @return void
      */
     public function generateUrlKey($name, $count)
     {
@@ -201,13 +201,11 @@ class Category extends AbstractDb
     }
 
     /**
-     * Check Url Key function to avoid duplicate
+     * Check Url Key
      *
-     * @param string $url
-     * @param null $id
-     *
-     * @return string
-     * @throws LocalizedException
+     * @param [type] $url
+     * @param [type] $id
+     * @return void
      */
     public function checkUrlKey($url, $id = null)
     {

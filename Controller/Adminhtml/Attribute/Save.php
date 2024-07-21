@@ -33,40 +33,45 @@ use Magento\Store\Model\Store;
 use Mavenbird\Shopbybrand\Helper\Data as BrandHelper;
 use Mavenbird\Shopbybrand\Model\BrandFactory;
 
-/**
- * Class Save
- * @package Mavenbird\Shopbybrand\Controller\Adminhtml\Attribute
- */
 class Save extends Action
 {
-
     /**
-     * @type BrandFactory
+     * Factory for Brand
+     *
+     * @var [type]
      */
     protected $_brandFactory;
 
     /**
-     * @type Filesystem
+     * File
+     *
+     * @var [type]
      */
     protected $_fileSystem;
 
     /**
-     * @var AdapterFactory
+     * Factory for Image
+     *
+     * @var [type]
      */
     protected $_imageFactory;
 
     /**
-     * @type PageFactory
+     * Factory for Result Page
+     *
+     * @var [type]
      */
     protected $_resultPageFactory;
 
     /**
-     * @var BrandHelper
+     * Helper
+     *
+     * @var [type]
      */
     protected $_brandHelper;
 
     /**
-     * Save constructor.
+     * Constructor
      *
      * @param Context $context
      * @param BrandHelper $brandHelper
@@ -93,7 +98,9 @@ class Save extends Action
     }
 
     /**
-     * execute
+     * Execute
+     *
+     * @return void
      */
     public function execute()
     {
@@ -136,10 +143,11 @@ class Save extends Action
     }
 
     /**
-     * @param $data
-     * @param $result
+     * Upload Image
      *
-     * @return $this
+     * @param [type] $data
+     * @param [type] $result
+     * @return void
      */
     protected function _uploadImage(&$data, &$result)
     {
@@ -174,11 +182,12 @@ class Save extends Action
     }
 
     /**
-     * @param $image
-     * @param null $width
-     * @param null $height
+     * Resize Image
      *
-     * @throws Exception
+     * @param [type] $image
+     * @param [type] $width
+     * @param [type] $height
+     * @return void
      */
     public function resizeImage($image, $width = null, $height = null)
     {

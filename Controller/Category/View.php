@@ -33,45 +33,52 @@ use Mavenbird\Shopbybrand\Helper\Data;
 use Mavenbird\Shopbybrand\Model\CategoryFactory as BrandCategoryModelFactory;
 use Mavenbird\Shopbybrand\Model\ResourceModel\Category as BrandCategoryResourceModel;
 
-/**
- * Class View
- *
- * @package Mavenbird\Shopbybrand\Controller\Category
- */
 class View extends Action
 {
     /**
-     * @type PageFactory
+     * Factory for Result Page
+     *
+     * @var [type]
      */
     protected $resultPageFactory;
 
     /**
-     * @var ForwardFactory
+     * Factory for Forward Result
+     *
+     * @var [type]
      */
     protected $resultForwardFactory;
 
     /**
-     * @type Data
+     * Data
+     *
+     * @var [type]
      */
     protected $helper;
 
     /**
-     * @var BrandCategoryModel
+     * Factory for Category
+     *
+     * @var [type]
      */
     protected $categoryFactory;
 
     /**
-     * @var BrandCategoryResourceModel
+     * Resource categories
+     *
+     * @var [type]
      */
     protected $categoryResource;
 
     /**
-     * @var Registry
+     * Registry
+     *
+     * @var [type]
      */
     private $coreRegistry;
 
     /**
-     * View constructor.
+     * Constructor
      *
      * @param Context $context
      * @param ForwardFactory $resultForwardFactory
@@ -101,7 +108,9 @@ class View extends Action
     }
 
     /**
-     * @return $this|ResponseInterface|ResultInterface|Page
+     * Execute
+     *
+     * @return void
      */
     public function execute()
     {

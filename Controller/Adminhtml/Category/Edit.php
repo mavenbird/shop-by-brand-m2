@@ -32,39 +32,45 @@ use Mavenbird\Shopbybrand\Controller\Adminhtml\Category;
 use Mavenbird\Shopbybrand\Helper\Data as HelperData;
 use Mavenbird\Shopbybrand\Model\CategoryFactory;
 
-/**
- * Class Edit
- * @package Mavenbird\Shopbybrand\Controller\Adminhtml\Category
- */
 class Edit extends Category
 {
     /**
-     * @var HelperData
+     * Data
+     *
+     * @var [type]
      */
     protected $helper;
 
     /**
-     * @var PageFactory
+     * Factory for Result Page
+     *
+     * @var [type]
      */
     protected $resultPageFactory;
 
     /**
-     * @var CategoryFactory
+     * Factory for Category
+     *
+     * @var [type]
      */
     protected $categoryFactory;
 
     /**
-     * @var Registry
+     * Core registry
+     *
+     * @var [type]
      */
     protected $registry;
 
     /**
-     * @var Data
+     * Helper
+     *
+     * @var [type]
      */
     protected $jsonHelper;
 
     /**
-     * Edit constructor.
+     * Constructor
      *
      * @param HelperData $data
      * @param Data $jsonHelper
@@ -91,7 +97,9 @@ class Edit extends Category
     }
 
     /**
-     * @return ResponseInterface|ResultInterface|Page
+     * Execute
+     *
+     * @return void
      */
     public function execute()
     {

@@ -37,34 +37,38 @@ use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\Url\Helper\Data as UrlHelper;
 use Mavenbird\Shopbybrand\Helper\Data as BrandHelper;
 
-/**
- * Class RelatedProduct
- * @package Mavenbird\Shopbybrand\Block\Product
- */
 class RelatedProduct extends ListProduct
 {
     /**
-     * @var BrandHelper
+     * Data
+     *
+     * @var [type]
      */
     protected $_helper;
 
     /**
-     * @var ProductCollectionFactory
+     * Factory for Collection Product
+     *
+     * @var [type]
      */
     protected $_productCollectionFactory;
 
     /**
-     * @var Visibility
+     * Visible Product
+     *
+     * @var [type]
      */
     protected $visibleProducts;
 
     /**
-     * @var ProductRepositoryInterface
+     * Repository of Product
+     *
+     * @var [type]
      */
     protected $productRepository;
 
     /**
-     * RelatedProduct constructor.
+     * Constructor
      *
      * @param Context $context
      * @param PostHelper $postDataHelper
@@ -98,8 +102,9 @@ class RelatedProduct extends ListProduct
     }
 
     /**
-     * @return Collection|AbstractCollection|AbstractDb|null
-     * @throws NoSuchEntityException
+     * Product Collection
+     *
+     * @return void
      */
     protected function _getProductCollection()
     {
