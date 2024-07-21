@@ -59,7 +59,6 @@ php bin/magento cache:flush
 
 Tailor the brand management process to match your store's specific requirements with customizable options for brand pages, sliders, and error handling.
 
-*Configure at Your Ease*
 ![img1](./doc/images/1.png)
 
 ## Support:
