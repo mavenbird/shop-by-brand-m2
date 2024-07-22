@@ -1,34 +1,35 @@
 <?php
 /**
- * Mavenbird Technologies Private Limited
+ * Mavenbird
  *
  * NOTICE OF LICENSE
  *
- * This source file is subject to the EULA
- * that is bundled with this package in the file LICENSE.txt.
- * It is also available through the world-wide-web at this URL:
- * http://mavenbird.com/Mavenbird-Module-License.txt
+ * This source file is subject to the Mavenbird.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.Mavenbird.com/LICENSE.txt
  *
- * =================================================================
+ * DISCLAIMER
  *
- * @category   Mavenbird
- * @package    Mavenbird_Shopbybrand
- * @author     Mavenbird Team
- * @copyright  Copyright (c) 2018-2024 Mavenbird Technologies Private Limited ( http://mavenbird.com )
- * @license    http://mavenbird.com/Mavenbird-Module-License.txt
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mavenbird
+ * @package     Mavenbird_Shopbybrand
+ * @copyright   Copyright (c) Mavenbird (https://www.Mavenbird.com/)
+ * @license     https://www.Mavenbird.com/LICENSE.txt
  */
 
 namespace Mavenbird\Shopbybrand\Plugin\Model;
 
 use Magento\Framework\App\RequestInterface;
+use Magento\Framework\ObjectManagerInterface;
 use Mavenbird\Shopbybrand\Helper\Data;
-use Mavenbird\Shopbybrand\Model\Layer\Filter\Attribute;
-use Magento\Catalog\Model\Layer\FilterList as Subject;
+use Mavenbird\Shopbybrand\Model\Layer\Filter\Attribute; 
 
 class FilterList
 {
     /**
-     * Data
+     * Data helper
      *
      * @var [type]
      */
@@ -42,27 +43,27 @@ class FilterList
     protected $request;
 
     /**
-     * Attributes Filter
+     * Objects manager
      *
      * @var [type]
      */
-    protected $attributeFilter;
+    protected $objectManager;
 
     /**
-     * Construct
+     * Constructor
      *
+     * @param ObjectManagerInterface $objectManager
      * @param RequestInterface $request
      * @param Data $helper
-     * @param Attribute $attributeFilter
      */
     public function __construct(
+        ObjectManagerInterface $objectManager,
         RequestInterface $request,
-        Data $helper,
-        Attribute $attributeFilter
+        Data $helper
     ) {
+        $this->objectManager = $objectManager;
         $this->helper        = $helper;
         $this->request       = $request;
-        $this->attributeFilter = $attributeFilter;
     }
 
     /**
@@ -81,9 +82,10 @@ class FilterList
         $brandAttCode = $this->helper->getAttributeCode();
         foreach ($result as $key => $filter) {
             if ($filter->getRequestVar() === $brandAttCode) {
-                $filterBrand  = clone $this->attributeFilter;
-                $filterBrand->setData('attribute_model', $filter->getAttributeModel());
-                $filterBrand->setLayer($filter->getLayer());
+                $filterBrand  = $this->objectManager->create(
+                    Attribute::class,
+                    ['data' => ['attribute_model' => $filter->getAttributeModel()], 'layer' => $filter->getLayer()]
+                );
                 $result[$key] = $filterBrand;
                 break;
             }
