@@ -64,6 +64,11 @@ Tailor the brand management process to match your store's specific requirements 
 ![img3](./doc/images/3.png)
 ![img4](./doc/images/4.png)
 ![img5](./doc/images/5.png)
+![img6](./doc/images/6.png)
+![img7](./doc/images/7.png)
+![img8](./doc/images/8.png)
+![img9](./doc/images/9.png)
+![img10](./doc/images/10.png)
 
 ## Support:
 Dedicated support team available to assist with installation, customization, and any other queries or concerns.
