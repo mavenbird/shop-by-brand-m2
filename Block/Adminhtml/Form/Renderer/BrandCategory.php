@@ -145,7 +145,7 @@ class BrandCategory extends Element
             $collection = $this->brandCategoryFactory->create()->getCollection();
             $collection->getSelect()
                 ->joinInner(
-                    ['at' => $collection->getTable('Mavenbird_shopbybrand_brand_category')],
+                    ['at' => $collection->getTable('mavenbird_shopbybrand_brand_category')],
                     'main_table.cat_id = at.cat_id'
                 );
 
