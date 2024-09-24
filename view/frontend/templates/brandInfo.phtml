@@ -25,7 +25,7 @@ $brandName = $block->getBrand()->getValue(); ?>
         $(".navigation li.mmbrand-top-link").addClass("active");
     });
 </script>
-<div class="brand-information">
+<div class="brand-information"> 
     <div class="brand-detail">
         <?php if ($image = $block->getBrandImage()): ?>
             <div class="brand-image-container">
@@ -36,6 +36,7 @@ $brandName = $block->getBrand()->getValue(); ?>
         <?php endif; ?>
         <?php if ($description = $block->getBrandDescription()): ?>
             <div class="brand-description-container">
+                echo 'xfbcxf';
                 <div class="brand-description">
                     <?= /** @noEscape */ $description ?>
                 </div>

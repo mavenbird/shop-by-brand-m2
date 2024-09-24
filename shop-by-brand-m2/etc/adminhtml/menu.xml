@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mavenbird Technologies Private Limited
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://mavenbird.com/Mavenbird-Module-License.txt
+ *
+ * =================================================================
+ *
+ * @category   Mavenbird
+ * @package    Mavenbird_Shopbybrand
+ * @author     Mavenbird Team
+ * @copyright  Copyright (c) 2018-2024 Mavenbird Technologies Private Limited ( http://mavenbird.com )
+ * @license    http://mavenbird.com/Mavenbird-Module-License.txt
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Mavenbird_Shopbybrand::shopbybrand" title="Shop By Brand" module="Mavenbird_Shopbybrand" resource="Mavenbird_Shopbybrand::shopbybrand" sortOrder="100" parent="Magento_Catalog::catalog" dependsOnConfig="shopbybrand/general/enabled"/>
+        <add id="Mavenbird_Shopbybrand::brand_catalog" title="Manage Brands" module="Mavenbird_Shopbybrand" sortOrder="10" action="mmbrand/attribute/view" resource="Mavenbird_Shopbybrand::brand" parent="Mavenbird_Shopbybrand::shopbybrand" dependsOnConfig="shopbybrand/general/enabled" />
+        <add id="Mavenbird_Shopbybrand::categories_catalog" title="Categories" module="Mavenbird_Shopbybrand" sortOrder="20" action="mmbrand/category/index" resource="Mavenbird_Shopbybrand::categories" parent="Mavenbird_Shopbybrand::shopbybrand" dependsOnConfig="shopbybrand/general/enabled" />
+        
+        <update id="Magento_Backend::mbmenu" title="Mavenbird" module="Magento_Backend" sortOrder="10" resource="Magento_Backend::mbmenu" />
+
+        <add id="Mavenbird_Shopbybrand::Heading" title="Shop By Brand" module="Mavenbird_Shopbybrand" sortOrder="20" parent="Magento_Backend::mbmenu" resource="Mavenbird_Shopbybrand::Heading" />
+        <add id="Mavenbird_Shopbybrand::configuration" title="Configuration" module="Mavenbird_Shopbybrand" sortOrder="100" action="adminhtml/system_config/edit/section/shopbybrand" resource="Mavenbird_Shopbybrand::configuration" parent="Mavenbird_Shopbybrand::Heading" dependsOnConfig="shopbybrand/general/enabled" />
+        <add id="Mavenbird_Shopbybrand::brand" title="Manage Brands" module="Mavenbird_Shopbybrand" sortOrder="10" action="mmbrand/attribute/view" resource="Mavenbird_Shopbybrand::brand" parent="Mavenbird_Shopbybrand::Heading" dependsOnConfig="shopbybrand/general/enabled" />
+        <add id="Mavenbird_Shopbybrand::categories" title="Categories" module="Mavenbird_Shopbybrand" sortOrder="20" action="mmbrand/category/index" resource="Mavenbird_Shopbybrand::categories" parent="Mavenbird_Shopbybrand::Heading" dependsOnConfig="shopbybrand/general/enabled" />
+    </menu>
+</config>

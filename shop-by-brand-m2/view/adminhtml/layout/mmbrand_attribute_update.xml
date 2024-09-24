@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mavenbird Technologies Private Limited
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://mavenbird.com/Mavenbird-Module-License.txt
+ *
+ * =================================================================
+ *
+ * @category   Mavenbird
+ * @package    Mavenbird_Shopbybrand
+ * @author     Mavenbird Team
+ * @copyright  Copyright (c) 2018-2024 Mavenbird Technologies Private Limited ( http://mavenbird.com )
+ * @license    http://mavenbird.com/Mavenbird-Module-License.txt
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="Magento\Backend\Block\Store\Switcher" name="brand.store.switcher" as="brand.switcher" template="Magento_Backend::store/switcher.phtml">
+                <arguments>
+                    <argument name="default_selection_name" xsi:type="string" translate="true">Default Config</argument>
+                </arguments>
+            </block>
+            <block class="Mavenbird\Shopbybrand\Block\Adminhtml\Attribute\Edit\Brand" name="brand.attribute.html" as="brand"/>
+        </referenceContainer>
+    </body>
+</page>

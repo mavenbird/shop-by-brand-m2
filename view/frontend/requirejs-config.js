@@ -21,6 +21,10 @@ var config = {
     paths: {
         brandSlider: 'Mavenbird_Shopbybrand/js/brand-slider',
         quickview: 'Mavenbird_Shopbybrand/js/quick-view',
-        modalPopup: 'Mavenbird_Shopbybrand/js/modal-popup'
+        modalPopup: 'Mavenbird_Shopbybrand/js/modal-popup',
+        mpDevbridgeAutocomplete: 'Mavenbird_Shopbybrand/js/jquery.autocomplete.min'
+    },
+    shim: {
+        mpDevbridgeAutocomplete: ["jquery"],
     }
 };
