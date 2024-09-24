@@ -60,6 +60,14 @@ class BrandList extends Brand
         return $collection;
     }
 
+    public function getBrandDescription($brand, $short = false)
+    {
+        if ($short) {
+            return $brand->getShortDescription(); // Assuming this method exists for fetching short description
+        }
+        return $brand->getDescription(); // For full description
+    }
+
     /**
      * Cat Filter Class
      *

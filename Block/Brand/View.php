@@ -68,6 +68,17 @@ class View extends Brand
     }
 
     /**
+     * getBrandDescriptions
+     *
+     * @return void
+     */
+    public function getBrandDescription()
+    {
+        $brand = $this->getBrand();
+        return $brand ? $brand->getDescription() : ''; // Assuming 'description' is a valid field.
+    }
+    
+    /**
      * Addition Crumb
      *
      * @param [type] $block
@@ -136,20 +147,20 @@ class View extends Brand
         return $this->getBrand()->getImage();
     }
 
-    /**
-     * Brand Description
-     *
-     * @return void
-     */
-    public function getBrandDescription()
-    {
-        if (!$this->helper->getBrandDetailConfig('show_description')) {
-            return '';
-        }
-        $brand = $this->getBrand();
+    // /**
+    //  * Brand Description
+    //  *
+    //  * @return void
+    //  */
+    // public function getBrandDescription()
+    // {
+    //     if (!$this->helper->getBrandDetailConfig('show_description')) {
+    //         return '';
+    //     }
+    //     $brand = $this->getBrand();
 
-        return $this->helper()->getBrandDescription($brand);
-    }
+    //     return $this->helper()->getBrandDescription($brand);
+    // }
 
     /**
      * Static Content
