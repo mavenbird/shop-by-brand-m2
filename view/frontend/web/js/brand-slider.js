@@ -19,11 +19,12 @@
 
 define([
     'jquery',
-    'mavenbird/core/owl.carousel'
+    'mavenbird/shopbybrand/owl.carousel'
 ], function ($) {
     'use strict';
     return function (config, element) {
         $(element).owlCarousel({
+            nav:true,
             center: true,
             loop: true,
             margin: 10,
@@ -31,7 +32,7 @@ define([
             autoplayTimeout: 4000,
             autoplayHoverPause: true,
             lazyLoad: true,
-            dots: false,
+            dots: true,
             responsiveClass: true,
             responsiveBaseElement: '#' + $(element).attr('id'),
             responsive: {

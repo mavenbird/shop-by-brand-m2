@@ -107,10 +107,16 @@ class TabProduct extends ListProduct
      */
     public function setTabTitle()
     {
-        $products = $this->_getProductCollection()->getPageSize();
-        $title    = __('More from this Brand (%1)', $products);
+        $collection = $this->_getProductCollection();
+        if ($collection) {
+            $products = $collection->getPageSize();
+            $title = __('More from this Brand (%1)', $products);
+        } else {
+            $title = __('More from this Brand');
+        }
         $this->setTitle($title);
     }
+    
 
     /**
      * Product Collection

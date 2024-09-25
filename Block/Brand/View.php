@@ -38,34 +38,37 @@ class View extends Brand
     protected function _prepareLayout()
     {
         parent::_prepareLayout();
-
+    
         $brand = $this->getBrand();
-        $title = $brand->getPageTitle() ?: $brand->getValue();
-        if ($breadcrumbsBlock = $this->getLayout()->getBlock('breadcrumbs')) {
-            $breadcrumbsBlock->addCrumb('view', ['label' => $title]);
+        if ($brand) {
+            $title = $brand->getPageTitle() ?: $brand->getValue();
+            if ($breadcrumbsBlock = $this->getLayout()->getBlock('breadcrumbs')) {
+                $breadcrumbsBlock->addCrumb('view', ['label' => $title]);
+            }
+    
+            $description = $brand->getMetaDescription();
+            if ($description) {
+                $this->pageConfig->setDescription($description);
+            }
+            $keywords = $brand->getMetaKeywords();
+            if ($keywords) {
+                $this->pageConfig->setKeywords($keywords);
+            }
+            $this->pageConfig->addRemotePageAsset(
+                $this->helper()->getBrandUrl($brand),
+                'canonical',
+                ['attributes' => ['rel' => 'canonical']]
+            );
+    
+            $pageMainTitle = $this->getLayout()->getBlock('page.main.title');
+            if ($pageMainTitle) {
+                $pageMainTitle->setPageTitle($title);
+            }
         }
-
-        $description = $brand->getMetaDescription();
-        if ($description) {
-            $this->pageConfig->setDescription($description);
-        }
-        $keywords = $brand->getMetaKeywords();
-        if ($keywords) {
-            $this->pageConfig->setKeywords($keywords);
-        }
-        $this->pageConfig->addRemotePageAsset(
-            $this->helper()->getBrandUrl($brand),
-            'canonical',
-            ['attributes' => ['rel' => 'canonical']]
-        );
-
-        $pageMainTitle = $this->getLayout()->getBlock('page.main.title');
-        if ($pageMainTitle) {
-            $pageMainTitle->setPageTitle($title);
-        }
-
+    
         return $this;
     }
+    
 
     /**
      * getBrandDescriptions
@@ -122,16 +125,21 @@ class View extends Brand
     public function getMetaTitle()
     {
         $brand = $this->getBrand();
-
+    
+        if (!$brand) {
+            return $this->getPageTitle();
+        }
+    
         $metaTitle = $brand->getMetaTitle();
         if ($metaTitle) {
             return $metaTitle;
         }
-
+    
         $title = $brand->getPageTitle() ?: $brand->getValue();
-
+    
         return implode($this->getTitleSeparator(), [$title, $this->getPageTitle()]);
     }
+    
 
     /**
      * Brand Image

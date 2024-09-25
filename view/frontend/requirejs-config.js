@@ -22,9 +22,11 @@ var config = {
         brandSlider: 'Mavenbird_Shopbybrand/js/brand-slider',
         quickview: 'Mavenbird_Shopbybrand/js/quick-view',
         modalPopup: 'Mavenbird_Shopbybrand/js/modal-popup',
-        mpDevbridgeAutocomplete: 'Mavenbird_Shopbybrand/js/jquery.autocomplete.min'
+        mpDevbridgeAutocomplete: 'Mavenbird_Shopbybrand/js/jquery.autocomplete.min',
+        'mavenbird/shopbybrand/owl.carousel': 'Mavenbird_Shopbybrand/js/owl.carousel.min',
     },
     shim: {
         mpDevbridgeAutocomplete: ["jquery"],
+        "mavenbird/shopbybrand/owl.carousel": ["jquery"],
     }
 };
