@@ -41,9 +41,9 @@
                 <brand_logo_width>165</brand_logo_width>
                 <brand_logo_height>165</brand_logo_height>
                 <color>#0ed08e</color>
-                <show_description>0</show_description>
-                <show_product_qty>0</show_product_qty>
-                <show_quick_view>0</show_quick_view>
+                <show_description>1</show_description>
+                <show_product_qty>1</show_product_qty>
+                <show_quick_view>1</show_quick_view>
                 <brand_filter>
                     <enabled_cat_filter>0</enabled_cat_filter>
                     <enabled_alpha_filter>1</enabled_alpha_filter>
@@ -57,7 +57,7 @@
                     <visible_images>1</visible_images>
                 </search>
                 <feature>
-                    <enable>0</enable>
+                    <enable>1</enable>
                     <title>Featured Brands</title>
                     <style>0</style>
                     <display>0</display>
@@ -69,18 +69,18 @@
                 </related_products>
             </brandpage>
             <brandview>
-                <show_image>0</show_image>
-                <show_description>0</show_description>
+                <show_image>1</show_image>
+                <show_description>1</show_description>
                 <show_block>0</show_block>
             </brandview>
             <sidebar>
                 <feature>
-                    <enable>0</enable>
+                    <enable>1</enable>
                     <title>Featured Brands</title>
                     <show_title>1</show_title>
                 </feature>
                 <brand_thumbnail>
-                    <enable>0</enable>
+                    <enable>1</enable>
                     <title>Brand List</title>
                     <limit_brands>7</limit_brands>
                 </brand_thumbnail>
