@@ -32,7 +32,7 @@ define([
             autoplayTimeout: 4000,
             autoplayHoverPause: true,
             lazyLoad: true,
-            dots: true,
+            dots: false,
             responsiveClass: true,
             responsiveBaseElement: '#' + $(element).attr('id'),
             responsive: {

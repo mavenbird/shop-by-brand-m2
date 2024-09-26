@@ -26,7 +26,7 @@
         </referenceContainer>
         <referenceBlock name="product.info.details">
             <block class="Mavenbird\Shopbybrand\Block\Product\TabProduct" name="related.brand.product.tab" template="Mavenbird_Shopbybrand::product/tabproduct.phtml" group="detailed_info" ifconfig="shopbybrand/brandpage/related_products/enabled">
-                <block class="Mavenbird\Shopbybrand\Block\Product\TabProduct" name="related.brand.product.tab.detail" as="related_product" template="Magento_Catalog::product/list.phtml"/>
+                <!-- <block class="Mavenbird\Shopbybrand\Block\Product\TabProduct" name="related.brand.product.tab.detail" as="related_product" template="Magento_Catalog::product/list.phtml"/> -->
             </block>
         </referenceBlock>
     </body>
