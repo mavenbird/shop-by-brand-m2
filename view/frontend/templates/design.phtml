@@ -22,11 +22,6 @@
 $helper = $block->helper();
 ?>
 <style type="text/css">
-    .block-brand-list .brand-list-content li.product-item {
-        margin-left: 0;
-        padding: 5px;
-    }
-
     .block-brand-list .brand-list-content .product-item-info .product-image-photo {
         width: <?= /** @noEscape */ $block->getLogoWidth() . 'px' ?>;
         height: <?= /** @noEscape */ $block->getLogoHeight() . 'px' ?>
@@ -38,11 +33,10 @@ $helper = $block->helper();
     .block-brand-search,
     .block-brand-list ul.brand-options li.active {
         background-color: <?= /** @noEscape */ $color ?>;
+        border-color:  <?= /** @noEscape */ $color ?>;
     }
-
     .category-nav-list li.active {
         background-color: <?= /** @noEscape */ $color ?>;
-        float: left;
     }
 
     <?php endif; ?>
@@ -65,41 +59,9 @@ $helper = $block->helper();
     .brand-list-content li {
         width: <?= $helper->getBrandConfig('display') === \Mavenbird\Shopbybrand\Model\Config\Source\BrandListDisplay::DISPLAY_LABEL
         ? '33%' : '16.3% !important' ?>;
+    }   
+    .block-brand-list .quickview_popup a {
+        background-color: <?= /** @noEscape */ $color ?>;
     }
 
-    .related-product-modal-content li.product-item {
-        width: 33% !important;
-    }
-
-    @media (max-width: 1080px) {
-        .brand-list-content li {
-            width: 32.3% !important;
-        }
-
-        .related-product-modal-content li.product-item {
-            width: 50% !important;
-        }
-    }
-
-    @media (max-width: 640px) {
-        .brand-list-content li {
-            width: 49% !important;
-        }
-    }
-
-    @media (max-width: 360px) {
-        .related-product-modal-content li.product-item {
-            width: 100% !important;
-        }
-    }
-
-    .quickview_popup a:hover {
-        color: <?= /** @noEscape */ $helper->getBrandConfig('color') ?>;
-        text-decoration: none;
-        cursor: pointer;
-    }
-
-    .mix {
-        position: relative;
-    }
 </style>

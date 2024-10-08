@@ -53,8 +53,13 @@ $categories = $block->getCategories();
     );
 </script>
 
-<div class="block block-brand-list" style="margin-top: 20px;border-top: solid 1px #dfdfdf; padding-top: 30px">
-    <div class="block-title">
+<div class="block block-brand-list">
+    <div class="block-title" style="text-align: center;">
+        <strong id="block-feature-brand-heading" role="heading">
+            <?= /** @noEscape */ __('Filter Brands') ?>
+        </strong>
+    </div>
+    <div class="brand-filter">
         <?php if ($helper->getBrandConfig('brand_filter/enabled_alpha_filter')): ?>
             <ul class="nav brand-options navbar-nav controls">
                 <li id="mm-first-opt" class="control active">

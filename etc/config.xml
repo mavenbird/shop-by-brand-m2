@@ -38,9 +38,9 @@
                 <name>Brands</name>
                 <brandlist_style>0</brandlist_style>
                 <display>1</display>
-                <brand_logo_width>165</brand_logo_width>
-                <brand_logo_height>165</brand_logo_height>
-                <color>#0ed08e</color>
+                <brand_logo_width>170</brand_logo_width>
+                <brand_logo_height>170</brand_logo_height>
+                <color>#37ae52</color>
                 <show_description>1</show_description>
                 <show_product_qty>1</show_product_qty>
                 <show_quick_view>1</show_quick_view>
