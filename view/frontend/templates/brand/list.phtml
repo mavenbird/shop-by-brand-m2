@@ -56,7 +56,7 @@ $categories = $block->getCategories();
 <div class="block block-brand-list">
     <div class="block-title" style="text-align: center;">
         <strong id="block-feature-brand-heading" role="heading">
-            <?= /** @noEscape */ __('Filter Brands') ?>
+            <?= $block->escapeHtml($block->helper()->getFilterBrandsTitle()) ?>
         </strong>
     </div>
     <div class="brand-filter">

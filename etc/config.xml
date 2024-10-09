@@ -49,6 +49,7 @@
                     <enabled_alpha_filter>1</enabled_alpha_filter>
                     <alpha_bet>A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z</alpha_bet>
                     <encode_key>UTF-8</encode_key>
+                    <filter_brands_title>Filter Brands</filter_brands_title>
                 </brand_filter>
                 <search>
                     <enable>1</enable>
