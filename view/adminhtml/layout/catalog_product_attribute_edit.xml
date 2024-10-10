@@ -22,7 +22,7 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="main">
-            <block class="Mavenbird\Shopbybrand\Block\Adminhtml\Attribute\Edit\Options" as="mm-advanced" before="-"/>
+            <block class="Mavenbird\Shopbybrand\Block\Adminhtml\Attribute\Edit\Options" as="mb-advanced" before="-"/>
         </referenceContainer>
         <referenceContainer name="js">
             <block class="Mavenbird\Shopbybrand\Block\Adminhtml\Attribute\Edit\Options" name="brand_attribute_edit_js" template="Mavenbird_Shopbybrand::catalog/product/attribute/js.phtml"/>

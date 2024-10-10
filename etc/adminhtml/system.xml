@@ -179,6 +179,10 @@
                         <label>Filter Brands Title</label>
                         <comment>Enter the title for the Filter Brands section on the frontend.</comment>
                     </field>
+                    <field id="enable_navigation" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Enable Navigation Arrows</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
                 </group>
                 <group id="search" translate="label" type="text" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Brand Search Settings</label>

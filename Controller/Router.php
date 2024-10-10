@@ -79,7 +79,7 @@ class Router implements RouterInterface
             return null;
         }
 
-        $request->setModuleName('mmbrand')->setAlias(
+        $request->setModuleName('mbbrand')->setAlias(
             Url::REWRITE_REQUEST_PATH_ALIAS,
             trim($request->getPathInfo(), '/')
         );
@@ -87,18 +87,18 @@ class Router implements RouterInterface
         if ($routeSize === 1) {
             $request->setControllerName('index')
                 ->setActionName('index')
-                ->setPathInfo('/mmbrand/index/index');
+                ->setPathInfo('/mbbrand/index/index');
         } elseif ($routePath[1] === BrandHelper::CATEGORY) {
             $catId = $this->_helper->getCategoryByUrlKey($routePath[2]);
             $request->setControllerName('category')
                 ->setActionName('view')
                 ->setParam('cat_id', $catId)
-                ->setPathInfo('/mmbrand/category/view');
+                ->setPathInfo('/mbbrand/category/view');
         } else {
             $request->setControllerName('index')
                 ->setActionName('view')
                 ->setParam('brand_key', $routePath[1])
-                ->setPathInfo('/mmbrand/index/view');
+                ->setPathInfo('/mbbrand/index/view');
         }
 
         return $this->actionFactory->create(Forward::class);

@@ -23,8 +23,11 @@ define([
 ], function ($) {
     'use strict';
     return function (config, element) {
-        $(element).owlCarousel({
-            nav:true,
+        var $element = $(element);
+        
+        // Use the configuration value from the block for the 'nav' setting
+        var owlOptions = {
+            nav: config.navarrow, // Use the passed value from admin config
             center: true,
             loop: true,
             margin: 10,
@@ -34,14 +37,22 @@ define([
             lazyLoad: true,
             dots: false,
             responsiveClass: true,
-            responsiveBaseElement: '#' + $(element).attr('id'),
+            responsiveBaseElement: '#' + $element.attr('id'),
             responsive: {
                 0: {items: 1},
                 360: {items: 2},
                 540: {items: 3},
                 720: {items: 4},
                 900: {items: 5}
+            },
+            onInitialized: function(event) {
+                if (!event.namespace) return;
+                if (!this.settings.nav) {
+                    $element.find('.owl-nav').remove();
+                }
             }
-        });
+        };
+
+        $element.owlCarousel(owlOptions);
     };
 });

@@ -46,6 +46,7 @@ use Mavenbird\Shopbybrand\Model\CategoryFactory;
 use Mavenbird\Shopbybrand\Model\ResourceModel\Category\Collection as BrandCategoryCollection;
 use Magento\Framework\App\ProductMetadataInterface;
 use Magento\Framework\App\Config\ScopeConfigInterface;
+use Magento\Framework\App\Helper\AbstractHelper;
 
 class Data extends AbstractData
 {
@@ -60,6 +61,7 @@ class Data extends AbstractData
     public const CATEGORY = 'category';
     public const BRAND_FIRST_CHAR = 'char';
     public const XML_PATH_FILTER_HEADING = 'shopbybrand/brandpage/brand_filter/filter_brands_title';
+    public const XML_PATH_FEATURE = 'shopbybrand/brandpage/brand_filter/enable_navigation';
 
     /**
      * Filter Manager
@@ -872,6 +874,17 @@ class Data extends AbstractData
     public function getFilterBrandsTitle()
     {
         return $this->scopeConfig->getValue(self::XML_PATH_FILTER_HEADING, \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
+    }
+
+    /**
+     * GetFeatureConfig
+     *
+     * @param [type] $field
+     * @return void
+     */
+    public function getFeatureConfig1($field)
+    {
+        return $this->scopeConfig->getValue(self::XML_PATH_FEATURE . $field, ScopeInterface::SCOPE_STORE);
     }
     
 }

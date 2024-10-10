@@ -108,7 +108,7 @@ class RelatedProduct extends ListProduct
      */
     protected function _getProductCollection()
     {
-        if (($this->_request->getFullActionName() === 'mmbrand_index_view')
+        if (($this->_request->getFullActionName() === 'mbbrand_index_view')
             && $this->getRequest()->isAjax()
             && $this->getRequest()->getParam('title')
         ) {

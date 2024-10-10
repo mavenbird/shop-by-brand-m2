@@ -24,7 +24,7 @@
     <update handle="catalog_category_view_type_layered"/>
     <body>
         <referenceContainer name="columns.top">
-            <container name="mmbrand.view.container" htmlTag="div" htmlClass="mmbrand-view" after="-">
+            <container name="mbbrand.view.container" htmlTag="div" htmlClass="mbbrand-view" after="-">
                 <block class="Mavenbird\Shopbybrand\Block\Brand\View" name="brand.info" template="brandInfo.phtml"/>
             </container>
         </referenceContainer>

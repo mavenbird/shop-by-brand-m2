@@ -25,19 +25,19 @@
     <preference for="Mavenbird\Shopbybrand\Api\Data\BrandInterface" type="Mavenbird\Shopbybrand\Model\Brand" />
     <preference for="Mavenbird\Shopbybrand\Api\Data\BrandCategoryInterface" type="Mavenbird\Shopbybrand\Model\Category" />
     <type name="Magento\Catalog\Model\Layer\FilterList">
-        <plugin name="mm_brand_filterlist" type="Mavenbird\Shopbybrand\Plugin\Model\FilterList" sortOrder="100"/>
+        <plugin name="mb_brand_filterlist" type="Mavenbird\Shopbybrand\Plugin\Model\FilterList" sortOrder="100"/>
     </type>
     <type name="Magento\ImportExport\Controller\Adminhtml\Import\Download">
-        <plugin name="mm_brand_download_sample" type="Mavenbird\Shopbybrand\Plugin\Controller\ImportDownloadSample" sortOrder="100"/>
+        <plugin name="mb_brand_download_sample" type="Mavenbird\Shopbybrand\Plugin\Controller\ImportDownloadSample" sortOrder="100"/>
     </type>
     <type name="Magento\Catalog\Block\Product\ListProduct">
-        <plugin name="mm_brand_product_brand_name" type="Mavenbird\Shopbybrand\Plugin\Block\ListProduct" sortOrder="100"/>
+        <plugin name="mb_brand_product_brand_name" type="Mavenbird\Shopbybrand\Plugin\Block\ListProduct" sortOrder="100"/>
     </type>
     <type name="Magento\CatalogSearch\Block\SearchResult\ListProduct">
-        <plugin name="mm_brand_product_brand_name_search_page" type="Mavenbird\Shopbybrand\Plugin\Block\ListProduct" sortOrder="100"/>
+        <plugin name="mb_brand_product_brand_name_search_page" type="Mavenbird\Shopbybrand\Plugin\Block\ListProduct" sortOrder="100"/>
     </type>
     <type name="Magento\Eav\Block\Adminhtml\Attribute\Edit\Options\Options">
-        <plugin name="mm_brand_backend_attribute_options" type="Mavenbird\Shopbybrand\Plugin\Block\Adminhtml\Attribute\Edit\Options" sortOrder="100"/>
+        <plugin name="mb_brand_backend_attribute_options" type="Mavenbird\Shopbybrand\Plugin\Block\Adminhtml\Attribute\Edit\Options" sortOrder="100"/>
     </type>
     <type name="Magento\Theme\Block\Html\Topmenu">
         <plugin name="brand-topmenu" type="Mavenbird\Shopbybrand\Plugin\Link\TopMenu"/>

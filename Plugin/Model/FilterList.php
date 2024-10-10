@@ -75,7 +75,7 @@ class FilterList
      */
     public function afterGetFilters(\Magento\Catalog\Model\Layer\FilterList $subject, $result)
     {
-        if ($this->request->getFullActionName() !== 'mmbrand_index_view') {
+        if ($this->request->getFullActionName() !== 'mbbrand_index_view') {
             return $result;
         }
 

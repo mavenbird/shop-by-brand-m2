@@ -75,7 +75,7 @@ class NoindexPagination implements ObserverInterface
     public function execute(Observer $observer)
     {
         $actionName = $this->request->getFullActionName();
-        if ($actionName === 'mmbrand_index_view'
+        if ($actionName === 'mbbrand_index_view'
             && $this->_helper->getModuleConfig('brand_seo/seo_pages')
             && $this->request->getParam('p')
         ) {

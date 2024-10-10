@@ -52,7 +52,7 @@ class CatalogView
         \Magento\CatalogSearch\Model\Adapter\Aggregation\Checker\Query\CatalogView $subject,
         $result
     ) {
-        if ($this->_request->getFullActionName() === 'mmbrand_index_view') {
+        if ($this->_request->getFullActionName() === 'mbbrand_index_view') {
             return true;
         }
 

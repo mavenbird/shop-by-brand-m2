@@ -220,7 +220,7 @@ class Grid extends Extended
 
         $this->getMassactionBlock()->addItem('delete', [
             'label'   => __('Delete'),
-            'url'     => $this->getUrl('mmbrand/*/massDelete'),
+            'url'     => $this->getUrl('mbbrand/*/massDelete'),
             'confirm' => __('Are you sure?')
         ]);
 
@@ -234,7 +234,7 @@ class Grid extends Extended
      */
     public function getGridUrl()
     {
-        return $this->getUrl('mmbrand/category/index', ['_current' => true]);
+        return $this->getUrl('mbbrand/category/index', ['_current' => true]);
     }
 
     /**

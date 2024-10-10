@@ -24,16 +24,16 @@
         <strong><?= /** @noEscape */ $block->getPageTitle() ?></strong>
     </div>
     <div class="block-content">
-        <div class="mm-searchbox">
-            <input id="mm-search" type="text" class="mm-search form-control input-query ui-autocomplete-input" name="q"
+        <div class="mb-searchbox">
+            <input id="mb-search" type="text" class="mb-search form-control input-query ui-autocomplete-input" name="q"
                    placeholder="<?= /** @noEscape */ __('Search a brand name') ?>">
-            <button type="submit" id="mm-brand-search-button" class="btn btn-primary btn-lg search-btn fa fa-search">
+            <button type="submit" id="mb-brand-search-button" class="btn btn-primary btn-lg search-btn fa fa-search">
                 <span><?= /** @noEscape */ __('Search') ?></span>
             </button>
         </div>
     </div>
 </div>
-<script id="mmbrand-autocomplete-suggest" type="text/x-magento-template">
+<script id="mbbrand-autocomplete-suggest" type="text/x-magento-template">
     <a class="shopbybrand-suggestion" href="<%- data.brandUrl %>">
         <?php if ($block->isVisibleImage()): ?>
         <div class="shopbybrand-suggestion-left">
@@ -59,9 +59,9 @@
         'mpDevbridgeAutocomplete'
     ], function ($, mageTemplate) {
         $(document).ready(function () {
-            var mmSearch     = $('#mm-search');
+            var mbSearch     = $('#mb-search');
 
-            mmSearch.devbridgeAutocomplete({
+            mbSearch.devbridgeAutocomplete({
                 lookup: <?= /** @noEscape */ $block->getSearchData()?>,
                 lookupLimit: <?= /** @noEscape */ $block->getMaxQueryResult() ?>,
                 maxHeight: 2000,
@@ -73,7 +73,7 @@
                     var template;
 
                     template = mageTemplate(
-                        '#mmbrand-autocomplete-suggest',
+                        '#mbbrand-autocomplete-suggest',
                         {
                             data: {
                                 brandUrl: suggestion.brandUrl,
@@ -88,9 +88,9 @@
                 }
             });
 
-            $('#mm-brand-search-button').click(function () {
+            $('#mb-brand-search-button').click(function () {
                 if (!$('.autocomplete-suggestions').is(':visible')) {
-                    mmSearch.focus();
+                    mbSearch.focus();
                 }
             });
         });

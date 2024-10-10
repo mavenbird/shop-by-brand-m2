@@ -80,7 +80,7 @@ class Brand extends Generic
         $form = $this->_formFactory->create([
             'data' => [
                 'id'            => 'brand_attribute_save',
-                'action'        => $this->getUrl('mmbrand/attribute/save', ['id' => $data['brand_id']]),
+                'action'        => $this->getUrl('mbbrand/attribute/save', ['id' => $data['brand_id']]),
                 'method'        => 'post',
                 'use_container' => true,
                 'enctype'       => 'multipart/form-data'

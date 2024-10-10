@@ -20,67 +20,67 @@
  */
 -->
 <routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
-    <route url="/V1/mmbrand" method="GET">
+    <route url="/V1/mbbrand" method="GET">
         <service class="Mavenbird\Shopbybrand\Api\BrandRepositoryInterface" method="getBrandList"/>
         <resources>
             <resource ref="Mavenbird_Shopbybrand::shopbybrand" />
         </resources>
     </route>
-    <route url="/V1/mmbrand/brand/feature" method="GET">
+    <route url="/V1/mbbrand/brand/feature" method="GET">
         <service class="Mavenbird\Shopbybrand\Api\BrandRepositoryInterface" method="getFeatureBrand"/>
         <resources>
             <resource ref="Mavenbird_Shopbybrand::shopbybrand" />
         </resources>
     </route>
-    <route url="/V1/mmbrand/brand/search/:name" method="GET">
+    <route url="/V1/mbbrand/brand/search/:name" method="GET">
         <service class="Mavenbird\Shopbybrand\Api\BrandRepositoryInterface" method="getBrandByName"/>
         <resources>
             <resource ref="Mavenbird_Shopbybrand::shopbybrand" />
         </resources>
     </route>
 
-    <route url="/V1/mmbrand/brand/:optionId/product" method="GET">
+    <route url="/V1/mbbrand/brand/:optionId/product" method="GET">
         <service class="Mavenbird\Shopbybrand\Api\BrandRepositoryInterface" method="getProductList"/>
         <resources>
             <resource ref="Mavenbird_Shopbybrand::shopbybrand" />
         </resources>
     </route>
-    <route url="/V1/mmbrand/brand/:optionId/product/:sku" method="PUT">
+    <route url="/V1/mbbrand/brand/:optionId/product/:sku" method="PUT">
         <service class="Mavenbird\Shopbybrand\Api\BrandRepositoryInterface" method="setProduct"/>
         <resources>
             <resource ref="Magento_Catalog::products" />
             <resource ref="Mavenbird_Shopbybrand::shopbybrand" />
         </resources>
     </route>
-    <route url="/V1/mmbrand/product/:sku" method="DELETE">
+    <route url="/V1/mbbrand/product/:sku" method="DELETE">
         <service class="Mavenbird\Shopbybrand\Api\BrandRepositoryInterface" method="deleteProduct"/>
         <resources>
             <resource ref="Magento_Catalog::products" />
             <resource ref="Mavenbird_Shopbybrand::shopbybrand" />
         </resources>
     </route>
-    <route url="/V1/mmbrand/brand/product/:sku" method="GET">
+    <route url="/V1/mbbrand/brand/product/:sku" method="GET">
         <service class="Mavenbird\Shopbybrand\Api\BrandRepositoryInterface" method="getBrandBySku"/>
         <resources>
             <resource ref="Mavenbird_Shopbybrand::shopbybrand" />
         </resources>
     </route>
 
-    <route url="/V1/mmbrand/options" method="POST">
+    <route url="/V1/mbbrand/options" method="POST">
         <service class="Mavenbird\Shopbybrand\Api\BrandRepositoryInterface" method="add" />
         <resources>
             <resource ref="Mavenbird_Shopbybrand::shopbybrand" />
             <resource ref="Magento_Catalog::attributes_attributes" />
         </resources>
     </route>
-    <route url="/V1/mmbrand/options/:optionId" method="PUT">
+    <route url="/V1/mbbrand/options/:optionId" method="PUT">
         <service class="Mavenbird\Shopbybrand\Api\BrandRepositoryInterface" method="update" />
         <resources>
             <resource ref="Mavenbird_Shopbybrand::shopbybrand" />
             <resource ref="Magento_Catalog::attributes_attributes" />
         </resources>
     </route>
-    <route url="/V1/mmbrand/options/:optionId" method="DELETE">
+    <route url="/V1/mbbrand/options/:optionId" method="DELETE">
         <service class="Mavenbird\Shopbybrand\Api\BrandRepositoryInterface" method="delete" />
         <resources>
             <resource ref="Mavenbird_Shopbybrand::shopbybrand" />
@@ -88,31 +88,31 @@
         </resources>
     </route>
 
-    <route url="/V1/mmbrand/category" method="GET">
+    <route url="/V1/mbbrand/category" method="GET">
         <service class="Mavenbird\Shopbybrand\Api\BrandRepositoryInterface" method="getCategory" />
         <resources>
             <resource ref="Mavenbird_Shopbybrand::shopbybrand" />
         </resources>
     </route>
-    <route url="/V1/mmbrand/category/:categoryId" method="GET">
+    <route url="/V1/mbbrand/category/:categoryId" method="GET">
         <service class="Mavenbird\Shopbybrand\Api\BrandRepositoryInterface" method="getCategoryById" />
         <resources>
             <resource ref="Mavenbird_Shopbybrand::shopbybrand" />
         </resources>
     </route>
-    <route url="/V1/mmbrand/category" method="POST">
+    <route url="/V1/mbbrand/category" method="POST">
         <service class="Mavenbird\Shopbybrand\Api\BrandRepositoryInterface" method="addCategory" />
         <resources>
             <resource ref="Mavenbird_Shopbybrand::shopbybrand" />
         </resources>
     </route>
-    <route url="/V1/mmbrand/category/:categoryId" method="PUT">
+    <route url="/V1/mbbrand/category/:categoryId" method="PUT">
         <service class="Mavenbird\Shopbybrand\Api\BrandRepositoryInterface" method="updateCategory" />
         <resources>
             <resource ref="Mavenbird_Shopbybrand::shopbybrand" />
         </resources>
     </route>
-    <route url="/V1/mmbrand/category/:categoryId" method="DELETE">
+    <route url="/V1/mbbrand/category/:categoryId" method="DELETE">
         <service class="Mavenbird\Shopbybrand\Api\BrandRepositoryInterface" method="deleteCategory" />
         <resources>
             <resource ref="Mavenbird_Shopbybrand::shopbybrand" />

@@ -49,7 +49,7 @@ class Brand extends Template
      *
      * @var [type]
      */
-    protected $mmRobots;
+    protected $mbRobots;
 
     /**
      * Data
@@ -160,13 +160,13 @@ class Brand extends Template
     protected function _prepareLayout()
     {
         $objectManager  = ObjectManager::getInstance();
-        $this->mmRobots = $objectManager->create(MetaRobots::class);
+        $this->mbRobots = $objectManager->create(MetaRobots::class);
         $action         = $this->getRequest()->getFullActionName();
 
         if ($breadcrumbsBlock = $this->getLayout()->getBlock('breadcrumbs')) {
-            if ($action === 'mmbrand_index_index'
-                || $action === 'mmbrand_index_view'
-                || $action === 'mmbrand_category_view'
+            if ($action === 'mbbrand_index_index'
+                || $action === 'mbbrand_index_view'
+                || $action === 'mbbrand_category_view'
             ) {
                 $breadcrumbsBlock->addCrumb('home', [
                     'label' => __('Home'),
@@ -176,7 +176,7 @@ class Brand extends Template
 
                 $this->additionCrumb($breadcrumbsBlock);
             }
-            if ($action === 'mmbrand_category_view') {
+            if ($action === 'mbbrand_category_view') {
                 $category     = $this->_coreRegistry->registry('current_brand_category');
                 $categoryName = $category->getName();
                 if ($category->getId()) {
@@ -191,7 +191,7 @@ class Brand extends Template
                 }
                 $this->pageConfig->getTitle()->set($categoryName);
                 $this->applySeoCode($category);
-            } elseif ($action === 'mmbrand_index_view') {
+            } elseif ($action === 'mbbrand_index_view') {
                 $breadcrumbsBlock->addCrumb('brand', [
                     'label' => __($this->getPageTitle()),
                     'title' => __($this->getPageTitle()),
@@ -318,7 +318,7 @@ class Brand extends Template
         $this->pageConfig->setKeywords($keywords);
 
         $robot = $category->getMetaRobots();
-        $array = $this->mmRobots->getOptionArray();
+        $array = $this->mbRobots->getOptionArray();
         $this->pageConfig->setRobots($array[$robot]);
 
         $pageMainTitle = $this->getLayout()->getBlock('page.main.title');
@@ -546,7 +546,7 @@ class Brand extends Template
     {
         $action = $this->getRequest()->getFullActionName();
 
-        return $action === 'mmbrand_category_view';
+        return $action === 'mbbrand_category_view';
     }
 
     /**

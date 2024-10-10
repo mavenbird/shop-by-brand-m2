@@ -23,19 +23,19 @@
     <update handle="editor"/>
     <body>
         <referenceContainer name="content">
-            <block class="Mavenbird\Shopbybrand\Block\Adminhtml\Category\Edit" name="mmbrand_category_edit"/>
+            <block class="Mavenbird\Shopbybrand\Block\Adminhtml\Category\Edit" name="mbbrand_category_edit"/>
         </referenceContainer>
         <referenceContainer name="left">
-            <block class="Mavenbird\Shopbybrand\Block\Adminhtml\Category\Edit\Tabs" name="mmbrand_category_edit_tabs">
-                <block class="Mavenbird\Shopbybrand\Block\Adminhtml\Category\Edit\Tab\Category" name="mmbrand_category_edit_tab_category"/>
-                <block class="Mavenbird\Shopbybrand\Block\Adminhtml\Category\Edit\Tab\Brand" name="mmbrand_category_edit_tab_brand"/>
+            <block class="Mavenbird\Shopbybrand\Block\Adminhtml\Category\Edit\Tabs" name="mbbrand_category_edit_tabs">
+                <block class="Mavenbird\Shopbybrand\Block\Adminhtml\Category\Edit\Tab\Category" name="mbbrand_category_edit_tab_category"/>
+                <block class="Mavenbird\Shopbybrand\Block\Adminhtml\Category\Edit\Tab\Brand" name="mbbrand_category_edit_tab_brand"/>
                 <action method="addTab">
                     <argument name="name" xsi:type="string">category_section</argument>
-                    <argument name="block" xsi:type="string">mmbrand_category_edit_tab_category</argument>
+                    <argument name="block" xsi:type="string">mbbrand_category_edit_tab_category</argument>
                 </action>
                 <action method="addTab">
                     <argument name="name" xsi:type="string">brand_section</argument>
-                    <argument name="block" xsi:type="string">mmbrand_category_edit_tab_brand</argument>
+                    <argument name="block" xsi:type="string">mbbrand_category_edit_tab_brand</argument>
                 </action>
             </block>
         </referenceContainer>

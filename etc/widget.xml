@@ -20,7 +20,7 @@
  */
 -->
 <widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
-    <widget id="mmbrand_option" class="Mavenbird\Shopbybrand\Block\Widget\OptionId">
+    <widget id="mbbrand_option" class="Mavenbird\Shopbybrand\Block\Widget\OptionId">
         <label>MP Brand Option ID Widget</label>
         <description>MP Brand Option ID Widget</description>
         <parameters>
@@ -50,7 +50,7 @@
             </container>
         </containers>
     </widget>
-    <widget id="mmbrand_featured" class="Mavenbird\Shopbybrand\Block\Widget\Featured">
+    <widget id="mbbrand_featured" class="Mavenbird\Shopbybrand\Block\Widget\Featured">
         <label>MP Featured Brand Widget</label>
         <description>MP Featured Brand Widget</description>
         <parameters>
@@ -76,7 +76,7 @@
             </container>
         </containers>
     </widget>
-    <widget id="mmbrand_category" class="Mavenbird\Shopbybrand\Block\Widget\CategoryId">
+    <widget id="mbbrand_category" class="Mavenbird\Shopbybrand\Block\Widget\CategoryId">
         <label>MP Brand Category ID Widget</label>
         <description>MP Brand Category ID Widget</description>
         <parameters>

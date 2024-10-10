@@ -48,7 +48,7 @@ $categories = $block->getCategories();
                 }
             });
 
-            $(".navigation li.mmbrand-top-link").addClass("active");
+            $(".navigation li.mbbrand-top-link").addClass("active");
         }
     );
 </script>
@@ -62,20 +62,20 @@ $categories = $block->getCategories();
     <div class="brand-filter">
         <?php if ($helper->getBrandConfig('brand_filter/enabled_alpha_filter')): ?>
             <ul class="nav brand-options navbar-nav controls">
-                <li id="mm-first-opt" class="control active">
-                    <a class="filter mm-option-item" data-filter="all"><?= /** @noEscape */ __('All') ?></a>
+                <li id="mb-first-opt" class="control active">
+                    <a class="filter mb-option-item" data-filter="all"><?= /** @noEscape */ __('All') ?></a>
                 </li>
                 <?php foreach ($allChars as $_char): ?>
                     <?php $_numberChar['char'] = (is_numeric($_char['char'])) ? 'num' . $_char['char'] : $_char['char']; ?>
                     <?php if ($_char['active']): ?>
                         <li class="control">
-                            <a class="filter mm-option-item" data-filter="<?= '.' . /** @noEscape */ $_numberChar['char'] ?>">
+                            <a class="filter mb-option-item" data-filter="<?= '.' . /** @noEscape */ $_numberChar['char'] ?>">
                                 <?= isset($_char['label']) ? /** @noEscape */ $_char['label'] : /** @noEscape */ $_char['char'] ?>
                             </a>
                         </li>
                     <?php else: ?>
                         <li class="disabled">
-                            <a class="disabled mm-option-item">
+                            <a class="disabled mb-option-item">
                                 <?= isset($_char['label']) ? /** @noEscape */ $_char['label'] : /** @noEscape */ $_char['char'] ?>
                             </a>
                         </li>
@@ -85,18 +85,18 @@ $categories = $block->getCategories();
         <?php endif; ?>
         <?php if ($helper->getBrandConfig('brand_filter/enabled_cat_filter')): ?>
             <ul class="nav brand-options category-nav-list navbar-nav controls" style="margin-bottom: 30px;">
-                <li id="mm-first-opt" class="control active">
-                    <a class="filter mm-option-item"
+                <li id="mb-first-opt" class="control active">
+                    <a class="filter mb-option-item"
                        data-filter="all"><?= /** @noEscape */ __('All Category') ?></a>
                 </li>
                 <?php foreach ($categories as $category): ?>
                     <?php if ($block->getBrandQty($category->getId())): ?>
                         <li class="control">
-                            <a class="filter mm-option-item" <?= 'data-filter=".cat' . /** @noEscape */ $block->getCatNameFilter($category->getName()) . '"' ?>><?= /** @noEscape */ $category->getName() ?></a>
+                            <a class="filter mb-option-item" <?= 'data-filter=".cat' . /** @noEscape */ $block->getCatNameFilter($category->getName()) . '"' ?>><?= /** @noEscape */ $category->getName() ?></a>
                         </li>
                     <?php else: ?>
                         <li class="disabled">
-                            <a class="disabled mm-option-item"><?= /** @noEscape */ $category->getName() ?></a>
+                            <a class="disabled mb-option-item"><?= /** @noEscape */ $category->getName() ?></a>
                         </li>
                     <?php endif; ?>
                 <?php endforeach; ?>

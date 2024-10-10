@@ -101,7 +101,7 @@ class Options extends OOptions
      */
     public function getBrandUpdateUrl()
     {
-        return $this->getUrl('mmbrand/attribute/update');
+        return $this->getUrl('mbbrand/attribute/update');
     }
 
     /**

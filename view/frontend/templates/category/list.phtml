@@ -47,7 +47,7 @@ $allChars = $block->getAlphabet();
                 }
             });
 
-            $(".navigation li.mmbrand-top-link").addClass("active");
+            $(".navigation li.mbbrand-top-link").addClass("active");
         }
     );
 </script>
@@ -56,20 +56,20 @@ $allChars = $block->getAlphabet();
     <div class="block-title">
         <?php if ($helper->getBrandConfig('brand_filter/enabled_alpha_filter')): ?>
             <ul class="nav brand-options navbar-nav controls">
-                <li id="mm-first-opt" class="control active">
-                    <a class="filter mm-option-item" data-filter="all"><?= /** @noEscape */ __('All') ?></a>
+                <li id="mb-first-opt" class="control active">
+                    <a class="filter mb-option-item" data-filter="all"><?= /** @noEscape */ __('All') ?></a>
                 </li>
                 <?php foreach ($allChars as $_char): ?>
                     <?php $_numberChar['char'] = (is_numeric($_char['char'])) ? 'num' . $_char['char'] : $_char['char']; ?>
                     <?php if ($_char['active']): ?>
                         <li class="control">
-                            <a class="filter mm-option-item" data-filter=".<?= /** @noEscape */ $_numberChar['char'] ?>">
+                            <a class="filter mb-option-item" data-filter=".<?= /** @noEscape */ $_numberChar['char'] ?>">
                                 <?= isset($_char['label']) ? /** @noEscape */ $_char['label'] : /** @noEscape */ $_char['char'] ?>
                             </a>
                         </li>
                     <?php else: ?>
                         <li class="disabled">
-                            <a class="disabled mm-option-item">
+                            <a class="disabled mb-option-item">
                                 <?= isset($_char['label']) ? /** @noEscape */ $_char['label'] : /** @noEscape */ $_char['char'] ?>
                             </a>
                         </li>

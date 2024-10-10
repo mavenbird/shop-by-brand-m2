@@ -50,6 +50,16 @@ class Featured extends Brand
         return $result;
     }
 
+    public function getConfig()
+    {
+        return $this->_scopeConfig->getValue('shopbybrand/brandpage/brand_filter/enable_navigation', \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
+    }
+
+    public function setWidgetOptions()
+    {
+        $this->setNavarrow((bool)$this->getWdNavarrow());
+    }
+    
     /**
      * Feature Title
      *
