@@ -24,10 +24,8 @@ define([
     'use strict';
     return function (config, element) {
         var $element = $(element);
-        
-        // Use the configuration value from the block for the 'nav' setting
         var owlOptions = {
-            nav: config.navarrow, // Use the passed value from admin config
+            nav: true, // Set this to true or false to enable/disable navigation
             center: true,
             loop: true,
             margin: 10,
@@ -56,3 +54,4 @@ define([
         $element.owlCarousel(owlOptions);
     };
 });
+
