@@ -175,6 +175,10 @@
                             <field id="shopbybrand/brandpage/brand_filter/enabled_alpha_filter">1</field>
                         </depends>
                     </field>
+                    <field id="filter_brands_title" translate="label comment" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Filter Brands Title</label>
+                        <comment>Enter the title for the Filter Brands section on the frontend.</comment>
+                    </field>
                 </group>
                 <group id="search" translate="label" type="text" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Brand Search Settings</label>

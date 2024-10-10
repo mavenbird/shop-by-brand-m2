@@ -111,4 +111,13 @@ class BrandList extends Brand
 
         return $result;
     }
+
+    /**
+     * GetFilterBrandsTitle
+     *
+     * @return void
+     */
+    public function getFilterBrandsTitle(){
+        return $this->helper->getFilterBrandsTitle();
+    }
 }

@@ -59,6 +59,7 @@ class Data extends AbstractData
     public const DEFAULT_ROUTE = 'brand';
     public const CATEGORY = 'category';
     public const BRAND_FIRST_CHAR = 'char';
+    public const XML_PATH_FILTER_HEADING = 'shopbybrand/brandpage/brand_filter/filter_brands_title';
 
     /**
      * Filter Manager
@@ -861,4 +862,16 @@ class Data extends AbstractData
     {
         return $this->_attribute->getIdByCode(Product::ENTITY, $code);
     }
+
+    /**
+     * GetFilterBrandsTitle
+     *
+     * @param [type] $store
+     * @return void
+     */
+    public function getFilterBrandsTitle()
+    {
+        return $this->scopeConfig->getValue(self::XML_PATH_FILTER_HEADING, \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
+    }
+    
 }
