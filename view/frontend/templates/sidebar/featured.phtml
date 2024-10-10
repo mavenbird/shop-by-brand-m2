@@ -21,6 +21,8 @@
 /** @var \Mavenbird\Shopbybrand\Block\Sidebar\Featured $block */
 $featureBrands = $block->getFeaturedBrand();
 $timeId = time();
+$isEnableNavigation = $block->getEnableNavigation();
+$isEnableDots = $block->getEnableDots();
 
 if (!empty($featureBrands)): ?>
     <?= /** @noEscape */ $block->includeCssLib() ?>
@@ -47,3 +49,7 @@ if (!empty($featureBrands)): ?>
         </div>
     </div>
 <?php endif; ?>
+<script>
+  window.isEnableConfig = <?= /** @noEscape */ $isEnableNavigation ?>;
+  window.isEnableDots = <?= /** @noEscape */ $isEnableDots ?>;
+</script>

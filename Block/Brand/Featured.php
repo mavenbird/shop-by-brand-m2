@@ -50,9 +50,24 @@ class Featured extends Brand
         return $result;
     }
 
-    public function getConfig()
+    /**
+     * GetEnableNavigation
+     *
+     * @return void
+     */
+    public function getEnableNavigation()
     {
         return $this->_scopeConfig->getValue('shopbybrand/brandpage/brand_filter/enable_navigation', \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
+    }
+
+    /**
+     * GetEnableDots
+     *
+     * @return void
+     */
+    public function getEnableDots()
+    {
+        return $this->_scopeConfig->getValue('shopbybrand/brandpage/brand_filter/enable_dots', \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
     }
 
     public function setWidgetOptions()

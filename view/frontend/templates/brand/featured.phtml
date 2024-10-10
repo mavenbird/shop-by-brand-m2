@@ -22,6 +22,8 @@ $timeId = time();
 /** @var \Mavenbird\Shopbybrand\Block\Brand\Featured $block */
 $featureBrands = $block->getFeaturedBrand();
 $style = $block->getStyleDisplayFeature();
+$isEnableNavigation = $block->getEnableNavigation();
+$isEnableDots = $block->getEnableDots();
 ?>
 <?php if (!empty($featureBrands)): ?>
     <?= /** @noEscape */ $block->includeCssLib() ?>
@@ -41,7 +43,7 @@ $style = $block->getStyleDisplayFeature();
                     <?php if ($style === \Mavenbird\Shopbybrand\Model\Config\Source\FeatureStyle::DISPLAY_SLIDER): ?>
                 <div class="relate-content item">
                     <?php else: ?>
-                    <div class="relate-content item mm-2 mm-sm-4 mm-xs-6 col-mm" style="float: left; padding: 5px 0;">
+                    <div class="relate-content item mb-2 mb-sm-4 mb-xs-6 col-mb" style="float: left; padding: 5px 0;">
                     <?php endif; ?>
                         <a href="<?= /** @noEscape */ $block->helper()->getBrandUrl($brand) ?>">
                             <img class="img-responsive brand-image"
@@ -61,4 +63,8 @@ $style = $block->getStyleDisplayFeature();
     </div>
 <?php endif; ?>
 <div style="clear: both"></div>
+<script>
+  window.isEnableConfig = <?= /** @noEscape */ $isEnableNavigation ?>;
+  window.isEnableDots = <?= /** @noEscape */ $isEnableDots ?>;
+</script>
 

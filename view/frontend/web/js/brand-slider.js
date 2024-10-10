@@ -25,7 +25,7 @@ define([
     return function (config, element) {
         var $element = $(element);
         var owlOptions = {
-            nav: true, // Set this to true or false to enable/disable navigation
+            nav: window.isEnableConfig,
             center: true,
             loop: true,
             margin: 10,
@@ -33,7 +33,7 @@ define([
             autoplayTimeout: 4000,
             autoplayHoverPause: true,
             lazyLoad: true,
-            dots: false,
+            dots: window.isEnableDots,
             responsiveClass: true,
             responsiveBaseElement: '#' + $element.attr('id'),
             responsive: {
@@ -44,7 +44,9 @@ define([
                 900: {items: 5}
             },
             onInitialized: function(event) {
-                if (!event.namespace) return;
+                if (!event.namespace) {
+                    return;
+                }
                 if (!this.settings.nav) {
                     $element.find('.owl-nav').remove();
                 }
