@@ -17,6 +17,11 @@
  * @license    http://mavenbird.com/Mavenbird-Module-License.txt
  */
 
+*, 
+*:before, 
+*:after {
+  box-sizing: border-box;
+}
 .brand-container {
     margin: 0;
 }
@@ -339,7 +344,7 @@
 
 #quick-view .related-product-modal-title {
     float: left;
-    padding: 10px 0;
+    padding: 10px 0 20px;
     width: 100%;
     text-align: center;
     font-size: 24px;
@@ -379,12 +384,12 @@
 #quick-view .brand-info-container {
     float: left;
     width: 30%;
-    padding: 0 25px;
+    padding: 0 30px 0 0;
 }
 
 #quick-view .related-product-container {
     float: left;
-    width: 60%;
+    width: 70%;
 }
 
 .limiter {
@@ -573,17 +578,6 @@
     width: 100% !important;
 }
 
-@media (max-width: 600px) {
-    .brand-detail .product-item-photo {
-        width: 100%;
-        float: left;
-        text-align: center;
-    }
-
-    .brand-detail .product-item-details {
-        float: left;
-    }
-}
 .brand-container .widget .block-title strong { 
     font-weight: bold; 
     font-size: 28px;
@@ -631,13 +625,22 @@
     text-decoration: none;
     cursor: pointer;
 }
+.brand-quick-view.modal-popup._show .modal-inner-wrap {
+    width: 75%;
+}
+.brand-quick-view.modal-popup .modal-title { border: 0; font-weight: 600; }
 
 @media(min-width: 640px) {
-.products-grid .product-item-info:hover, 
-.products-grid .product-item-info.active { 
+.mmbrand-index-index .products-grid .product-item-info:hover, 
+.mmbrand-index-index .products-grid .product-item-info.active { 
     box-shadow: 0px 4px 16px 0 rgba(0, 0, 0, 0.1); 
     border: 0px; margin: -9px; 
 }    
+.mmbrand-index-index .products-grid .product-item-inner { 
+    margin: 9px 1px 0 0px;
+    border: 0;
+    box-shadow: 0px 11px 16px 0 rgba(0, 0, 0, 0.1);
+ }
 }
 @media(min-width: 1024px) and (max-width: 1279px) {
     .block-brand-list .brand-list-content li { 
@@ -648,6 +651,9 @@
     .block-brand-list .brand-list-content li { 
         width: 33.33% !important;
      }
+     .brand-quick-view.modal-popup._show .modal-inner-wrap {
+        width: 90%;
+     }
 }
 @media (max-width: 1080px) {
     .related-product-modal-content li.product-item {
@@ -655,6 +661,14 @@
     }
 }
 
+@media (max-width: 768px) {
+.brand-quick-view.modal-popup._show .modal-inner-wrap {
+    width: 100%;
+}    
+.brand-quick-view.modal-popup .modal-title {
+    font-size: 24px;
+}
+}
 @media (max-width: 767px) {
 .block-brand-list .brand-list-content li { 
     width: 33.33% !important;
@@ -666,7 +680,17 @@
     width:50% !important;
  }
 }
+@media (max-width: 600px) {
+    .brand-detail .product-item-photo {
+        width: 100%;
+        float: left;
+        text-align: center;
+    }
 
+    .brand-detail .product-item-details {
+        float: left;
+    }
+}
 @media (max-width: 360px) {
     .related-product-modal-content li.product-item {
         width: 100% !important;
